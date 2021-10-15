@@ -1,12 +1,20 @@
 <template>
-  <div :class="filter" class="filter-item" ></div>
+  <div @click="fire" :class="filter" class="filter-item" :style="`background-image: url${url}`">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
   name: "FilterBox",
+  methods: {
+    fire(){
+      this.emitter.emit('clickBox', this.filter)
+    }
+  },
   props: {
     filter: Object,
+    url: String,
   },
 };
 </script>

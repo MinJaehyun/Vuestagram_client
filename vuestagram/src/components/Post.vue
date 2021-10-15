@@ -4,11 +4,11 @@
       <div class="profile" :style="{backgroundImage: `url(${post.userImage})`}"></div>
       <span class="profile-name">{{post.name}}</span>
     </div>
+    <!-- @click="$store.commit('likesButton')"  -->
     <div class="post-body" 
-    @click="$store.commit('likesButton')" 
     :style="{backgroundImage: `url(${post.postImage})`}"></div>
     <div class="post-content">
-      <p>{{$store.state.likes}} Likes</p>
+      <p>{{post.likes}} Likes</p>
       <p><strong>{{post.name}}</strong>{{post.content}}</p>
       <p class="date">{{post.date}}</p>
     </div>

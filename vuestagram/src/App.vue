@@ -21,12 +21,16 @@
     
   </div>
 
+  <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
+  <!-- {{$store.state.post[0].name}} -->
+
   <!-- component -->
   <Container :post="post" :step="step" :url="url" @uploadText="content=$event"/>
 
   <!-- axios 요청하여 깃헙서버에서 json 가져오기 -->
   <div v-if="step == 0">
-    <button class="btn btn-primary" @click="more">
+    <button @click="more">
+    <!-- <button @click="$store.dispatch('getData')">   -->
       게시글 더 보기
     </button>
   </div>
@@ -57,6 +61,7 @@ export default {
       step: 0,
       post: post,
       count: 0,
+      selectFilter: '',
     };
   },
   components: { Container },
@@ -89,13 +94,18 @@ export default {
         date: "May 15",
         liked: false,
         content: this.content,
-        filter: "perpetua"
+        filter: this.selectFilter,
       }
       this.post.unshift(uploadPost)
       // 마지막에 this.step 을 0 으로 만든다
       this.step = 0;
     }
   },
+  mounted() {
+    this.emitter.on('clickBox', (a)=>{
+      this.selectFilter = a
+    })
+  }
 };
 </script>
 
