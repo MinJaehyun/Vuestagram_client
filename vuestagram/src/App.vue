@@ -4,14 +4,23 @@
     <ul class="header-button-left">
       <li>Cancel</li>
     </ul>
-    <ul class="header-button-right">
-      <li>Next</li>
-    </ul>
+
+    <div v-if="step == 1">
+      <ul class="header-button-right" @click="step++">
+        <li >Next</li>
+      </ul>
+    </div>
+
+    <div v-if="step == 2">
+      <ul class="header-button-right">
+        <li @click="publish">publish</li>
+      </ul>
+    </div>
     <img src="./assets/logo.png" class="logo" />
   </div>
 
   <!-- component -->
-  <Container :post="post" :step="step" :url="url" />
+  <Container :post="post" :step="step" :url="url" @uploadText="content=$event"/>
 
   <!-- axios 요청하여 깃헙서버에서 json 가져오기 -->
   <div v-if="step == 0">
@@ -21,11 +30,13 @@
   </div>
 
   <!-- footer -->
-  <div class="footer">
-    <ul class="footer-button-plus">
-      <input @change="upload" type="file" id="file" class="inputfile" />
-      <label for="file" class="input-plus">+</label>
-    </ul>
+  <div v-if="step == 0">
+    <div class="footer">
+      <ul class="footer-button-plus">
+        <input @change="upload" type="file" id="file" class="inputfile" />
+        <label for="file" class="input-plus">+</label>
+      </ul>
+    </div>
   </div>
 
 </template>
@@ -39,6 +50,7 @@ export default {
   name: "App",
   data() {
     return {
+      content: '',
       url: '',
       step: 0,
       post: post,
@@ -63,6 +75,23 @@ export default {
       // console.log(url);
       this.url  = url;
       this.step = 1;
+    },
+    publish(){
+      // 게시글을 서버에 저장한다
+      // uploadPost 만들기 (형태는 post.js 참조)
+      var uploadPost = {
+        name: "Min jae Hyun",
+        userImage: "https://placeimg.com/100/100/arch",
+        postImage: this.url,
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.content,
+        filter: "perpetua"
+      }
+      this.post.unshift(uploadPost)
+      // 마지막에 this.step 을 0 으로 만든다
+      this.step = 0;
     }
   },
 };
