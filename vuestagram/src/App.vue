@@ -1,22 +1,24 @@
 <template>
   <!-- header -->
   <div class="header">
-    <ul class="header-button-left">
-      <li>Cancel</li>
-    </ul>
-
     <div v-if="step == 1">
+      <ul class="header-button-left">
+        <li style="color: black">Cancel</li>
+      </ul>	
+
       <ul class="header-button-right" @click="step++">
-        <li >Next</li>
+        <li style="color: black">Next</li>
       </ul>
+
+      <div style="font-size: 40px; text-align:center;">&#128396;</div>
     </div>
 
     <div v-if="step == 2">
       <ul class="header-button-right">
-        <li @click="publish">publish</li>
+        <li @click="publish" style="color: black">발행</li>
       </ul>
     </div>
-    <img src="./assets/logo.png" class="logo" />
+    
   </div>
 
   <!-- component -->

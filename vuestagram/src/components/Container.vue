@@ -8,11 +8,14 @@
   <div v-if="step == 1">
     <div class="upload-image" :style="{backgroundImage: `url(${url})`}"></div>
     <div class="filters">
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
+      <FilterBox 
+      :style="{backgroundImage: `url(${url})`}"
+      :filter="filter" v-for="filter in filterList" :key="filter.id"/>
+      <!-- <div class="filter-1" :style="{backgroundImage: `url(${url})`}"></div>
+      <div class="filter-1" :style="{backgroundImage: `url(${url})`}"></div>
+      <div class="filter-1" :style="{backgroundImage: `url(${url})`}"></div>
+      <div class="filter-1" :style="{backgroundImage: `url(${url})`}"></div>
+      <div class="filter-1" :style="{backgroundImage: `url(${url})`}"></div> -->
     </div>
   </div>
 
@@ -27,10 +30,17 @@
 
 <script>
 import Post from "./Post.vue";
+import FilterBox from "./FilterBox.vue";
+import filterList from "../assets/data/instagramFilter";
 
 export default {
   name: "Container",
-  components: { Post },
+  data() {
+    return {
+      filterList: filterList,
+    }
+  },
+  components: { Post, FilterBox, },
   props: {
     post: Array,
     step: Number,
