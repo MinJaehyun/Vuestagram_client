@@ -1,20 +1,27 @@
 <template>
-  <div @click="fire" :class="filter" class="filter-item" :style="`background-image: url${url}`">
-    <slot></slot>
+  <div
+    @click="fire"
+    :class="filter"
+    class="filter-item"
+    :style="{ backgroundImage: `url(${url})` }"
+  >
+    <!-- Container.vue 에서 v-slot 사용하여 데이터 내려줄 시 아래 slot 으로 받을 수 있다 -->
+    <!-- <slot name="a"></slot> -->
+    {{ filter }}
   </div>
 </template>
 
 <script>
 export default {
   name: "FilterBox",
-  methods: {
-    fire(){
-      this.emitter.emit('clickBox', this.filter)
-    }
-  },
   props: {
-    filter: Object,
+    filter: String,
     url: String,
+  },
+  methods: {
+    fire() {
+      this.emitter.emit("clickBox", this.filter);
+    },
   },
 };
 </script>
