@@ -1,16 +1,35 @@
 <template>
   <div class="post">
+    <!-- post-header -->
     <div class="post-header">
-      <div class="profile" :style="{backgroundImage: `url(${post.userImage})`}"></div>
-      <span class="profile-name">{{post.name}}</span>
+      <div
+        class="profile"
+        :style="{ backgroundImage: `url(${post.userImage})` }"
+      ></div>
+      <span class="profile-name">{{ post.name }}</span>
     </div>
     <!-- @click="$store.commit('likesButton')"  -->
-    <div class="post-body" 
-    :style="{backgroundImage: `url(${post.postImage})`}"></div>
+
+    <!-- FIX 
+      1. 변경 전: 선택한 필터를 모든 게시물에 적용, 
+      - :class="selectFilter + ' post-body'"
+      2. 변경 후: post 의 각각의 필터를 적용
+      - :class="post.filter + ' post-body'"
+     -->
+    <div
+      :class="post.filter + ' post-body'"
+      :style="{ backgroundImage: `url(${post.postImage})` }"
+      @click="$store.commit('likesUpButton', post)"
+    ></div>
+
+    <!-- post-content -->
     <div class="post-content">
-      <p>{{post.likes}} Likes</p>
-      <p><strong>{{post.name}}</strong>{{post.content}}</p>
-      <p class="date">{{post.date}}</p>
+      <p>{{ $store.state.likes }} Likes</p>
+      <p>
+        <strong>{{ post.name }}</strong
+        >{{ post.content }}
+      </p>
+      <p class="date">{{ post.date }}</p>
     </div>
   </div>
 </template>
@@ -18,9 +37,9 @@
 <script>
 export default {
   name: "Post",
-  props: { 
+  props: {
     post: Object,
-  }
+  },
 };
 </script>
 
