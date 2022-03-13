@@ -1,26 +1,45 @@
 <template>
-  <!-- post page -->
-  <div v-if="step == 0">
-    <Post :post="post[i]" v-for="(a, i) in post" :key="i" />
-  </div>
-
-  <!-- 필터선택페이지 -->
-  <div v-if="step == 1">
-    <div :class="selectFilter" class="upload-image" :style="{backgroundImage: `url(${url})`}"></div>
-    <div class="filters">
-      <FilterBox 
-      :style="{backgroundImage: `url(${url})`}"
-      :filter="filter" v-for="filter in filterList" :key="filter.id">
-        {{filter}}
-      </FilterBox>
+  <div>
+    <!-- post page -->
+    <div v-if="step == 0">
+      <Post :post="item" v-for="item in post" :key="item.id" />
     </div>
-  </div>
 
-  <!-- 글작성페이지 -->
-  <div v-if="step == 2">
-    <div :class="selectFilter" class="upload-image" :style="{backgroundImage: `url(${url})`}"></div>
-    <div class="write">
-      <textarea class="write-box" @input="$emit('uploadText', $event.target.value)">write!</textarea>
+    <!-- 필터선택 page -->
+    <div v-if="step == 1">
+      <div
+        :class="selectFilter"
+        class="upload-image"
+        :style="{ backgroundImage: `url(${url})` }"
+      ></div>
+      <div class="filters">
+        <FilterBox
+          :style="{ backgroundImage: `url(${url})` }"
+          :filter="filter"
+          :url="url"
+          v-for="filter in filterList"
+          :key="filter.id"
+        >
+          <!-- {{ filter }} 는 slot 에 내려줄 데이터 -->
+          <!-- <template v-slot:a><span>{{ filter }}</span></template> -->
+        </FilterBox>
+      </div>
+    </div>
+
+    <!-- 글 작성 page -->
+    <div v-if="step == 2">
+      <div
+        :class="selectFilter"
+        class="upload-image"
+        :style="{ backgroundImage: `url(${url})` }"
+      ></div>
+      <div class="write">
+        <textarea
+          placeholder="글을 작성 해주세요:)"
+          class="write-box"
+          @input="$emit('uploadText', $event.target.value)"
+        ></textarea>
+      </div>
     </div>
   </div>
 </template>
@@ -32,23 +51,18 @@ import filterList from "../assets/data/instagramFilter";
 
 export default {
   name: "Container",
+  components: { Post, FilterBox },
   data() {
     return {
       filterList: filterList,
-      selectFilter: '',
-    }
+    };
   },
-  components: { Post, FilterBox, },
   props: {
     post: Array,
     step: Number,
     url: String,
+    selectFilter: String,
   },
-  mounted() {
-    this.emitter.on('clickBox', (result)=>{
-      this.selectFilter = result
-    })
-  }
 };
 </script>
 
