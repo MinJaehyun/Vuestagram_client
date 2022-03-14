@@ -1,36 +1,47 @@
 import { createStore } from 'vuex'
-import axios from 'axios'
 import post from './assets/data/post'
+// import axios from 'axios'
 
 const store = createStore({
-  state(){
+  state() {
     return {
-      name : "min",
-      likes: 0,
-      more : {},
+      name: "min",
       count: 0,
+      more: {},
       post: post,
+      // like, likes 는 vuex 적용
+      like: false,
+      // post 가져온다
+      likes: 0,
     }
   },
-
   mutations: {
-    likesButton(state){
-        state.likes == 0 ? state.likes = 1: state.likes = 0
+    // 사진 클릭 시, likes 증가한다
+    likesUpButton(state, data) {
+      if (state.like == false) {
+        data.likes++;
+        state.likes = data.likes;
+        state.like = true;
+      } else {
+        data.likes--;
+        state.likes = data.likes;
+        state.like = false;
+      }
     },
-    setMore(state, data){
-      state.more = data;
-      console.log(state.more);
-    }
+    // Post.vue 29라인 store 적용하기 전 테스트 중
+    // setMore(state, data) {
+    //   state.more = data;
+    //   console.log(state.more);
+    // }
   },
-
   actions: {
-    getData(context){
-      axios.get(`https://minjaehyun.github.io/vue/more1.json`)
-      .then(res => {
-        // console.log(res.data);
-        context.commit('setMore',res.data)
-      })
-    },
+    // Post.vue 29라인 store 적용하기 전 테스트 중
+    // getData(context) {
+    //   axios.get(`https://minjaehyun.github.io/vue/more1.json`)
+    //     .then(res => {
+    //       context.commit('setMore', res.data)
+    //     })
+    // },
   },
 })
 
