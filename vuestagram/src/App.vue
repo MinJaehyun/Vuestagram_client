@@ -12,7 +12,7 @@
     <div class="header">
       <!-- step == 1 -->
       <div v-if="step == 1">
-        <ul class="header-button-left">
+        <ul class="header-button-left" @click="step--">
           <li style="color: black">Cancel</li>
         </ul>
 
@@ -20,7 +20,8 @@
           <li style="color: black">Next</li>
         </ul>
 
-        <div style="font-size: 40px; text-align:center;">&#128396;</div>
+        <!-- TODO: 붓 이모티콘은 당장 사용하지 않으므로 기능 추가 시, 설정한다! -->
+        <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
       </div>
 
       <!-- step == 2 -->
@@ -78,13 +79,16 @@ export default {
     });
   },
   methods: {
-    more() {
-      axios
-        .get(`https://minjaehyun.github.io/vue/more${this.count++}.json`)
-        .then((result) => {
-          this.post.push(result.data);
-        })
-        .catch();
+    async more() {
+      try {
+        const post = await axios.get(
+          `https://minjaehyun.github.io/vue/more${this.count++}.json`
+        );
+        this.post.push(post.data);
+      } catch (error) {
+        console.log(error.response);
+        alert("더 이상 게시물이 존재하지 않습니다.");
+      }
     },
     upload(e) {
       let files = e.target.files;
@@ -98,8 +102,9 @@ export default {
         name: "tester",
         userImage: "https://placeimg.com/100/100/arch",
         postImage: this.url,
-        likes: 41,
-        date: "May 15",
+        likes: 0,
+        // 날짜와 시간 출력
+        date: new Date().toLocaleString(),
         liked: false,
         content: this.content,
         filter: this.selectFilter,

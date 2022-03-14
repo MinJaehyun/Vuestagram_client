@@ -6,7 +6,9 @@
         class="profile"
         :style="{ backgroundImage: `url(${post.userImage})` }"
       ></div>
-      <span class="profile-name">{{ post.name }}</span>
+      <span class="profile-name">
+        <strong>{{ post.name }}</strong>
+      </span>
     </div>
     <!-- @click="$store.commit('likesButton')"  -->
 
@@ -24,12 +26,12 @@
 
     <!-- post-content -->
     <div class="post-content">
-      <p>{{ $store.state.likes }} Likes</p>
-      <p>
-        <strong>{{ post.name }}</strong
-        >{{ post.content }}
+      <!-- <p>{{ $store.state.likes }} Likes</p> -->
+      <p @click="$store.commit('likesUpButton', post)">
+        {{ post.likes }} Likes
       </p>
       <p class="date">{{ post.date }}</p>
+      <p>{{ post.content }}</p>
     </div>
   </div>
 </template>
