@@ -12,7 +12,7 @@
     <div class="header">
       <!-- step == 1 -->
       <div v-if="step == 1">
-        <ul class="header-button-left">
+        <ul class="header-button-left" @click="step--">
           <li style="color: black">Cancel</li>
         </ul>
 
@@ -20,7 +20,8 @@
           <li style="color: black">Next</li>
         </ul>
 
-        <div style="font-size: 40px; text-align:center;">&#128396;</div>
+        <!-- TODO: 붓 이모티콘은 당장 사용하지 않으므로 기능 추가 시, 설정한다! -->
+        <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
       </div>
 
       <!-- step == 2 -->
@@ -79,12 +80,10 @@ export default {
   },
   methods: {
     async more() {
-      // async 로 작성 가능?
       try {
         const post = await axios.get(
           `https://minjaehyun.github.io/vue/more${this.count++}.json`
         );
-        // console.log(post.data);
         this.post.push(post.data);
       } catch (error) {
         console.log(error.response);
@@ -103,8 +102,9 @@ export default {
         name: "tester",
         userImage: "https://placeimg.com/100/100/arch",
         postImage: this.url,
-        likes: 41,
-        date: "May 15",
+        likes: 0,
+        // 날짜와 시간 출력
+        date: new Date().toLocaleString(),
         liked: false,
         content: this.content,
         filter: this.selectFilter,
