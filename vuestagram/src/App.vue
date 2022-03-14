@@ -32,6 +32,8 @@
       </div>
     </div>
 
+    <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
+
     <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
     <!-- {{$store.state.post[0].name}} -->
 
@@ -43,6 +45,7 @@
       :url="url"
       @uploadText="content = $event"
     />
+
     <div>
       <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
       <div v-if="step == 0" class="container ">
@@ -59,6 +62,7 @@
 import Container from "./components/Container.vue";
 import post from "./assets/data/post";
 import axios from "axios";
+import ShareSuccessPage from "./components/shareSuccessPage.vue";
 
 export default {
   name: "App",
@@ -70,9 +74,10 @@ export default {
       post: post,
       count: 0,
       selectFilter: "",
+      modal: false,
     };
   },
-  components: { Container },
+  components: { Container, ShareSuccessPage },
   mounted() {
     this.emitter.on("clickBox", (result) => {
       this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
@@ -111,6 +116,7 @@ export default {
       };
       this.post.unshift(uploadPost);
       this.step = 0;
+      this.modal = true;
     },
   },
 };
