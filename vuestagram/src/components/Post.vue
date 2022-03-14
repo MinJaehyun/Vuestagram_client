@@ -70,9 +70,10 @@ export default {
 }
 .post-body {
   background-image: url("https://placeimg.com/640/480/animals");
-  height: 450px;
+  height: 400px;
   background-position: center;
   background-size: cover;
+  margin-top: 15px;
 }
 .post-content {
   padding-left: 15px;
