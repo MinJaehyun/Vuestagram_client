@@ -78,13 +78,18 @@ export default {
     });
   },
   methods: {
-    more() {
-      axios
-        .get(`https://minjaehyun.github.io/vue/more${this.count++}.json`)
-        .then((result) => {
-          this.post.push(result.data);
-        })
-        .catch();
+    async more() {
+      // async 로 작성 가능?
+      try {
+        const post = await axios.get(
+          `https://minjaehyun.github.io/vue/more${this.count++}.json`
+        );
+        // console.log(post.data);
+        this.post.push(post.data);
+      } catch (error) {
+        console.log(error.response);
+        alert("더 이상 게시물이 존재하지 않습니다.");
+      }
     },
     upload(e) {
       let files = e.target.files;
