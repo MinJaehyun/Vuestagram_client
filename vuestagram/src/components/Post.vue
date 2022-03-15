@@ -22,12 +22,13 @@
       :class="post.filter + ' post-body'"
       :style="{ backgroundImage: `url(${post.postImage})` }"
       @click="$store.commit('likesUpButton', post)"
+      style="cursor: pointer;"
     ></div>
 
     <!-- post-content -->
     <div class="post-content">
       <!-- <p>{{ $store.state.likes }} Likes</p> -->
-      <p @click="$store.commit('likesUpButton', post)">
+      <p style="cursor: pointer;" @click="$store.commit('likesUpButton', post)">
         {{ post.likes }} Likes
       </p>
       <p class="date">{{ post.date }}</p>
