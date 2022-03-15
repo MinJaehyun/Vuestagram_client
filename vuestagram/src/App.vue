@@ -66,7 +66,7 @@
 import Container from "./components/Container.vue";
 import post from "./assets/data/post";
 import axios from "axios";
-import ShareSuccessPage from "./components/shareSuccessPage.vue";
+import ShareSuccessPage from "./components/ShareSuccessPage.vue";
 
 export default {
   name: "App",
