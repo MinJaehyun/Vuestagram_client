@@ -1,58 +1,62 @@
 <template>
   <div>
-    <div v-if="step == 0">
-      <div class="footer ">
-        <ul class="footer-button-plus ">
-          <input @change="upload" type="file" id="file" class="inputfile" />
-          <label for="file" class="input-plus">&#9997;</label>
-        </ul>
-      </div>
+    <div>
+      <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
     </div>
-
-    <div class="header">
-      <!-- step == 1 -->
-      <div v-if="step == 1">
-        <ul class="header-button-left" @click="step--">
-          <li style="color: black">Cancel</li>
-        </ul>
-
-        <ul class="header-button-right" @click="step++">
-          <li style="color: black">Next</li>
-        </ul>
-
-        <!-- TODO: 붓 이모티콘은 당장 사용하지 않으므로 기능 추가 시, 설정한다! -->
-        <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
-      </div>
-
-      <!-- step == 2 -->
-      <div v-if="step == 2">
-        <ul class="header-button-right">
-          <li @click="publish" style="color: black">발행</li>
-        </ul>
-      </div>
-    </div>
-
-    <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
-
-    <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
-    <!-- {{$store.state.post[0].name}} -->
-
-    <!-- component -->
-    <Container
-      :selectFilter="selectFilter"
-      :post="post"
-      :step="step"
-      :url="url"
-      @uploadText="content = $event"
-    />
 
     <div>
-      <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
-      <div v-if="step == 0" class="container ">
-        <button @click="more">
-          <!-- <button @click="$store.dispatch('getData')"> -->
-          게시글 더보기
-        </button>
+      <div v-if="step == 0">
+        <div class="footer ">
+          <ul class="footer-button-plus ">
+            <input @change="upload" type="file" id="file" class="inputfile" />
+            <label for="file" class="input-plus">&#9997;</label>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header">
+        <!-- step == 1 -->
+        <div v-if="step == 1">
+          <ul class="header-button-left" @click="step--">
+            <li style="color: black">Cancel</li>
+          </ul>
+
+          <ul class="header-button-right" @click="step++">
+            <li style="color: black">Next</li>
+          </ul>
+
+          <!-- TODO: 붓 이모티콘은 당장 사용하지 않으므로 기능 추가 시, 설정한다! -->
+          <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
+        </div>
+
+        <!-- step == 2 -->
+        <div v-if="step == 2">
+          <ul class="header-button-right">
+            <li @click="publish" style="color: black">발행</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
+      <!-- {{$store.state.post[0].name}} -->
+
+      <!-- component -->
+      <Container
+        :selectFilter="selectFilter"
+        :post="post"
+        :step="step"
+        :url="url"
+        @uploadText="content = $event"
+      />
+
+      <div>
+        <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
+        <div v-if="step == 0" class="container ">
+          <button @click="more">
+            <!-- <button @click="$store.dispatch('getData')"> -->
+            게시글 더보기
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -93,6 +97,7 @@ export default {
       } catch (error) {
         console.log(error.response);
         alert("더 이상 게시물이 존재하지 않습니다.");
+        // confirm("더 이상 게시물이 존재하지 않습니다.");
       }
     },
     upload(e) {
@@ -128,6 +133,5 @@ export default {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
-  flex-direction: column-reverse;
 }
 </style>
