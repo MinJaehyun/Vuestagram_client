@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- 파일명 변경으로 test -->
     <div>
       <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
     </div>
