@@ -13,6 +13,7 @@ const store = createStore({
       like: false,
       // post 가져온다
       likes: 0,
+      visit: true
     }
   },
   mutations: {
@@ -28,6 +29,9 @@ const store = createStore({
         state.like = false;
       }
     },
+    setVisit(state, boolean) {
+      state.visit = boolean;
+    }
     // Post.vue 29라인 store 적용하기 전 테스트 중
     // setMore(state, data) {
     //   state.more = data;
@@ -35,6 +39,11 @@ const store = createStore({
     // }
   },
   actions: {
+    HELLO_SET_TIMEOUT({ commit }) {
+      setTimeout(() => {
+        commit("setVisit", false);
+      }, 6000);
+    },
     // Post.vue 29라인 store 적용하기 전 테스트 중
     // getData(context) {
     //   axios.get(`https://minjaehyun.github.io/vue/more1.json`)
