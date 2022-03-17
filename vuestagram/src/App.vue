@@ -1,7 +1,9 @@
 <template>
   <div>
     <Explain v-if="$store.state.visit == true" />
-    <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
+    <transition name="fade">
+      <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
+    </transition>
 
     <div v-if="step == 0">
       <div class="footer ">
@@ -126,7 +128,8 @@ export default {
 </script>
 
 <style>
-@import "assets/css/app.css";
+@import "./assets/css/app.css";
+@import "./assets/css/fade.css";
 .container {
   display: flex;
   justify-content: center;
