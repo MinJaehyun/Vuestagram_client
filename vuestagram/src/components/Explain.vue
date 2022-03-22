@@ -1,6 +1,8 @@
 <template>
   <div class="explain">
-    <h4>이모티콘을 눌러 멋진 게시물을 만들어 주세요 :)</h4>
+    <h4>
+      이모티콘을 누르면 사진을 등록할 수 있습니다 :)
+    </h4>
   </div>
 </template>
 
