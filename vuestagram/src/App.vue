@@ -93,9 +93,16 @@ export default {
     async more() {
       try {
         const post = await axios.get(
-          `https://minjaehyun.github.io/vue/more${this.count++}.json`
+          // `https://minjaehyun.github.io/vue/more${this.count++}.json`
+          `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more${this
+            .count++}.json`
+
+          // FIXME: 추 후 리펙토링 하기
+          // 여러개의 데이터가 담긴 객체배열에 요청 시, 3개씩 가져오도록 코드 작성하기
+          // `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more.json`
         );
         this.post.push(post.data);
+        // this.post = post.data;
       } catch (error) {
         console.log(error.response);
         alert("더 이상 게시물이 존재하지 않습니다.");
