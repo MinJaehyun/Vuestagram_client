@@ -9,9 +9,9 @@
       <div class="footer ">
         <ul class="footer-button-plus ">
           <input @change="upload" type="file" id="file" class="inputfile" />
-          <button type="button" class="btn btn-outline-success">
-            make&#9997;
-          </button>
+          <label for="file" class="input-plus btn btn-outline-success"
+            >make&#9997;</label
+          >
         </ul>
       </div>
     </div>
