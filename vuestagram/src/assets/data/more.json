@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/101/arch",
+    "postImage": "https://placeimg.com/640/481/arch",
+    "likes": 36,
+    "date": "May 15",
+    "liked": false,
+    "content": "봄인가",
+    "filter": "perpetua"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/102/arch",
+    "postImage": "https://placeimg.com/640/482/arch",
+    "likes": 36,
+    "date": "May 14",
+    "liked": false,
+    "content": "오늘 날씨 좋군",
+    "filter": "perpetua"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/103/arch",
+    "postImage": "https://placeimg.com/640/483/arch",
+    "likes": 36,
+    "date": "May 13",
+    "liked": false,
+    "content": "인공 구조물",
+    "filter": "perpetua"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/200/people",
+    "postImage": "https://placeimg.com/640/480/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "팔로워 해주세요",
+    "filter": "clarendon"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/201/people",
+    "postImage": "https://placeimg.com/640/481/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "사람들 사이에서",
+    "filter": "clarendon"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/202/people",
+    "postImage": "https://placeimg.com/640/482/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "자랑질",
+    "filter": "clarendon"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/100/animals",
+    "postImage": "https://placeimg.com/640/480/animals",
+    "likes": 49,
+    "date": "Apr 6",
+    "liked": false,
+    "content": "반려견으로 어때?",
+    "filter": "lofi"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/102/animals",
+    "postImage": "https://placeimg.com/640/482/animals",
+    "likes": 49,
+    "date": "Apr 5",
+    "liked": false,
+    "content": "키우고 싶다",
+    "filter": "lofi"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/103/animals",
+    "postImage": "https://placeimg.com/640/483/animals",
+    "likes": 49,
+    "date": "Apr 4",
+    "liked": false,
+    "content": "귀여운 동물",
+    "filter": "lofi"
+  }
+]
