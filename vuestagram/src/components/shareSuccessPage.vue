@@ -6,7 +6,11 @@
           <img src="../assets/image/10a8cbeb94ba.gif" alt="" />
         </div>
         <p class="flex">게시물이 공유되었습니다:)</p>
-        <button style="margin:auto; display:block;" type="button">
+        <button
+          style="margin:auto; display:block; "
+          class="btn btn-outline-info"
+          type="button"
+        >
           닫기
         </button>
       </div>
