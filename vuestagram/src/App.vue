@@ -52,7 +52,7 @@
     <div>
       <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
       <div v-if="step == 0" class="container ">
-        <button @click="more">
+        <button @click="more" class="btn btn-primary">
           <!-- <button @click="$store.dispatch('getData')"> -->
           게시글 더보기
         </button>
