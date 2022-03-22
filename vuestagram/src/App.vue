@@ -1,8 +1,11 @@
 <template>
   <div>
     <header>
-      Vuestagram
-      <!-- TODO: Vuestagram 이미지 등록하기 -->
+      <img
+        style="width: 100px; margin: 10px 10px;"
+        src="./assets/image/logo.png"
+        alt="logo image"
+      />
     </header>
     <hr />
     <section>
