@@ -1,8 +1,8 @@
 <template>
   <div class="post">
     <!-- test image -->
-    <img id="img" src="../assets/image/panda.jpg" />
-    {{ predictions }}
+    <!-- <img id="img" src="../assets/image/panda.jpg" />
+    {{ predictions }} -->
 
     <!-- post-header -->
     <div class="post-header">
@@ -43,7 +43,7 @@
 
 <script>
 // 에러: import mobilenet from "@tensorflow-models/mobilenet";
-import * as mobilenet from "@tensorflow-models/mobilenet"; // 방법 1.
+// import * as mobilenet from "@tensorflow-models/mobilenet"; // 방법 1.
 import "@tensorflow/tfjs-backend-webgl";
 
 export default {
@@ -56,14 +56,14 @@ export default {
   //     predictions: {},
   //   };
   // },
-  async mounted() {
-    // 방법 2. const mobilenet = require("@tensorflow-models/mobilenet");
-    const img = document.getElementById("img");
-    const model = await mobilenet.load();
-    const predictions = await model.classify(img);
-    console.log("Predictions: ", predictions);
-    this.predictions = predictions;
-  },
+  // async mounted() {
+  //   // 방법 2. const mobilenet = require("@tensorflow-models/mobilenet");
+  //   const img = document.getElementById("img");
+  //   const model = await mobilenet.load();
+  //   const predictions = await model.classify(img);
+  //   console.log("Predictions: ", predictions);
+  //   this.predictions = predictions;
+  // },
 };
 </script>
 
