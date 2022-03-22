@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/200/people",
+    "postImage": "https://placeimg.com/640/480/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "팔로워 해주세요",
+    "filter": "clarendon"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/201/people",
+    "postImage": "https://placeimg.com/640/481/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "사람들 사이에서",
+    "filter": "clarendon"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/200/202/people",
+    "postImage": "https://placeimg.com/640/482/people",
+    "likes": 20,
+    "date": "Apr 20",
+    "liked": false,
+    "content": "자랑질",
+    "filter": "clarendon"
+  }
+]

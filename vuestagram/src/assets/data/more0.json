@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/101/arch",
+    "postImage": "https://placeimg.com/640/481/arch",
+    "likes": 36,
+    "date": "May 15",
+    "liked": false,
+    "content": "봄인가",
+    "filter": "perpetua"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/102/arch",
+    "postImage": "https://placeimg.com/640/482/arch",
+    "likes": 36,
+    "date": "May 14",
+    "liked": false,
+    "content": "오늘 날씨 좋군",
+    "filter": "perpetua"
+  },
+  {
+    "name": "Min JaeHyun",
+    "userImage": "https://placeimg.com/100/103/arch",
+    "postImage": "https://placeimg.com/640/483/arch",
+    "likes": 36,
+    "date": "May 13",
+    "liked": false,
+    "content": "인공 구조물",
+    "filter": "perpetua"
+  }
+]
