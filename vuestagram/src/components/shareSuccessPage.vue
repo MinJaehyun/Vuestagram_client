@@ -27,24 +27,23 @@ div {
 .black-bg {
   /* z-index 맨 앞에 위치하게 설정하여, 이미지 뒤로 모달창이 설정되는 문제점을 해결! */
   z-index: 500;
-  width: auto;
-  /* width: 24%; */
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  padding: 108px;
 }
 .white-bg {
   /* 브라우저 크기 조절 시, 이미지 크기에 맞게 조절하지 못하는 문제점
    */
   /* TODO: position 지정 방법? */
-  /* position: sticky; */
-  position: relative;
-  top: 50%;
-  width: 100%;
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  height: 40%;
   background: white;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 100px;
   color: grey;
 }
 .flex {
