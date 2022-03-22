@@ -24,7 +24,7 @@
         </ul>
 
         <ul class="header-button-right" @click="step++">
-          <li style="color: black">Next</li>
+          <li style="color: black; box-sizing: none;">Next</li>
         </ul>
 
         <!-- TODO: 붓 이모티콘은 사용하지 않으므로 기능 추가 시, 설정한다! -->
@@ -100,9 +100,11 @@ export default {
           // FIXME: 추 후 리펙토링 하기
           // 여러개의 데이터가 담긴 객체배열에 요청 시, 3개씩 가져오도록 코드 작성하기
           // `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more.json`
+          // this.post.push(post.data);
         );
-        this.post.push(post.data);
-        // this.post = post.data;
+        // 3개의 post.data 를 concat 을 사용하여 post 에 담는다
+        // concat 으로 배열안에 배열을 풀어서 넣을 수 있다.
+        this.post = this.post.concat(post.data);
       } catch (error) {
         console.log(error.response);
         alert("더 이상 게시물이 존재하지 않습니다.");
