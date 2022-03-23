@@ -12,7 +12,8 @@
           <div class="footer ">
             <ul class="footer-button-plus ">
               <!-- 빈 이미지 등록하여 size err 해결 -->
-              <img id="img" src="../assets/image/image.png" />
+              <!-- <img id="img" src="../assets/image/image.png" /> -->
+              <img id="img" />
               <input @change="upload" id="file" type="file" class="inputfile" />
               <label for="file" class="input-plus btn btn-outline-success"
                 >make&#9997;</label
