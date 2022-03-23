@@ -11,7 +11,9 @@
         <div v-if="step == 0">
           <div class="footer ">
             <ul class="footer-button-plus ">
-              <input @change="upload" type="file" id="file" class="inputfile" />
+              <!-- 빈 이미지 등록하여 size err 해결 -->
+              <img id="img" src="../assets/image/image.png" />
+              <input @change="upload" id="file" type="file" class="inputfile" />
               <label for="file" class="input-plus btn btn-outline-success"
                 >make&#9997;</label
               >
@@ -73,6 +75,8 @@ import ShareSuccessPage from "../components/shareSuccessPage.vue";
 import Explain from "../components/Explain.vue";
 import post from "../assets/data/post";
 import axios from "axios";
+import * as mobilenet from "@tensorflow-models/mobilenet"; // 방법 1.
+import "@tensorflow/tfjs-backend-webgl";
 
 export default {
   name: "SectionApp",
@@ -86,11 +90,13 @@ export default {
       count: 0,
       selectFilter: "",
       modal: false,
+      tag: "",
     };
   },
   mounted() {
     this.emitter.on("clickBox", (result) => {
-      this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
+      // selectFilter 에는 _1977 들어있는 상태
+      this.selectFilter = result;
     });
   },
   methods: {
@@ -115,12 +121,23 @@ export default {
         // confirm("");
       }
     },
-    upload(e) {
-      let files = e.target.files;
-      let file = files[0];
+    async upload(e) {
+      let file = e.target.files[0];
       let url = URL.createObjectURL(file);
       this.url = url;
       this.step = 1;
+
+      // img 가져온 뒤, 업로드 한 url 을 src 에 넣는다
+      const img = document.getElementById("img");
+      img.src = this.url;
+      const model = await mobilenet.load();
+      const predictions = await model.classify(img);
+      const className = predictions[0].className;
+      const probability =
+        " " + parseInt(predictions[0].probability * 100) + "%";
+      const result =
+        "Tag: " + probability + " 확률로 " + className + " 입니다 :)";
+      this.tag = result;
     },
     publish() {
       var uploadPost = {
@@ -128,11 +145,11 @@ export default {
         userImage: "https://placeimg.com/100/100/arch",
         postImage: this.url,
         likes: 0,
-        // 날짜와 시간 출력
         date: new Date().toLocaleString(),
         liked: false,
         content: this.content,
         filter: this.selectFilter,
+        tag: this.tag,
       };
       this.post.unshift(uploadPost);
       this.step = 0;
