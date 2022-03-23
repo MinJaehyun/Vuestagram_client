@@ -7,7 +7,8 @@
     "date": "May 15",
     "liked": false,
     "content": "봄인가",
-    "filter": "perpetua"
+    "filter": "perpetua",
+    "tag": "Tag: 95% 확률로 arch 입니다 :)"
   },
   {
     "name": "Min JaeHyun",
@@ -17,7 +18,8 @@
     "date": "May 14",
     "liked": false,
     "content": "오늘 날씨 좋군",
-    "filter": "perpetua"
+    "filter": "perpetua",
+    "tag": "Tag: 88% 확률로 arch 입니다 :)"
   },
   {
     "name": "Min JaeHyun",
@@ -27,6 +29,7 @@
     "date": "May 13",
     "liked": false,
     "content": "인공 구조물",
-    "filter": "perpetua"
+    "filter": "perpetua",
+    "tag": "Tag: 88% 확률로 arch 입니다 :)"
   }
 ]
