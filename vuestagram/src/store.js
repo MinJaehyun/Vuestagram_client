@@ -18,8 +18,8 @@ const store = createStore({
     }
   },
   mutations: {
-    modalChange(state) {
-      state.modal = true;
+    modalChange(state, boolean) {
+      state.modal = boolean;
     },
     // 사진 클릭 시, likes 증가한다
     likesUpButton(state, data) {

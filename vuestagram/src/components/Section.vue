@@ -150,7 +150,7 @@ export default {
       };
       this.post.unshift(uploadPost);
       this.step = 0;
-      this.$store.commit("modalChange");
+      this.$store.commit("modalChange", true);
     },
   },
 };
