@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div>
-      <Explain v-if="$store.state.visit == true" />
-      <transition name="fade">
-        <ShareSuccessPage v-if="modal == true" @modal="modal = false" />
-      </transition>
-    </div>
+    <Explain v-if="$store.state.visit == true" />
     <div class="app">
       <div>
         <div v-if="step == 0">
@@ -75,7 +70,6 @@
 </template>
 <script>
 import Container from "../components/Container.vue";
-import ShareSuccessPage from "../components/shareSuccessPage.vue";
 import Explain from "../components/Explain.vue";
 import post from "../assets/data/post";
 import axios from "axios";
@@ -84,7 +78,7 @@ import "@tensorflow/tfjs-backend-webgl";
 
 export default {
   name: "SectionApp",
-  components: { Container, ShareSuccessPage, Explain },
+  components: { Container, Explain },
   data() {
     return {
       content: "",
@@ -93,7 +87,6 @@ export default {
       post: post,
       count: 0,
       selectFilter: "",
-      modal: false,
       tag: "",
     };
   },
@@ -157,15 +150,13 @@ export default {
       };
       this.post.unshift(uploadPost);
       this.step = 0;
-      this.modal = true;
+      this.$store.commit("modalChange");
     },
   },
 };
 </script>
 <style>
 @import "../assets/css/app.css";
-@import "../assets/css/fade.css";
-
 .container {
   display: flex;
   justify-content: center;

@@ -13,10 +13,14 @@ const store = createStore({
       like: false,
       // post 가져온다
       likes: 0,
-      visit: true
+      visit: true,
+      modal: false,
     }
   },
   mutations: {
+    modalChange(state) {
+      state.modal = true;
+    },
     // 사진 클릭 시, likes 증가한다
     likesUpButton(state, data) {
       if (state.like == false) {
