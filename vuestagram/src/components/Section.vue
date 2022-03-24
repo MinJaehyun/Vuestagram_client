@@ -11,9 +11,12 @@
         <div v-if="step == 0">
           <div class="footer ">
             <ul class="footer-button-plus ">
-              <!-- 빈 이미지 등록하여 size err 해결 -->
+              <!-- 방법 1.  -->
               <!-- <img id="img" src="../assets/image/image.png" /> -->
-              <img id="img" />
+              <!-- 방법 2.  -->
+              <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
+              <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
+              <img id="img" style="display:none;" />
               <input @change="upload" id="file" type="file" class="inputfile" />
               <label for="file" class="input-plus btn btn-outline-success"
                 >make&#9997;</label
@@ -126,7 +129,6 @@ export default {
       let file = e.target.files[0];
       let url = URL.createObjectURL(file);
       this.url = url;
-      this.step = 1;
 
       // img 가져온 뒤, 업로드 한 url 을 src 에 넣는다
       const img = document.getElementById("img");
@@ -136,9 +138,10 @@ export default {
       const className = predictions[0].className;
       const probability =
         " " + parseInt(predictions[0].probability * 100) + "%";
-      const result =
-        "Tag: " + probability + " 확률로 " + className + " 입니다 :)";
+      const result = "Tag: " + probability + " 확률로 " + className + " 입니다";
       this.tag = result;
+      img.src = "";
+      this.step = 1;
     },
     publish() {
       var uploadPost = {
