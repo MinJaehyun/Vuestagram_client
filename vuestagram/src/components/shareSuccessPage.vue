@@ -50,6 +50,7 @@ div {
   border-radius: 10px;
   padding: 100px;
   color: grey;
+  cursor: pointer;
 }
 .flex {
   display: flex;
