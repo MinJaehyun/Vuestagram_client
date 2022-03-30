@@ -13,9 +13,13 @@
               <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
               <img id="img" style="display:none;" />
               <input @change="upload" id="file" type="file" class="inputfile" />
-              <label for="file" class="input-plus btn btn-outline-success"
-                >make&#9997;</label
-              >
+              <label for="file"
+                ><ion-icon
+                  for="file"
+                  size="large"
+                  name="add-circle-outline"
+                ></ion-icon
+              ></label>
             </ul>
           </div>
         </div>
@@ -24,11 +28,15 @@
           <!-- step == 1 -->
           <div v-if="step == 1">
             <ul class="header-button-left" @click="step--">
-              <li style="color: black">Cancel</li>
+              <li style="color: black;">
+                <ion-icon name="return-up-back"></ion-icon>
+              </li>
             </ul>
 
             <ul class="header-button-right" @click="step++">
-              <li style="color: black; box-sizing: none;">Next</li>
+              <li style="color: black; box-sizing: none;">
+                <ion-icon name="return-up-forward"></ion-icon>
+              </li>
             </ul>
 
             <!-- TODO: 붓 이모티콘은 사용하지 않으므로 기능 추가 시, 설정한다! -->
@@ -37,8 +45,15 @@
 
           <!-- step == 2 -->
           <div v-if="step == 2">
+            <ul class="header-button-left" @click="step--">
+              <li style="color: black;">
+                <ion-icon name="return-up-back"></ion-icon>
+              </li>
+            </ul>
             <ul class="header-button-right">
-              <li @click="publish" style="color: black">발행</li>
+              <li @click="publish" style="color: black">
+                <ion-icon name="brush"></ion-icon>
+              </li>
             </ul>
           </div>
         </div>
