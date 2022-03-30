@@ -28,9 +28,19 @@
     <!-- post-content -->
     <div class="post-content">
       <!-- <p>{{ $store.state.likes }} Likes</p> -->
-      <p style="cursor: pointer;" @click="$store.commit('likesUpButton', post)">
-        {{ post.likes }} Likes
-      </p>
+      <div
+        style="cursor: pointer; margin-top: 10px"
+        @click="$store.commit('likesUpButton', post)"
+      >
+        <!-- 만약 좋아요가 false 이면 빈하트를 보여주고, 만약 좋아요가 true 이면 하트를 보여준다 -->
+        <p v-if="!$store.state.like">
+          <ion-icon name="heart-outline"></ion-icon>
+        </p>
+        <p v-else>
+          <ion-icon name="heart"></ion-icon>
+        </p>
+      </div>
+      <p>{{ post.likes }} Likes</p>
       <p class="date">{{ post.date }}</p>
       <p>{{ post.content }}</p>
       <p>{{ post.tag }}</p>
