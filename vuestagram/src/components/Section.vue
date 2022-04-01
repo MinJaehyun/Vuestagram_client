@@ -1,29 +1,31 @@
 <template>
   <div>
     <Explain v-if="$store.state.visit == true" />
+    <div v-if="step == 0">
+      <div class="footer">
+        <ul
+          class="footer-button-plus"
+          style="position: absolute; right: 650px; top: 80px"
+        >
+          <!-- 방법 1.  -->
+          <!-- <img id="img" src="../assets/image/image.png" /> -->
+          <!-- 방법 2.  -->
+          <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
+          <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
+          <img id="img" style="display:none;" />
+          <input @change="upload" id="file" type="file" class="inputfile" />
+          <label for="file"
+            ><ion-icon
+              for="file"
+              size="large"
+              name="add-circle-outline"
+            ></ion-icon
+          ></label>
+        </ul>
+      </div>
+    </div>
     <div class="app">
       <div>
-        <div v-if="step == 0">
-          <div class="footer ">
-            <ul class="footer-button-plus ">
-              <!-- 방법 1.  -->
-              <!-- <img id="img" src="../assets/image/image.png" /> -->
-              <!-- 방법 2.  -->
-              <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
-              <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
-              <img id="img" style="display:none;" />
-              <input @change="upload" id="file" type="file" class="inputfile" />
-              <label for="file"
-                ><ion-icon
-                  for="file"
-                  size="large"
-                  name="add-circle-outline"
-                ></ion-icon
-              ></label>
-            </ul>
-          </div>
-        </div>
-
         <div class="header">
           <!-- step == 1 -->
           <div v-if="step == 1">
