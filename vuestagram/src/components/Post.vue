@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div class="post" style="padding: 5px; border-bottom: 1px solid #ddd">
     <!-- post-header -->
     <div class="post-header">
       <div
@@ -22,7 +22,7 @@
       :class="post.filter + ' post-body'"
       :style="{ backgroundImage: `url(${post.postImage})` }"
       @click="$store.commit('likesUpButton', post)"
-      style="cursor: pointer;"
+      style="cursor: pointer; "
     ></div>
 
     <!-- post-content -->
@@ -43,7 +43,7 @@
       <p>{{ post.likes }} Likes</p>
       <p class="date">{{ post.date }}</p>
       <p>{{ post.content }}</p>
-      <p>{{ post.tag }}</p>
+      <p class="gradient">{{ post.tag }}</p>
     </div>
   </div>
 </template>
@@ -96,5 +96,10 @@ export default {
   font-size: 11px;
   color: grey;
   margin-top: -8px;
+}
+.gradient {
+  background: linear-gradient(to right, #ff5f5c, #2eadfd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
