@@ -8,7 +8,8 @@ export default [
         liked: false,
         content: "오늘 무엇을 했냐면요 아무것도 안했어요 😫",
         filter: "perpetua",
-        tag: "Tag: 80% 확률로  arch 입니다 :)"
+        tag: "Tag: 80% 확률로  arch 입니다 :)",
+        heart: false,
     },
     {
         name: "John Doe",
@@ -19,7 +20,8 @@ export default [
         liked: false,
         content: "흔한 자랑스타그램",
         filter: "clarendon",
-        tag: "Tag: 90% 확률로 human 입니다 :)"
+        tag: "Tag: 90% 확률로 human 입니다 :)",
+        heart: false,
     },
     {
         name: "Minny",
@@ -30,6 +32,7 @@ export default [
         liked: false,
         content: "우리집 개는 화장실 물도 내림",
         filter: "lofi",
-        tag: "Tag: 100% 확률로 animal 입니다 :)"
+        tag: "Tag: 100% 확률로 animal 입니다 :)",
+        heart: false,
     }
 ]
