@@ -9,14 +9,12 @@
       </transition>
     </div>
     <div>
-      <header>
-        <img
-          style="width: 100px; margin: 10px 10px;"
-          src="./assets/image/logo.png"
-          alt="logo image"
-        />
+      <header class="header">
+        <div style="; ">
+          <p>Vuestagram</p>
+        </div>
       </header>
-      <hr />
+      <hr>
       <section>
         <Section />
       </section>
@@ -36,4 +34,14 @@ export default {
 
 <style>
 @import "./assets/css/fade.css";
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+.header {
+  padding: 15px;  
+  text-align: center;
+  font-family: 'Allura', cursive; 
+  font-size: 40px;
+  line-height: 0.6;
+}
+
 </style>
