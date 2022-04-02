@@ -39,19 +39,17 @@ ul {
 }
 .footer {
   width: 100%;
-  /* position: sticky; */
   bottom: 0;
   padding-bottom: 10px;
   background-color: white;
 }
 .footer-button-plus {
-  /* width: 80px; */
-  /* margin: auto; */
-  /* text-align: center; */
-  /* float: right; */
-  cursor: pointer;
-  /* font-size: 24px; */
-  /* padding-top: 12px; */
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+  padding: 12px;
+  display: flex;
 }
 .sample-box {
   width: 100%;
