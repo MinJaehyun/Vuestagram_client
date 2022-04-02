@@ -12,6 +12,10 @@
           <!-- 방법 2.  -->
           <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
           <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
+          <div v-if="isLoading">
+            Loading...
+            <LoadingSpinner />
+          </div>
           <img id="img" class="inputfile" />
           <input @change="upload" id="file" type="file" class="inputfile" />
           <!-- home icon -->
@@ -104,6 +108,7 @@
 <script>
 import Container from "../components/Container.vue";
 import Explain from "../components/Explain.vue";
+import LoadingSpinner from "../components/common/LoadingSpinner.vue";
 import post from "../assets/data/post";
 import axios from "axios";
 import * as mobilenet from "@tensorflow-models/mobilenet"; // 방법 1.
@@ -111,7 +116,7 @@ import "@tensorflow/tfjs-backend-webgl";
 
 export default {
   name: "SectionApp",
-  components: { Container, Explain },
+  components: { Container, Explain, LoadingSpinner },
   data() {
     return {
       content: "",
@@ -121,6 +126,7 @@ export default {
       count: 0,
       selectFilter: "",
       tag: "",
+      isLoading: false,
     };
   },
   mounted() {
@@ -152,6 +158,7 @@ export default {
       }
     },
     async upload(e) {
+      this.isLoading = true;
       let file = e.target.files[0];
       let url = URL.createObjectURL(file);
       this.url = url;
@@ -167,6 +174,7 @@ export default {
       const result = "Tag: " + probability + " 확률로 " + className + " 입니다";
       this.tag = result;
       img.src = "";
+      this.isLoading = false;
       this.step = 1;
     },
     publish() {
