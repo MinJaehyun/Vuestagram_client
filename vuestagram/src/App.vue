@@ -10,11 +10,11 @@
     </div>
     <div>
       <header class="header">
-        <div style="; ">
+        <div>
           <p>Vuestagram</p>
         </div>
       </header>
-      <hr>
+      <hr />
       <section>
         <Section />
       </section>
@@ -34,14 +34,13 @@ export default {
 
 <style>
 @import "./assets/css/fade.css";
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
 
 .header {
-  padding: 15px;  
+  padding: 15px;
   text-align: center;
-  font-family: 'Allura', cursive; 
+  font-family: "Allura", cursive;
   font-size: 40px;
   line-height: 0.6;
 }
-
 </style>
