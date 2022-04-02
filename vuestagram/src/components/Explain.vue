@@ -1,7 +1,8 @@
 <template>
-  <div class="explain">
+  <div class="explain" style="overflow:hidden; height: auto">
     <h4>
-      이모티콘을 누르면 사진을 등록할 수 있습니다 :)
+      <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
+      을 누르면 사진을 등록할 수 있습니다 :)
     </h4>
   </div>
 </template>
