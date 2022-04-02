@@ -44,15 +44,17 @@
       <div class="header">
         <!-- step == 1 -->
         <div v-if="step == 1">
+          <!-- back button -->
           <ul class="header-button-left" @click="step--">
-            <li style="color: black; ">
-              <ion-icon name="return-up-back"></ion-icon>
+            <li style="color: black;">
+              <ion-icon name="chevron-back-outline"></ion-icon>
             </li>
           </ul>
 
+          <!-- forward button -->
           <ul class="header-button-right" @click="step++">
-            <li style="color: black; box-sizing: none;">
-              <ion-icon name="return-up-forward"></ion-icon>
+            <li style="color: black;">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
             </li>
           </ul>
 
@@ -64,12 +66,12 @@
         <div v-if="step == 2">
           <ul class="header-button-left" @click="step--">
             <li style="color: black;">
-              <ion-icon name="return-up-back"></ion-icon>
+              <ion-icon name="chevron-back-outline"></ion-icon>
             </li>
           </ul>
           <ul class="header-button-right">
             <li @click="publish" style="color: black">
-              <ion-icon name="brush"></ion-icon>
+              <ion-icon name="checkmark-done-outline"></ion-icon>
             </li>
           </ul>
         </div>
