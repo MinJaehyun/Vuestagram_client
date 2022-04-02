@@ -1,85 +1,99 @@
 <template>
   <div>
+    <!-- Explain component -->
     <Explain v-if="$store.state.visit == true" />
+
+    <!-- step 0 -->
     <div v-if="step == 0">
       <div class="footer">
-        <ul
-          class="footer-button-plus"
-          style="position: absolute; right: 650px; top: 80px"
-        >
+        <ul class="footer-button-plus">
           <!-- 방법 1.  -->
           <!-- <img id="img" src="../assets/image/image.png" /> -->
           <!-- 방법 2.  -->
           <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
           <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
-          <img id="img" style="display:none;" />
+          <img id="img" class="inputfile" />
           <input @change="upload" id="file" type="file" class="inputfile" />
+          <!-- home icon -->
+          <ion-icon
+            @click="comingSoonFunction"
+            size="large"
+            style="cursor: pointer; padding: 10px"
+            name="home-outline"
+          ></ion-icon>
+          <!-- post upload icon -->
           <label for="file"
             ><ion-icon
               for="file"
               size="large"
               name="add-circle-outline"
-            ></ion-icon
-          ></label>
+              style="cursor: pointer;  padding: 10px;"
+            ></ion-icon>
+          </label>
+          <!-- search icon -->
+          <ion-icon
+            @click="comingSoonFunction"
+            style="cursor: pointer;  padding: 10px;"
+            size="large"
+            name="search-outline"
+          ></ion-icon>
         </ul>
       </div>
     </div>
     <div class="app">
-      <div>
-        <div class="header">
-          <!-- step == 1 -->
-          <div v-if="step == 1">
-            <ul class="header-button-left" @click="step--">
-              <li style="color: black;">
-                <ion-icon name="return-up-back"></ion-icon>
-              </li>
-            </ul>
+      <div class="header">
+        <!-- step == 1 -->
+        <div v-if="step == 1">
+          <ul class="header-button-left" @click="step--">
+            <li style="color: black; ">
+              <ion-icon name="return-up-back"></ion-icon>
+            </li>
+          </ul>
 
-            <ul class="header-button-right" @click="step++">
-              <li style="color: black; box-sizing: none;">
-                <ion-icon name="return-up-forward"></ion-icon>
-              </li>
-            </ul>
+          <ul class="header-button-right" @click="step++">
+            <li style="color: black; box-sizing: none;">
+              <ion-icon name="return-up-forward"></ion-icon>
+            </li>
+          </ul>
 
-            <!-- TODO: 붓 이모티콘은 사용하지 않으므로 기능 추가 시, 설정한다! -->
-            <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
-          </div>
-
-          <!-- step == 2 -->
-          <div v-if="step == 2">
-            <ul class="header-button-left" @click="step--">
-              <li style="color: black;">
-                <ion-icon name="return-up-back"></ion-icon>
-              </li>
-            </ul>
-            <ul class="header-button-right">
-              <li @click="publish" style="color: black">
-                <ion-icon name="brush"></ion-icon>
-              </li>
-            </ul>
-          </div>
+          <!-- TODO: 붓 이모티콘은 사용하지 않으므로 기능 추가 시, 설정한다! -->
+          <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
         </div>
 
-        <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
-        <!-- {{$store.state.post[0].name}} -->
+        <!-- step == 2 -->
+        <div v-if="step == 2">
+          <ul class="header-button-left" @click="step--">
+            <li style="color: black;">
+              <ion-icon name="return-up-back"></ion-icon>
+            </li>
+          </ul>
+          <ul class="header-button-right">
+            <li @click="publish" style="color: black">
+              <ion-icon name="brush"></ion-icon>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- component -->
-        <Container
-          :selectFilter="selectFilter"
-          :post="post"
-          :step="step"
-          :url="url"
-          @uploadText="content = $event"
-        />
+      <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
+      <!-- {{$store.state.post[0].name}} -->
 
-        <div>
-          <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
-          <div v-if="step == 0" class="container ">
-            <button @click="more" class="btn btn-outline-success">
-              <!-- <button @click="$store.dispatch('getData')"> -->
-              게시글 더보기
-            </button>
-          </div>
+      <!-- component -->
+      <Container
+        :selectFilter="selectFilter"
+        :post="post"
+        :step="step"
+        :url="url"
+        @uploadText="content = $event"
+      />
+
+      <div>
+        <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
+        <div v-if="step == 0" class="container ">
+          <button @click="more" class="btn btn-outline-success">
+            <!-- <button @click="$store.dispatch('getData')"> -->
+            게시글 더보기
+          </button>
         </div>
       </div>
     </div>
@@ -168,6 +182,9 @@ export default {
       this.post.unshift(uploadPost);
       this.step = 0;
       this.$store.commit("modalChange", true);
+    },
+    comingSoonFunction() {
+      alert("해당 기능은 준비 중입니다 :)");
     },
   },
 };
