@@ -14,13 +14,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap/dist/js/bootstrap.esm.js'
 import "bootstrap"
 
+// createApp
+let app = createApp(App)
 
 // emitter 전역 설정
 let emitter = mitt();
 app.config.globalProperties.emitter = emitter;
 
-// createApp
-let app = createApp(App)
 
 // fortawesome setup
 faLibrary.add(faInstagram, faTwitter, faFacebook, faStackOverflow, faGithub, faBuildingLock, faCodeBranch, faCamera)
