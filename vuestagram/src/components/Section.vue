@@ -1,90 +1,73 @@
 <template>
   <div>
-    <!-- Explain component -->
-    <Explain v-if="$store.state.visit == true" />
-
     <!-- step 0 -->
     <div v-if="step == 0">
-      <div class="footer">
-        <ul class="footer-button-plus">
-          <!-- 방법 1.  -->
-          <!-- <img id="img" src="../assets/image/image.png" /> -->
-          <!-- 방법 2.  -->
-          <!-- <img id="img" src="https://github.com/MinJaehyun/vuestagram_ref/blob/main/vuestagram/src/assets/image/image.png?raw=true" /> -->
-          <!-- 방법 3. 빈 이미지 등록하여 size err 해결 -->
+      <div class="navbar">
+        <div class="navbar__logo">
+          <a href="#" class="gradient">Vuestagram</a>
+        </div>
+        <ul class="navbar__menu">
           <div v-if="isLoading">
-            Loading...
             <LoadingSpinner />
           </div>
-          <img id="img" class="inputfile" />
-          <input @change="upload" id="file" type="file" class="inputfile" />
+          <img id="img" class="input__file" />
+          <input @change="upload" id="file" type="file" class="input__file" />
           <!-- home icon -->
           <ion-icon
             @click="comingSoonFunction"
             size="large"
-            style="cursor: pointer; padding: 10px"
             name="home-outline"
           ></ion-icon>
-          <!-- post upload icon -->
+          <!-- post_upload icon -->
           <label for="file"
             ><ion-icon
               for="file"
               size="large"
               name="add-circle-outline"
-              style="cursor: pointer;  padding: 10px;"
             ></ion-icon>
           </label>
           <!-- search icon -->
           <ion-icon
             @click="comingSoonFunction"
-            style="cursor: pointer;  padding: 10px;"
             size="large"
             name="search-outline"
           ></ion-icon>
         </ul>
+        <!-- TODO: 로그인, 회원 가입 만들기 -->
+        <ul class="navbar__account gradient">
+          <a href="#">Login</a>
+          <a href="#">Signup</a>
+        </ul>
       </div>
+      <!-- Explain component -->
+      <Explain v-if="$store.state.visit == true" />
     </div>
+
+    <!-- POST -->
     <div class="app">
       <div class="header">
         <!-- step == 1 -->
         <div v-if="step == 1">
           <!-- back button -->
-          <ul class="header-button-left" @click="step--">
-            <li style="color: black;">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </li>
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
           </ul>
-
           <!-- forward button -->
-          <ul class="header-button-right" @click="step++">
-            <li style="color: black;">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </li>
+          <ul class="header__button__right" @click="step++">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
           </ul>
-
-          <!-- TODO: 붓 이모티콘은 사용하지 않으므로 기능 추가 시, 설정한다! -->
-          <!-- <div style="font-size: 40px; text-align:center;">&#128396;</div> -->
         </div>
-
         <!-- step == 2 -->
         <div v-if="step == 2">
-          <ul class="header-button-left" @click="step--">
-            <li style="color: black;">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </li>
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
           </ul>
-          <ul class="header-button-right">
-            <li @click="publish" style="color: black">
-              <ion-icon name="checkmark-done-outline"></ion-icon>
-            </li>
+          <ul class="header__button__right" @click="publish">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
           </ul>
         </div>
       </div>
-
-      <!-- vuex 요청한 게시글 더 보기 내용 출력 -->
-      <!-- {{$store.state.post[0].name}} -->
-
-      <!-- component -->
+      <!-- Container component -->
       <Container
         :selectFilter="selectFilter"
         :post="post"
@@ -92,15 +75,13 @@
         :url="url"
         @uploadText="content = $event"
       />
-
-      <div>
-        <!-- axios 요청하여 깃헙 서버에서 json 가져오기 -->
-        <div v-if="step == 0" class="container ">
-          <button @click="more" class="btn btn-outline-success">
-            <!-- <button @click="$store.dispatch('getData')"> -->
-            게시글 더보기
-          </button>
-        </div>
+      <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
+      <div v-if="step == 0" class="more__post">
+        <button @click="more" class="btn btn-outline-success">
+          <!-- TODO: vuex -->
+          <!-- <button @click="$store.dispatch('getData')"> -->
+          게시글 더보기
+        </button>
       </div>
     </div>
   </div>
@@ -111,7 +92,7 @@ import Explain from "../components/Explain.vue";
 import LoadingSpinner from "../components/common/LoadingSpinner.vue";
 import post from "../assets/data/post";
 import axios from "axios";
-import * as mobilenet from "@tensorflow-models/mobilenet"; // 방법 1.
+import * as mobilenet from "@tensorflow-models/mobilenet";
 import "@tensorflow/tfjs-backend-webgl";
 
 export default {
@@ -131,8 +112,7 @@ export default {
   },
   mounted() {
     this.emitter.on("clickBox", (result) => {
-      // selectFilter 에는 _1977 들어있는 상태
-      this.selectFilter = result;
+      this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
     });
   },
   methods: {
@@ -140,21 +120,14 @@ export default {
       try {
         const post = await axios.get(
           // `https://minjaehyun.github.io/vue/more${this.count++}.json`
+          // FIXME: 추 후 리펙토링 하기
           `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more${this
             .count++}.json`
-
-          // FIXME: 추 후 리펙토링 하기
-          // 여러개의 데이터가 담긴 객체배열에 요청 시, 3개씩 가져오도록 코드 작성하기
-          // `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more.json`
-          // this.post.push(post.data);
         );
-        // 3개의 post.data 를 concat 을 사용하여 post 에 담는다
-        // concat 으로 배열안에 배열을 풀어서 넣을 수 있다.
-        this.post = this.post.concat(post.data);
+        this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어서 넣다.
       } catch (error) {
-        console.log(error.response);
+        console.log(error.response.data);
         alert("더 이상 게시물이 존재하지 않습니다.");
-        // confirm("");
       }
     },
     async upload(e) {
@@ -201,9 +174,5 @@ export default {
 </script>
 <style>
 @import "../assets/css/app.css";
-.container {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-}
+@import "../assets/css/gradient.css";
 </style>
