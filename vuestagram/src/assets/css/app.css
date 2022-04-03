@@ -1,60 +1,53 @@
 body {
   margin: 0;
+  font-family: 'Source Sans Pro'; 
 }
 ul {
-  padding: 5px;
   list-style-type: none;
 }
-.header {
+.navbar {
   width: 100%;
-  height: 40px;
-  background-color: white;
-  padding-bottom: 8px;
-  /* position: sticky; */
-  top: 0;
-}
-.header-button-left {
-  float: left;
-  cursor: pointer;
-  padding-left: 0px;
-  margin-top: -20px;
-}
-.header-button-right {
-  float: right;
-  width: 50px;
-  cursor: pointer;
-  padding-right: 40px;
-  margin-top: -20px;
-}
-.footer {
-  width: 100%;
-  bottom: 0;
-  padding-bottom: 10px;
-  background-color: white;
-}
-.footer-button-plus {
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  font-size: 24px;
-  padding: 12px;
+  padding: 8px 12px;
+  font-family: "Allura", cursive;
+  font-size: 40px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263343;
 }
-.sample-box {
-  width: 100%;
-  height: 600px;
-  background-color: bisque;
+.navbar__logo{
+  text-decoration: none;
 }
-.inputfile {
+.navbar__menu {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+}
+.navbar__menu ion-icon {
+  cursor: pointer; 
+  padding: 1px 10px; 
+  color: gray;
+}
+.navbar__menu ion-icon:hover {
+  background-color: coral;
+  border-radius: 4px;
+}
+.input__file {
   display: none;
 }
-.input-plus {
-  cursor: pointer;
+.navbar__account{
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.navbar__account a {
+  padding: 0px 8px;
 }
 
+/* POST */
 .app {
   box-sizing: border-box;
-  font-family: "consolas";
+  /* font-family: "consolas"; */
   margin-top: 60px;
   width: 100%;
   max-width: 460px;
@@ -62,4 +55,28 @@ ul {
   position: relative;
   border-right: 1px solid #eee;
   border-left: 1px solid #eee;
+  border-top: 4px solid #eee;
+}
+.header {
+  width: 100%;
+  height: 60px;
+}
+.header__button__left {
+  float: left;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 0px;
+    color: rgb(165, 29, 40)
+}
+.header__button__right {
+  float: right;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 0px;
+  color: rgb(165, 29, 40)
+}
+.more__post {
+  display: flex;
+  justify-content: center;
+  margin: 15px 12px;
 }
