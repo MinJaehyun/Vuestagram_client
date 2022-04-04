@@ -5,7 +5,7 @@ import mitt from 'mitt';
 
 // fortawesome setup
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
-import { faBuildingLock, faCodeBranch, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBuildingLock, faCodeBranch, faCamera } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faTwitter, faFacebook, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -23,7 +23,7 @@ app.config.globalProperties.emitter = emitter;
 
 
 // fortawesome setup
-faLibrary.add(faInstagram, faTwitter, faFacebook, faStackOverflow, faGithub, faBuildingLock, faCodeBranch, faCamera)
+faLibrary.add(faBars, faInstagram, faTwitter, faFacebook, faStackOverflow, faGithub, faBuildingLock, faCodeBranch, faCamera)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(store)
