@@ -1,3 +1,4 @@
+/* default setup */
 body {
   margin: 0;
   font-family: 'Source Sans Pro'; 
@@ -5,6 +6,8 @@ body {
 ul {
   list-style-type: none;
 }
+
+/* navbar setup */
 .navbar {
   width: 100%;
   padding: 8px 12px;
@@ -12,7 +15,6 @@ ul {
   font-size: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: #263343;
 }
 .navbar__logo{
@@ -22,13 +24,14 @@ ul {
   margin: 0;
   padding: 0;
   font-size: 4px;
+  display: flex;
 }
 .navbar__menu ion-icon {
   cursor: pointer; 
   padding: 1px 10px; 
   color: gray;
 }
-.navbar__menu ion-icon:hover {
+.navbar__menu li:hover {
   background-color: coral;
   border-radius: 4px;
 }
@@ -43,11 +46,13 @@ ul {
 .navbar__account a {
   padding: 0px 8px;
 }
+.navbar__toggleBtn{ 
+  display: none;
+}
 
 /* POST */
 .app {
   box-sizing: border-box;
-  /* font-family: "consolas"; */
   margin-top: 60px;
   width: 100%;
   max-width: 460px;
@@ -79,4 +84,41 @@ ul {
   display: flex;
   justify-content: center;
   margin: 15px 12px;
+}
+
+/* 반응형 웹 & bugger */
+@media screen and (max-width: 768px) { 
+  .navbar {
+    flex-direction: column;
+    padding: 8px 12px;
+  }
+  .navbar__logo {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+  .navbar li {
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+  }
+  .navbar__account {
+    display: none;
+  }
+  .navbar__toggleBtn {
+    position: absolute;
+    right: 30px;
+    padding: 10px;
+    display: flex;
+    color: rgb(199, 145, 100)
+  }
+  /* Section.vue 의 toggleBtn() 함수를 실행하여 menu 와 account 를 classList.toggle("active") 설정 */
+  .navbar__menu.active,
+  .navbar__account.active {
+    display: flex;
+  }
 }
