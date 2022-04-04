@@ -12,32 +12,42 @@
           </div>
           <img id="img" class="input__file" />
           <input @change="upload" id="file" type="file" class="input__file" />
+
           <!-- home icon -->
-          <ion-icon
-            @click="comingSoonFunction"
-            size="large"
-            name="home-outline"
-          ></ion-icon>
-          <!-- post_upload icon -->
-          <label for="file"
-            ><ion-icon
-              for="file"
+          <li>
+            <ion-icon
+              @click="comingSoonFunction"
               size="large"
-              name="add-circle-outline"
+              name="home-outline"
             ></ion-icon>
-          </label>
+          </li>
+          <!-- post_upload icon -->
+          <li>
+            <label for="file"
+              ><ion-icon
+                for="file"
+                size="large"
+                name="add-circle-outline"
+              ></ion-icon>
+            </label>
+          </li>
           <!-- search icon -->
-          <ion-icon
-            @click="comingSoonFunction"
-            size="large"
-            name="search-outline"
-          ></ion-icon>
+          <li>
+            <ion-icon
+              @click="comingSoonFunction"
+              size="large"
+              name="search-outline"
+            ></ion-icon>
+          </li>
         </ul>
-        <!-- TODO: 로그인, 회원 가입 만들기 -->
+        <!-- TODO: 로그인, 회원 가입 -->
         <ul class="navbar__account gradient">
           <a href="#">Login</a>
           <a href="#">Signup</a>
         </ul>
+        <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
+          <font-awesome-icon icon="bars" />
+        </a>
       </div>
       <!-- Explain component -->
       <Explain v-if="$store.state.visit == true" />
@@ -108,6 +118,7 @@ export default {
       selectFilter: "",
       tag: "",
       isLoading: false,
+      isToggleBtn: false,
     };
   },
   mounted() {
@@ -168,6 +179,15 @@ export default {
     },
     comingSoonFunction() {
       alert("해당 기능은 준비 중입니다 :)");
+    },
+    toggleBtn(isToggleBtn) {
+      this.isToggleBtn = !isToggleBtn;
+      console.log(isToggleBtn);
+      const menu = document.querySelector(".navbar__menu");
+      const account = document.querySelector(".navbar__account");
+      /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
+      menu.classList.toggle("active");
+      account.classList.toggle("active");
     },
   },
 };
