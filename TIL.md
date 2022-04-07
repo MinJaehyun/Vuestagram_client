@@ -15,10 +15,11 @@
 
 ### 2022/04/07
     1. [v] eslint, prettier, vscode-eslint-Validate-settings.json 설정
-    2. [] 상대경로를 절대경로로 설정
+    2. [v] 절대 경로 설정
     3. [] 회원 가입 완성하기
       - [v] client: 회원가입 UI 완성
       - [v] server: 회원가입 api 생성
+      - [v] client: 회원가입, 로그인 router 설정
       - [] client: 회원가입 api 요청 로직 작성하기 
 
 ### 2022/04/04
