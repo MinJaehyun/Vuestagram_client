@@ -1,7 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
-
     <transition name="fade">
       <ShareSuccessPage
         v-if="$store.state.modal == true"
