@@ -4,7 +4,9 @@
     <div v-if="step == 0">
       <div class="navbar">
         <div class="navbar__logo">
-          <a href="#" class="gradient">Vuestagram</a>
+          <router-link to="/" @click="appDisplay" class="gradient"
+            >Vuestagram</router-link
+          >
         </div>
         <ul class="navbar__menu">
           <div v-if="isLoading">
@@ -15,11 +17,9 @@
 
           <!-- home icon -->
           <li>
-            <ion-icon
-              @click="comingSoonFunction"
-              size="large"
-              name="home-outline"
-            ></ion-icon>
+            <router-link to="/" @click="appDisplay" class="gradient"
+              ><ion-icon size="large" name="home-outline"></ion-icon>
+            </router-link>
           </li>
           <!-- post_upload icon -->
           <li>
@@ -40,12 +40,10 @@
             ></ion-icon>
           </li>
         </ul>
-        <!-- TODO: 로그인, 회원 가입 -->
+        <!-- 로그인, 회원 가입 -->
         <ul class="navbar__account gradient">
-          <a href="#">Login</a>
-          <!-- <router-link></router-link> -->
-          <!-- <a href="#">Signup</a> -->
-          <router-link to="/signup">Signup</router-link>
+          <router-link @click="appNone" to="/login">Login</router-link>
+          <router-link @click="appNone" to="/signup">Signup</router-link>
         </ul>
         <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
           <font-awesome-icon icon="bars" />
@@ -55,54 +53,59 @@
       <Explain v-if="$store.state.visit == true" />
     </div>
 
+    <!-- router-view -->
+    <router-view></router-view>
+
     <!-- POST -->
-    <div class="app">
-      <div class="header">
-        <!-- step == 1 -->
-        <div v-if="step == 1">
-          <!-- back button -->
-          <ul class="header__button__left" @click="step--">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </ul>
-          <!-- forward button -->
-          <ul class="header__button__right" @click="step++">
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </ul>
+    <div class="container">
+      <div class="app">
+        <div class="header">
+          <!-- step == 1 -->
+          <div v-if="step == 1">
+            <!-- back button -->
+            <ul class="header__button__left" @click="step--">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </ul>
+            <!-- forward button -->
+            <ul class="header__button__right" @click="step++">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ul>
+          </div>
+          <!-- step == 2 -->
+          <div v-if="step == 2">
+            <ul class="header__button__left" @click="step--">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </ul>
+            <ul class="header__button__right" @click="publish">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+            </ul>
+          </div>
         </div>
-        <!-- step == 2 -->
-        <div v-if="step == 2">
-          <ul class="header__button__left" @click="step--">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </ul>
-          <ul class="header__button__right" @click="publish">
-            <ion-icon name="checkmark-done-outline"></ion-icon>
-          </ul>
+        <!-- Container component -->
+        <Container
+          :selectFilter="selectFilter"
+          :post="post"
+          :step="step"
+          :url="url"
+          @uploadText="content = $event"
+        />
+        <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
+        <div v-if="step == 0" class="more__post">
+          <button @click="more" class="btn btn-outline-success">
+            <!-- TODO: vuex -->
+            <!-- <button @click="$store.dispatch('getData')"> -->
+            게시글 더보기
+          </button>
         </div>
-      </div>
-      <!-- Container component -->
-      <Container
-        :selectFilter="selectFilter"
-        :post="post"
-        :step="step"
-        :url="url"
-        @uploadText="content = $event"
-      />
-      <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
-      <div v-if="step == 0" class="more__post">
-        <button @click="more" class="btn btn-outline-success">
-          <!-- TODO: vuex -->
-          <!-- <button @click="$store.dispatch('getData')"> -->
-          게시글 더보기
-        </button>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Container from '../components/Container.vue';
-import Explain from '../components/Explain.vue';
-import LoadingSpinner from '../components/common/LoadingSpinner.vue';
-import post from '../assets/data/post';
+import Container from '@/components/Container.vue';
+import Explain from '@/components/Explain.vue';
+import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
+import post from '@/assets/data/post';
 import axios from 'axios';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
@@ -184,12 +187,19 @@ export default {
     },
     toggleBtn(isToggleBtn) {
       this.isToggleBtn = !isToggleBtn;
-      console.log(isToggleBtn);
       const menu = document.querySelector('.navbar__menu');
       const account = document.querySelector('.navbar__account');
       /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
       menu.classList.toggle('active');
       account.classList.toggle('active');
+    },
+    appNone() {
+      const appNone = document.querySelector('.app');
+      appNone.style.display = 'none';
+    },
+    appDisplay() {
+      const appNone = document.querySelector('.app');
+      appNone.style.display = 'block';
     },
   },
 };
