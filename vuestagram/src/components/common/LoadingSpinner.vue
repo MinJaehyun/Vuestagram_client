@@ -11,12 +11,12 @@ export default {};
 </script>
 
 <style scoped>
-.spinner-container {
-	/* display: flex;
-  justify-content: center;
-  align-items: center; */
-	/* height: 100px; */
-}
+/* .spinner-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+} */
 .spinner {
 	width: 50px;
 	height: 50px;
