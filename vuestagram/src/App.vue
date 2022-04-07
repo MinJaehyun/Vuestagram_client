@@ -1,15 +1,17 @@
 <template>
-	<div>
-		<transition name="fade">
-			<ShareSuccessPage
-				v-if="$store.state.modal == true"
-				@modal="modal = false"
-			/>
-		</transition>
-		<section>
-			<Section />
-		</section>
-	</div>
+  <div>
+    <router-view></router-view>
+
+    <transition name="fade">
+      <ShareSuccessPage
+        v-if="$store.state.modal == true"
+        @modal="modal = false"
+      />
+    </transition>
+    <section>
+      <Section />
+    </section>
+  </div>
 </template>
 
 <script>
@@ -17,8 +19,8 @@ import Section from './components/Section.vue';
 import ShareSuccessPage from './components/shareSuccessPage.vue';
 
 export default {
-	name: 'App',
-	components: { Section, ShareSuccessPage },
+  name: 'App',
+  components: { Section, ShareSuccessPage },
 };
 </script>
 

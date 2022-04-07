@@ -1,100 +1,102 @@
 <template>
-	<div>
-		<!-- step 0 -->
-		<div v-if="step == 0">
-			<div class="navbar">
-				<div class="navbar__logo">
-					<a href="#" class="gradient">Vuestagram</a>
-				</div>
-				<ul class="navbar__menu">
-					<div v-if="isLoading">
-						<LoadingSpinner />
-					</div>
-					<img id="img" class="input__file" />
-					<input @change="upload" id="file" type="file" class="input__file" />
+  <div>
+    <!-- step 0 -->
+    <div v-if="step == 0">
+      <div class="navbar">
+        <div class="navbar__logo">
+          <a href="#" class="gradient">Vuestagram</a>
+        </div>
+        <ul class="navbar__menu">
+          <div v-if="isLoading">
+            <LoadingSpinner />
+          </div>
+          <img id="img" class="input__file" />
+          <input @change="upload" id="file" type="file" class="input__file" />
 
-					<!-- home icon -->
-					<li>
-						<ion-icon
-							@click="comingSoonFunction"
-							size="large"
-							name="home-outline"
-						></ion-icon>
-					</li>
-					<!-- post_upload icon -->
-					<li>
-						<label for="file"
-							><ion-icon
-								for="file"
-								size="large"
-								name="add-circle-outline"
-							></ion-icon>
-						</label>
-					</li>
-					<!-- search icon -->
-					<li>
-						<ion-icon
-							@click="comingSoonFunction"
-							size="large"
-							name="search-outline"
-						></ion-icon>
-					</li>
-				</ul>
-				<!-- TODO: 로그인, 회원 가입 -->
-				<ul class="navbar__account gradient">
-					<a href="#">Login</a>
-					<a href="#">Signup</a>
-				</ul>
-				<a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
-					<font-awesome-icon icon="bars" />
-				</a>
-			</div>
-			<!-- Explain component -->
-			<Explain v-if="$store.state.visit == true" />
-		</div>
+          <!-- home icon -->
+          <li>
+            <ion-icon
+              @click="comingSoonFunction"
+              size="large"
+              name="home-outline"
+            ></ion-icon>
+          </li>
+          <!-- post_upload icon -->
+          <li>
+            <label for="file"
+              ><ion-icon
+                for="file"
+                size="large"
+                name="add-circle-outline"
+              ></ion-icon>
+            </label>
+          </li>
+          <!-- search icon -->
+          <li>
+            <ion-icon
+              @click="comingSoonFunction"
+              size="large"
+              name="search-outline"
+            ></ion-icon>
+          </li>
+        </ul>
+        <!-- TODO: 로그인, 회원 가입 -->
+        <ul class="navbar__account gradient">
+          <a href="#">Login</a>
+          <!-- <router-link></router-link> -->
+          <!-- <a href="#">Signup</a> -->
+          <router-link to="/signup">Signup</router-link>
+        </ul>
+        <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
+          <font-awesome-icon icon="bars" />
+        </a>
+      </div>
+      <!-- Explain component -->
+      <Explain v-if="$store.state.visit == true" />
+    </div>
 
-		<!-- POST -->
-		<div class="app">
-			<div class="header">
-				<!-- step == 1 -->
-				<div v-if="step == 1">
-					<!-- back button -->
-					<ul class="header__button__left" @click="step--">
-						<ion-icon name="chevron-back-outline"></ion-icon>
-					</ul>
-					<!-- forward button -->
-					<ul class="header__button__right" @click="step++">
-						<ion-icon name="chevron-forward-outline"></ion-icon>
-					</ul>
-				</div>
-				<!-- step == 2 -->
-				<div v-if="step == 2">
-					<ul class="header__button__left" @click="step--">
-						<ion-icon name="chevron-back-outline"></ion-icon>
-					</ul>
-					<ul class="header__button__right" @click="publish">
-						<ion-icon name="checkmark-done-outline"></ion-icon>
-					</ul>
-				</div>
-			</div>
-			<!-- Container component -->
-			<Container
-				:selectFilter="selectFilter"
-				:post="post"
-				:step="step"
-				:url="url"
-				@uploadText="content = $event"
-			/>
-			<!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
-			<div v-if="step == 0" class="more__post">
-				<button @click="more" class="btn btn-outline-success">
-					<!-- TODO: vuex -->
-					<!-- <button @click="$store.dispatch('getData')"> -->
-					게시글 더보기
-				</button>
-			</div>
-		</div>
-	</div>
+    <!-- POST -->
+    <div class="app">
+      <div class="header">
+        <!-- step == 1 -->
+        <div v-if="step == 1">
+          <!-- back button -->
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ul>
+          <!-- forward button -->
+          <ul class="header__button__right" @click="step++">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ul>
+        </div>
+        <!-- step == 2 -->
+        <div v-if="step == 2">
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ul>
+          <ul class="header__button__right" @click="publish">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </ul>
+        </div>
+      </div>
+      <!-- Container component -->
+      <Container
+        :selectFilter="selectFilter"
+        :post="post"
+        :step="step"
+        :url="url"
+        @uploadText="content = $event"
+      />
+      <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
+      <div v-if="step == 0" class="more__post">
+        <button @click="more" class="btn btn-outline-success">
+          <!-- TODO: vuex -->
+          <!-- <button @click="$store.dispatch('getData')"> -->
+          게시글 더보기
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import Container from '../components/Container.vue';
@@ -106,90 +108,90 @@ import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
 
 export default {
-	name: 'SectionApp',
-	components: { Container, Explain, LoadingSpinner },
-	data() {
-		return {
-			content: '',
-			url: '',
-			step: 0,
-			post: post,
-			count: 0,
-			selectFilter: '',
-			tag: '',
-			isLoading: false,
-			isToggleBtn: false,
-		};
-	},
-	mounted() {
-		this.emitter.on('clickBox', result => {
-			this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
-		});
-	},
-	methods: {
-		async more() {
-			try {
-				const post = await axios.get(
-					// `https://minjaehyun.github.io/vue/more${this.count++}.json`
-					// FIXME: 추 후 리펙토링 하기
-					`https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more${this
-						.count++}.json`,
-				);
-				this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어서 넣다.
-			} catch (error) {
-				console.log(error.response.data);
-				alert('더 이상 게시물이 존재하지 않습니다.');
-			}
-		},
-		async upload(e) {
-			this.isLoading = true;
-			let file = e.target.files[0];
-			let url = URL.createObjectURL(file);
-			this.url = url;
+  name: 'SectionApp',
+  components: { Container, Explain, LoadingSpinner },
+  data() {
+    return {
+      content: '',
+      url: '',
+      step: 0,
+      post: post,
+      count: 0,
+      selectFilter: '',
+      tag: '',
+      isLoading: false,
+      isToggleBtn: false,
+    };
+  },
+  mounted() {
+    this.emitter.on('clickBox', result => {
+      this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
+    });
+  },
+  methods: {
+    async more() {
+      try {
+        const post = await axios.get(
+          // `https://minjaehyun.github.io/vue/more${this.count++}.json`
+          // FIXME: 추 후 리펙토링 하기
+          `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more${this
+            .count++}.json`,
+        );
+        this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어서 넣다.
+      } catch (error) {
+        console.log(error.response.data);
+        alert('더 이상 게시물이 존재하지 않습니다.');
+      }
+    },
+    async upload(e) {
+      this.isLoading = true;
+      let file = e.target.files[0];
+      let url = URL.createObjectURL(file);
+      this.url = url;
 
-			// img 가져온 뒤, 업로드 한 url 을 src 에 넣는다
-			const img = document.getElementById('img');
-			img.src = this.url;
-			const model = await mobilenet.load();
-			const predictions = await model.classify(img);
-			const className = predictions[0].className;
-			const probability =
-				' ' + parseInt(predictions[0].probability * 100) + '%';
-			const result = 'Tag: ' + probability + ' 확률로 ' + className + ' 입니다';
-			this.tag = result;
-			img.src = '';
-			this.isLoading = false;
-			this.step = 1;
-		},
-		publish() {
-			var uploadPost = {
-				name: 'tester',
-				userImage: 'https://placeimg.com/100/100/arch',
-				postImage: this.url,
-				likes: 0,
-				date: new Date().toLocaleString(),
-				liked: false,
-				content: this.content,
-				filter: this.selectFilter,
-				tag: this.tag,
-			};
-			this.post.unshift(uploadPost);
-			this.step = 0;
-			this.$store.commit('modalChange', true);
-		},
-		comingSoonFunction() {
-			alert('해당 기능은 준비 중입니다 :)');
-		},
-		toggleBtn(isToggleBtn) {
-			this.isToggleBtn = !isToggleBtn;
-			console.log(isToggleBtn);
-			const menu = document.querySelector('.navbar__menu');
-			const account = document.querySelector('.navbar__account');
-			/* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
-			menu.classList.toggle('active');
-			account.classList.toggle('active');
-		},
-	},
+      // img 가져온 뒤, 업로드 한 url 을 src 에 넣는다
+      const img = document.getElementById('img');
+      img.src = this.url;
+      const model = await mobilenet.load();
+      const predictions = await model.classify(img);
+      const className = predictions[0].className;
+      const probability =
+        ' ' + parseInt(predictions[0].probability * 100) + '%';
+      const result = 'Tag: ' + probability + ' 확률로 ' + className + ' 입니다';
+      this.tag = result;
+      img.src = '';
+      this.isLoading = false;
+      this.step = 1;
+    },
+    publish() {
+      var uploadPost = {
+        name: 'tester',
+        userImage: 'https://placeimg.com/100/100/arch',
+        postImage: this.url,
+        likes: 0,
+        date: new Date().toLocaleString(),
+        liked: false,
+        content: this.content,
+        filter: this.selectFilter,
+        tag: this.tag,
+      };
+      this.post.unshift(uploadPost);
+      this.step = 0;
+      this.$store.commit('modalChange', true);
+    },
+    comingSoonFunction() {
+      alert('해당 기능은 준비 중입니다 :)');
+    },
+    toggleBtn(isToggleBtn) {
+      this.isToggleBtn = !isToggleBtn;
+      console.log(isToggleBtn);
+      const menu = document.querySelector('.navbar__menu');
+      const account = document.querySelector('.navbar__account');
+      /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
+      menu.classList.toggle('active');
+      account.classList.toggle('active');
+    },
+  },
 };
 </script>
 <style>
