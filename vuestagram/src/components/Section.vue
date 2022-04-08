@@ -40,11 +40,11 @@
             ></ion-icon>
           </li>
         </ul>
-        <!-- 로그인, 회원 가입 -->
+        <!-- navbar__account -->
         <ul class="navbar__account gradient">
-          <router-link @click="appNone" to="/login">Login</router-link>
-          <router-link @click="appNone" to="/signup">Signup</router-link>
+          <AppHeader @appNone="appNone()" />
         </ul>
+        <!-- navbar__toggleBtn -->
         <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
           <font-awesome-icon icon="bars" />
         </a>
@@ -57,46 +57,44 @@
     <router-view></router-view>
 
     <!-- POST -->
-    <div class="container">
-      <div class="app">
-        <div class="header">
-          <!-- step == 1 -->
-          <div v-if="step == 1">
-            <!-- back button -->
-            <ul class="header__button__left" @click="step--">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </ul>
-            <!-- forward button -->
-            <ul class="header__button__right" @click="step++">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </ul>
-          </div>
-          <!-- step == 2 -->
-          <div v-if="step == 2">
-            <ul class="header__button__left" @click="step--">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </ul>
-            <ul class="header__button__right" @click="publish">
-              <ion-icon name="checkmark-done-outline"></ion-icon>
-            </ul>
-          </div>
+    <div class="app">
+      <div class="header">
+        <!-- step == 1 -->
+        <div v-if="step == 1">
+          <!-- back button -->
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ul>
+          <!-- forward button -->
+          <ul class="header__button__right" @click="step++">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ul>
         </div>
-        <!-- Container component -->
-        <Container
-          :selectFilter="selectFilter"
-          :post="post"
-          :step="step"
-          :url="url"
-          @uploadText="content = $event"
-        />
-        <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
-        <div v-if="step == 0" class="more__post">
-          <button @click="more" class="btn btn-outline-success">
-            <!-- TODO: vuex -->
-            <!-- <button @click="$store.dispatch('getData')"> -->
-            게시글 더보기
-          </button>
+        <!-- step == 2 -->
+        <div v-if="step == 2">
+          <ul class="header__button__left" @click="step--">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ul>
+          <ul class="header__button__right" @click="publish">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </ul>
         </div>
+      </div>
+      <!-- Container component -->
+      <Container
+        :selectFilter="selectFilter"
+        :post="post"
+        :step="step"
+        :url="url"
+        @uploadText="content = $event"
+      />
+      <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
+      <div v-if="step == 0" class="more__post">
+        <button @click="more" class="btn btn-outline-success">
+          <!-- TODO: vuex -->
+          <!-- <button @click="$store.dispatch('getData')"> -->
+          게시글 더보기
+        </button>
       </div>
     </div>
   </div>
@@ -106,13 +104,14 @@ import Container from '@/components/Container.vue';
 import Explain from '@/components/Explain.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import post from '@/assets/data/post';
+import AppHeader from '@/components/common/AppHeader.vue';
 import axios from 'axios';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
 
 export default {
   name: 'SectionApp',
-  components: { Container, Explain, LoadingSpinner },
+  components: { Container, Explain, LoadingSpinner, AppHeader },
   data() {
     return {
       content: '',
