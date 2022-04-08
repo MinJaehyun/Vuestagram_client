@@ -5,8 +5,8 @@
       <div class="navbar">
         <div class="navbar__logo">
           <router-link to="/" @click="appDisplay" class="gradient"
-            >Vuestagram</router-link
-          >
+            >Vuestagram
+          </router-link>
         </div>
         <ul class="navbar__menu">
           <div v-if="isLoading">
