@@ -15,7 +15,10 @@
 
 ### 2022/04/08
     1. [v] components, views 구조로 변경하여 코드를 분리
-    2. [] client: 회원가입 api 요청 로직 작성하기
+    2. [v] client: 회원가입 api 요청 로직 작성하기
+        - [v] signup form page 작성
+        - [v] api/signup 생성 및 작성
+        - [] css 로 꾸미기
 
 ### 2022/04/07
     1. [v] eslint, prettier, vscode-eslint-Validate-settings.json 설정
