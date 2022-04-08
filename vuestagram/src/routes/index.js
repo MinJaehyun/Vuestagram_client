@@ -1,24 +1,23 @@
 // vue-router 라이브러리 { createWebHistory, createRouter } 사용
 import { createWebHistory, createRouter } from 'vue-router';
-import Signup from '@/views/Signup.vue';
-import Login from '@/views/Login.vue';
+import SignupPage from '@/views/SignupPage.vue';
+import LoginPage from '@/views/LoginPage.vue';
+import Container from '@/components/Container.vue';
 // import ErrorPage from '@/views/ErrorPage.vue';
-// import Section from '@/components/Section.vue';
 
 // routes 설정
 const routes = [
-  // {
-  //   path: '/',
-  //   component: Section,
-  //   redirect: '/login',
-  // },
+  {
+    path: '/',
+    component: Container,
+  },
   {
     path: '/signup',
-    component: Signup,
+    component: SignupPage,
   },
   {
     path: '/login',
-    component: Login,
+    component: LoginPage,
   },
   // {
   //   path: '/:anything(.*)',

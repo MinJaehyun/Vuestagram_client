@@ -13,6 +13,13 @@
     8. 현재 tensorflow 의 이미지 분류 기능을 사용하여 태그가 자동으로 등록 되는데, 
     이 후 상세 페이지 만들어서 이동 시, 해당 게시물의 추천 게시물을 하단에 나타내게 기능 구현하기.
 
+### 2022/04/08
+    1. [v] components, views 구조로 변경하여 코드를 분리
+    2. [v] client: 회원가입 api 요청 로직 작성하기
+        - [v] signup form page 작성
+        - [v] api/signup 생성 및 작성
+        - [] css 로 꾸미기
+
 ### 2022/04/07
     1. [v] eslint, prettier, vscode-eslint-Validate-settings.json 설정
     2. [v] 절대 경로 설정
@@ -20,7 +27,6 @@
       - [v] client: 회원가입 UI 완성
       - [v] server: 회원가입 api 생성
       - [v] client: 회원가입, 로그인 router 설정
-      - [] client: 회원가입 api 요청 로직 작성하기 
 
 ### 2022/04/04
     1. [v] 반응형 웹 만들기
