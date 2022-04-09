@@ -1,28 +1,29 @@
 <template>
-  <form @submit.prevent="submitForm">
-    <div>
-      <div>
-        <label for="username">id:</label>
-        <input type="text" id="username" v-model="username" />
-      </div>
-      <div>
-        <label for="password">pw:</label>
-        <input type="text" id="password" v-model="password" />
-      </div>
-      <div>
-        <label for="nickname">nickname: </label>
-        <input type="text" id="nickname" v-model="nickname" />
-      </div>
-      <button type="submit">회원 가입</button>
-      <div>
-        {{ logMessage }}
-      </div>
+  <div class="contents">
+    <div class="form-wrapper form-wrapper-sm">
+      <form @submit.prevent="submitForm" class="form">
+        <div>
+          <label for="username">id:</label>
+          <input type="text" id="username" v-model="username" />
+        </div>
+        <div>
+          <label for="password">pw:</label>
+          <input type="text" id="password" v-model="password" />
+        </div>
+        <div>
+          <label for="nickname">nickname: </label>
+          <input type="text" id="nickname" v-model="nickname" />
+        </div>
+        <!-- button의 기본 type은 submit이다. 중복 지정할 필요 있나? -->
+        <button type="submit" class="signupBtn">회원 가입</button>
+      </form>
+      <p class="log">{{ logMessage }}</p>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
-import registerUser from '@/api/index';
+import { registerUser } from '@/api/index';
 export default {
   data() {
     return {
@@ -53,5 +54,5 @@ export default {
 </script>
 
 <style>
-/* TODO: css 작성하여 회원 가입 화면 구성하기 */
+@import '../../assets/css/common.css';
 </style>

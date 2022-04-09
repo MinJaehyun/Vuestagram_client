@@ -12,6 +12,13 @@
     7. 게시물 공유 컴포넌트도 반응형 웹 적용하기
     8. 현재 tensorflow 의 이미지 분류 기능을 사용하여 태그가 자동으로 등록 되는데, 
     이 후 상세 페이지 만들어서 이동 시, 해당 게시물의 추천 게시물을 하단에 나타내게 기능 구현하기.
+    9. 우선 - development, production 용 URL 구현하기
+
+### 2022/04/09
+    1. [v] SignupForm.vue - css 적용하기
+        - bootstrap .btn 와 common.css 의 .btn 충돌 해결하기
+        - 임시로 .btn 을 .signupBtn 으로 변경 
+    2. [] 
 
 ### 2022/04/08
     1. [v] components, views 구조로 변경하여 코드를 분리
