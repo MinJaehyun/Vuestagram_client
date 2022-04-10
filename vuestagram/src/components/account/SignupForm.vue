@@ -41,8 +41,19 @@ export default {
         nickname: this.nickname,
       };
       const { data } = await registerUser(userData);
-      this.logMessage = `${data.username} 님이 가입되었습니다`;
-      this.initForm();
+      // vue 를 사용하여 username, password 체크
+      if (this.username == '' || this.password == '') {
+        this.logMessage = 'id, pw 을 입력 해주세요';
+      }
+      // 동일 id 로 회원가입 시, server 에서 409 충돌나므로, 중복된 id 메시지를 send 하였고, 이를 data 로 받음
+      else if (typeof data === 'string') {
+        this.logMessage = `${data}`;
+      }
+      // 회원 가입 성공 시, server 에 data.username 을 받음
+      else if (typeof data === 'object') {
+        this.logMessage = `${data.username} 님이 회원가입 되셨습니다.`;
+        this.initForm();
+      }
     },
     initForm() {
       this.username = '';
