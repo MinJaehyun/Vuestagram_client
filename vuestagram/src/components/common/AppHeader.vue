@@ -1,7 +1,8 @@
 <template>
   <div>
-    <router-link @click="$emit('appNone')" to="/signup">Signup</router-link>
-    <router-link @click="$emit('appNone')" to="/login">Login</router-link>
+    <!-- FIXME: to="" 문자열만 받도록 되어 있는데, api/index.js 주소를 가져오는게 효율적이다. -->
+    <router-link @click="$emit('appNone')" to="/auth/signup">Signup</router-link>
+    <router-link @click="$emit('appNone')" to="/auth/login">Login</router-link>
   </div>
 </template>
 
