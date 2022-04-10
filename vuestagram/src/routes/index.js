@@ -12,11 +12,11 @@ const routes = [
     component: Container,
   },
   {
-    path: '/signup',
+    path: '/auth/signup',
     component: SignupPage,
   },
   {
-    path: '/login',
+    path: '/auth/login',
     component: LoginPage,
   },
   // {
