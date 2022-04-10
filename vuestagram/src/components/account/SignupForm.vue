@@ -3,11 +3,15 @@
     <div class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
         <div>
-          <label for="username">id:</label>
+          <label for="username"
+            >id:<span style="color: red">*required</span></label
+          >
           <input type="text" id="username" v-model="username" />
         </div>
         <div>
-          <label for="password">pw:</label>
+          <label for="password"
+            >pw:<span style="color: red">*required</span></label
+          >
           <input type="text" id="password" v-model="password" />
         </div>
         <div>
