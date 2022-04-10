@@ -2,10 +2,7 @@
   <div class="post">
     <!-- post-header -->
     <div class="post-header">
-      <div
-        class="profile"
-        :style="{ backgroundImage: `url(${post.userImage})` }"
-      ></div>
+      <div class="profile" :style="{ backgroundImage: `url(${post.userImage})` }"></div>
       <span class="profile-name">
         <strong>{{ post.name }}</strong>
       </span>
@@ -17,10 +14,7 @@
     ></div>
     <!-- post-content -->
     <div class="post-content">
-      <div
-        style="cursor: pointer"
-        @click="$store.commit('likesUpButton', post)"
-      >
+      <div style="cursor: pointer" @click="$store.commit('likesUpButton', post)">
         <!-- '좋아요' 상태이면 하트를 보여주고, 아니면 빈하트 설정 -->
         <p v-if="!$store.state.like" style="margin-bottom: 0px">
           <ion-icon name="heart-outline"></ion-icon>
