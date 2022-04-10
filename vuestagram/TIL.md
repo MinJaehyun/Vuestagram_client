@@ -15,10 +15,13 @@
     9. 우선 - development, production 용 URL 구현하기
 
 ### 2022/04/09
+    1. [v] 회원가입 로직 처리
+      - 분기처리(빈입력값 / 동일id / 성공)하여 메시지를 출력
+
+### 2022/04/09
     1. [v] SignupForm.vue - css 적용하기
         - bootstrap .btn 와 common.css 의 .btn 충돌 해결하기
         - 임시로 .btn 을 .signupBtn 으로 변경 
-    2. [] 
 
 ### 2022/04/08
     1. [v] components, views 구조로 변경하여 코드를 분리
