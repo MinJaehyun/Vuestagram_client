@@ -21,9 +21,9 @@ module.exports = {
       {
         singleQuote: true,
         semi: true,
-        // useTabs: true,
-        // tabWidth: 2,
         trailingComma: 'all',
+        useTabs: false,
+        tabWidth: 2,
         printWidth: 90,
         bracketSpacing: true,
         arrowParens: 'avoid',

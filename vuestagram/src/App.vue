@@ -1,10 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <ShareSuccessPage
-        v-if="$store.state.modal == true"
-        @modal="modal = false"
-      />
+      <ShareSuccessPage v-if="$store.state.modal == true" @modal="modal = false" />
     </transition>
     <section>
       <Section />

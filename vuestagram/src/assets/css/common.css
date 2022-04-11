@@ -75,7 +75,7 @@ a:hover {
 .form div:nth-last-child(2) { 
   margin-bottom: 0.5rem;
 }
-.signupBtn {
+.signupBtn, .loginBtn {
   background: #FE9616;
   padding: 0.5rem 1.5rem;
   font-weight: 600;

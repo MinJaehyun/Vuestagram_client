@@ -3,15 +3,11 @@
     <div class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
         <div>
-          <label for="username"
-            >id:<span style="color: red">*required</span></label
-          >
+          <label for="username">id:<span style="color: red">*required</span></label>
           <input type="text" id="username" v-model="username" />
         </div>
         <div>
-          <label for="password"
-            >pw:<span style="color: red">*required</span></label
-          >
+          <label for="password">pw:<span style="color: red">*required</span></label>
           <input type="text" id="password" v-model="password" />
         </div>
         <div>
@@ -47,7 +43,7 @@ export default {
       const { data } = await registerUser(userData);
       // vue 를 사용하여 username, password 체크
       if (this.username == '' || this.password == '') {
-        this.logMessage = 'id, pw 을 입력 해주세요';
+        this.logMessage = 'id 와 password 를 입력해 주세요';
       }
       // 동일 id 로 회원가입 시, server 에서 409 충돌나므로, 중복된 id 메시지를 send 하였고, 이를 data 로 받음
       else if (typeof data === 'string') {
