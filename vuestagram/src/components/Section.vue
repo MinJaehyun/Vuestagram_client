@@ -24,11 +24,7 @@
           <!-- post_upload icon -->
           <li>
             <label for="file"
-              ><ion-icon
-                for="file"
-                size="large"
-                name="add-circle-outline"
-              ></ion-icon>
+              ><ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
             </label>
           </li>
           <!-- search icon -->
@@ -157,8 +153,7 @@ export default {
       const model = await mobilenet.load();
       const predictions = await model.classify(img);
       const className = predictions[0].className;
-      const probability =
-        ' ' + parseInt(predictions[0].probability * 100) + '%';
+      const probability = ' ' + parseInt(predictions[0].probability * 100) + '%';
       const result = 'Tag: ' + probability + ' 확률로 ' + className + ' 입니다';
       this.tag = result;
       img.src = '';
