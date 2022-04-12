@@ -11,7 +11,9 @@ function registerUser(userData) {
 }
 
 function loginUser(userData) {
-  return instance.post('auth/login', userData);
+  return instance.post('auth/login', userData).catch(err => {
+    return err.response;
+  });
 }
 
 export { registerUser, loginUser };
