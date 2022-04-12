@@ -5,11 +5,15 @@ const instance = axios.create({
 });
 
 function registerUser(userData) {
-  return instance.post('/signup', userData);
+  return instance.post('auth/signup', userData, { credentials: true }).catch(err => {
+    return err.response;
+  });
 }
 
 function loginUser(userData) {
-  return instance.post('auth/login', userData);
+  return instance.post('auth/login', userData).catch(err => {
+    return err.response;
+  });
 }
 
 export { registerUser, loginUser };
