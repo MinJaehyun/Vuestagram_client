@@ -1,7 +1,8 @@
 ### 배포
-```
 https://jovial-goldstine-f5cfd7.netlify.app/
-```
+
+### swagger api
+https://real-vuestagram-server.herokuapp.com/
 
 ### 기능
     1. instagram 클론
