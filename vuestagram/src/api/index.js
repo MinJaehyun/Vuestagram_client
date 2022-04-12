@@ -5,7 +5,9 @@ const instance = axios.create({
 });
 
 function registerUser(userData) {
-  return instance.post('auth/signup', userData);
+  return instance.post('auth/signup', userData, { credentials: true }).catch(err => {
+    return err.response;
+  });
 }
 
 function loginUser(userData) {
