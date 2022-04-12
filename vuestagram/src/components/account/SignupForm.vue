@@ -41,18 +41,18 @@ export default {
         nickname: this.nickname,
       };
       const { data } = await registerUser(userData);
-      // vue 를 사용하여 username, password 체크
+      // username, password check
       if (this.username == '' || this.password == '') {
         this.logMessage = 'id 와 password 를 입력해 주세요';
       }
-      // 동일 id 로 회원가입 시, server 에서 409 충돌나므로, 중복된 id 메시지를 send 하였고, 이를 data 로 받음
-      else if (typeof data === 'string') {
-        this.logMessage = `${data}`;
-      }
-      // 회원 가입 성공 시, server 에 data.username 을 받음
-      else if (typeof data === 'object') {
+      // 회원가입 성공
+      else if (data.username) {
         this.logMessage = `${data.username} 님이 회원가입 되셨습니다.`;
         this.initForm();
+      }
+      // 409 에러 메시지 처리
+      else if (data.err) {
+        return (this.logMessage = data.err);
       }
     },
     initForm() {
