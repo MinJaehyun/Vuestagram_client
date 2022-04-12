@@ -15,6 +15,11 @@
     1. [v] 회원가입 기능 개선
       - 에러 메시지 받을 수 있게 개선하고 처리
     2. [v] 로그인 기능 구현
+      - [v] username 을 email 형식에 맞게 validate 처리
+      - [v] id && password 미입력 시, 로그인 버튼 disabled
+    3. [v] 회원가입 기능 추가
+      - [v] username 을 email 형식에 맞게 validate 처리
+      - [v] id && password 미입력 시, 회원가입 버튼 disabled
 
 ### 2022/04/11
     1. [v] 로그인 구조 생성
@@ -37,12 +42,12 @@
     2. [v] client: 회원가입 api 요청 로직 작성하기
         - [v] signup form page 작성
         - [v] api/signup 생성 및 작성
-        - [] css 로 꾸미기
+        - [v] css 로 꾸미기
 
 ### 2022/04/07
     1. [v] eslint, prettier, vscode-eslint-Validate-settings.json 설정
     2. [v] 절대 경로 설정
-    3. [] 회원 가입 완성하기
+    3. [v] 회원 가입 완성하기
       - [v] client: 회원가입 UI 완성
       - [v] server: 회원가입 api 생성
       - [v] client: 회원가입, 로그인 router 설정
