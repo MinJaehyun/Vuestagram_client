@@ -4,7 +4,12 @@
       <form @submit.prevent="submitForm" class="form">
         <div>
           <label for="username">id:<span style="color: red">*required</span></label>
-          <input type="text" id="username" v-model="username" />
+          <input
+            type="text"
+            id="username"
+            v-model="username"
+            placeholder="email@ 형식으로 입력해 주세요"
+          />
         </div>
         <div>
           <label for="password">pw:<span style="color: red">*required</span></label>
@@ -15,7 +20,9 @@
           <input type="text" id="nickname" v-model="nickname" />
         </div>
         <!-- button의 기본 type은 submit이다. 중복 지정할 필요 있나? -->
-        <button type="submit" class="signupBtn">회원 가입</button>
+        <button :disabled="!isUsernameValid || !password" type="submit" class="signupBtn">
+          회원 가입
+        </button>
       </form>
       <p class="log">{{ logMessage }}</p>
     </div>
@@ -24,6 +31,8 @@
 
 <script>
 import { registerUser } from '@/api/index';
+import { validateEmail } from '@/utils/validation';
+
 export default {
   data() {
     return {
@@ -32,6 +41,11 @@ export default {
       nickname: '',
       logMessage: '',
     };
+  },
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
   },
   methods: {
     async submitForm() {

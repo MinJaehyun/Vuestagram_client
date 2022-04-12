@@ -4,13 +4,24 @@
       <form @submit.prevent="submitForm" class="form">
         <div>
           <label for="username">id:<span style="color: red">*required</span></label>
-          <input type="text" id="username" v-model="username" />
+          <input
+            type="text"
+            id="username"
+            v-model="username"
+            placeholder="email@ 형식으로 입력해 주세요"
+          />
         </div>
         <div>
           <label for="password">pw:<span style="color: red">*required</span></label>
           <input type="text" id="password" v-model="password" />
         </div>
-        <button type="submit" class="loginBtn">로그인</button>
+        <button
+          :disabled="!isUsernameValid || !this.password"
+          type="submit"
+          class="loginBtn"
+        >
+          로그인
+        </button>
       </form>
       <p class="log">{{ logMessage }}</p>
     </div>
@@ -19,14 +30,24 @@
 
 <script>
 import { loginUser } from '@/api/index';
+import { validateEmail } from '@/utils/validation';
 
 export default {
+  name: 'LoginForm',
   data() {
     return {
       username: '',
       password: '',
       logMessage: '',
     };
+  },
+  // created() {
+  //   console.log(validateEmail('anystring@anystring.anystring'));
+  // },
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
   },
   methods: {
     async submitForm() {
@@ -35,7 +56,6 @@ export default {
         password: this.password,
       };
       const { data } = await loginUser(userData);
-
       // 비밀번호 에러
       if (data.err) {
         this.logMessage = `${data.err}`;
@@ -49,7 +69,6 @@ export default {
     initForm() {
       this.username = '';
       this.password = '';
-      this.nickname = '';
     },
   },
 };
