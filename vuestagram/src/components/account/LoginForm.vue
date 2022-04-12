@@ -12,7 +12,7 @@
         </div>
         <button type="submit" class="loginBtn">로그인</button>
       </form>
-      <!-- <p class="log">{{ logMessage }}</p> -->
+      <p class="log">{{ logMessage }}</p>
     </div>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
     return {
       username: '',
       password: '',
+      logMessage: '',
     };
   },
   methods: {
@@ -33,8 +34,17 @@ export default {
         username: this.username,
         password: this.password,
       };
-      const test = await loginUser(userData);
-      console.log(test);
+      const { data } = await loginUser(userData);
+
+      // 비밀번호 에러
+      if (data.err) {
+        this.logMessage = `${data.err}`;
+      }
+      // 로그인 메시지
+      else {
+        this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
+        this.initForm();
+      }
     },
     initForm() {
       this.username = '';
