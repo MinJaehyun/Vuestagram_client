@@ -15,11 +15,7 @@
           <label for="password">pw:<span style="color: red">*required</span></label>
           <input type="text" id="password" v-model="password" />
         </div>
-        <button
-          :disabled="!isUsernameValid || !this.password"
-          type="submit"
-          class="loginBtn"
-        >
+        <button :disabled="!isUsernameValid || !password" type="submit" class="loginBtn">
           로그인
         </button>
       </form>
@@ -63,6 +59,8 @@ export default {
       // 로그인 메시지
       else {
         this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
+        this.$store.commit('setUsername', data.user.username);
+        this.$router.push('/main');
         this.initForm();
       }
     },
