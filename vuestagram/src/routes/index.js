@@ -4,9 +4,9 @@ import SignupPage from '@/views/SignupPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import Container from '@/components/Container.vue';
 import LogoutPage from '@/views/LogoutPage';
+import Section from '@/components/Section.vue';
 // import MainPage from '@/views/MainPage';
 // import ErrorPage from '@/views/ErrorPage.vue';
-import Section from '@/components/Section.vue';
 
 // routes 설정
 const routes = [
