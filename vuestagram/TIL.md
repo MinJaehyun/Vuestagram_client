@@ -12,14 +12,20 @@
     6. 현재 tensorflow 의 이미지 분류 기능을 사용하여 태그가 자동으로 등록 되는데, 
     이 후 상세 페이지 만들어서 이동 시, 해당 게시물의 추천 게시물을 하단에 나타내게 기능 구현하기.
 
+### 2022/04/14
+    1. [] 
+
 ### 2022/04/13
     1. 로그인 후 메인페이지로 이동 시, navbar 가 중복 출력되는 component 구조를 개선하기
       - [v] UI 개선, CSS 변경
-      - [] Section component 의 navbar 와 post 를 분리
-      - [] navbar 동작 확인
-      - [] post 동작 확인
-    2. [] main page 구현하기
-      - [] router
+      - [v] Section component 의 navbar 와 post 를 분리
+      - [v] navbar 동작 확인
+      - [v] post 동작 확인
+      - 이 전: navbar 와 post 를 하나의 컴포넌트에 구현
+      - 이 후: NOTE: navbar 의 각각의 요소를 컴포넌트로 구현하며 router-view 적용했고, 
+        페이지별로 딱 그 컴포넌트만 가져올 수 있게 설정할 수 있었다.
+    2. [v] main page(post page) 적용하기
+      - [v] router
     3. [v] 회원가입 후 로그인 화면으로 이동
       
 ### 2022/04/12
