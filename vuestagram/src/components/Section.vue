@@ -85,7 +85,6 @@ export default {
       selectFilter: '',
       tag: '',
       isLoading: false,
-      isToggleBtn: false,
     };
   },
   mounted() {
@@ -143,14 +142,6 @@ export default {
       this.post.unshift(uploadPost);
       this.step = 0;
       this.$store.commit('modalChange', true);
-    },
-    toggleBtn(isToggleBtn) {
-      this.isToggleBtn = !isToggleBtn;
-      const menu = document.querySelector('.navbar__menu');
-      const account = document.querySelector('.navbar__account');
-      /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
-      menu.classList.toggle('active');
-      account.classList.toggle('active');
     },
   },
 };
