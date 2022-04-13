@@ -131,8 +131,9 @@ export default {
       try {
         const post = await axios.get(
           // `https://minjaehyun.github.io/vue/more${this.count++}.json`
+          // https://github.com/MinJaehyun/Vuestagram_client/blob/main/vuestagram/src/assets/data/more0.json
           // FIXME: 추 후 리펙토링 하기
-          `https://minjaehyun.github.io/vuestagram_ref/vuestagram/src/assets/data/more${this
+          `https://minjaehyun.github.io/vuestagram_client/vuestagram/src/assets/data/more${this
             .count++}.json`,
         );
         this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어서 넣다.
@@ -188,12 +189,12 @@ export default {
       account.classList.toggle('active');
     },
     appNone() {
-      const appNone = document.querySelector('.app');
-      appNone.style.display = 'none';
+      const app = document.querySelector('.app');
+      app.style.display = 'none';
     },
     appDisplay() {
-      const appNone = document.querySelector('.app');
-      appNone.style.display = 'block';
+      const app = document.querySelector('.app');
+      app.style.display = 'block';
     },
   },
 };
