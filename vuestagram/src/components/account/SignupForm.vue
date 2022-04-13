@@ -68,6 +68,7 @@ export default {
       else if (data.err) {
         return (this.logMessage = data.err);
       }
+      this.$router.push('/auth/login');
     },
     initForm() {
       this.username = '';
