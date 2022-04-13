@@ -21,9 +21,6 @@
       <Explain v-if="$store.state.visit == true" />
     </div>
 
-    <!-- router-view -->
-    <router-view></router-view>
-
     <!-- POST -->
     <div class="app">
       <div class="header">
@@ -59,8 +56,7 @@
       <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
         <button @click="more" class="btn btn-outline-success">
-          <!-- TODO: vuex -->
-          <!-- <button @click="$store.dispatch('getData')"> -->
+          <!-- TODO: vuex: <button @click="$store.dispatch('getData')">  -->
           게시글 더보기
         </button>
       </div>
@@ -148,9 +144,6 @@ export default {
       this.step = 0;
       this.$store.commit('modalChange', true);
     },
-    comingSoonFunction() {
-      alert('해당 기능은 준비 중입니다 :)');
-    },
     toggleBtn(isToggleBtn) {
       this.isToggleBtn = !isToggleBtn;
       const menu = document.querySelector('.navbar__menu');
@@ -158,14 +151,6 @@ export default {
       /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
       menu.classList.toggle('active');
       account.classList.toggle('active');
-    },
-    appNone() {
-      const app = document.querySelector('.app');
-      app.style.display = 'none';
-    },
-    appDisplay() {
-      const app = document.querySelector('.app');
-      app.style.display = 'block';
     },
   },
 };
