@@ -1,49 +1,21 @@
 <template>
   <div>
+    <div v-if="isLoading">
+      <LoadingSpinner />
+    </div>
     <!-- step 0 -->
     <div v-if="step == 0">
-      <div class="navbar">
-        <div class="navbar__logo">
-          <router-link to="/" @click="appDisplay" class="gradient"
-            >Vuestagram
-          </router-link>
-        </div>
-        <ul class="navbar__menu">
-          <div v-if="isLoading">
-            <LoadingSpinner />
-          </div>
+      <div class="navbar plusIcon" style="padding: 0px">
+        <ul style="padding: 8px 12px">
           <img id="img" class="input__file" />
           <input @change="upload" id="file" type="file" class="input__file" />
-
-          <!-- home icon -->
-          <li>
-            <router-link to="/" @click="appDisplay" class="gradient"
-              ><ion-icon size="large" name="home-outline"></ion-icon>
-            </router-link>
-          </li>
           <!-- post_upload icon -->
           <li>
-            <label for="file"
-              ><ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
+            <label for="file">
+              <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
             </label>
           </li>
-          <!-- search icon -->
-          <li>
-            <ion-icon
-              @click="comingSoonFunction"
-              size="large"
-              name="search-outline"
-            ></ion-icon>
-          </li>
         </ul>
-        <!-- navbar__account -->
-        <ul class="navbar__account gradient">
-          <AppHeader @appNone="appNone()" />
-        </ul>
-        <!-- navbar__toggleBtn -->
-        <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
-          <font-awesome-icon icon="bars" />
-        </a>
       </div>
       <!-- Explain component -->
       <Explain v-if="$store.state.visit == true" />
@@ -100,14 +72,13 @@ import Container from '@/components/Container.vue';
 import Explain from '@/components/Explain.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import post from '@/assets/data/post';
-import AppHeader from '@/components/common/AppHeader.vue';
 import axios from 'axios';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
 
 export default {
   name: 'SectionApp',
-  components: { Container, Explain, LoadingSpinner, AppHeader },
+  components: { Container, Explain, LoadingSpinner },
   data() {
     return {
       content: '',
@@ -202,4 +173,7 @@ export default {
 <style>
 @import '../assets/css/app.css';
 @import '../assets/css/gradient.css';
+.input__file {
+  display: none;
+}
 </style>
