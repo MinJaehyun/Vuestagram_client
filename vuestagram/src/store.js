@@ -17,6 +17,7 @@ const store = createStore({
       modal: false,
       // data.user.username
       username: '',
+      logMessage: '',
     };
   },
   getters: {
@@ -26,6 +27,9 @@ const store = createStore({
     },
   },
   mutations: {
+    setLogMessage(state, logMessage) {
+      state.logMessage = logMessage;
+    },
     setUsername(state, username) {
       state.username = username;
     },
