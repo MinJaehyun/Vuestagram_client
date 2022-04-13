@@ -4,18 +4,17 @@
       <ShareSuccessPage v-if="$store.state.modal == true" @modal="modal = false" />
     </transition>
     <AppHeader />
-    <Section />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Section from './components/Section.vue';
 import ShareSuccessPage from './components/shareSuccessPage.vue';
 import AppHeader from './components/common/AppHeader.vue';
 
 export default {
   name: 'App',
-  components: { Section, ShareSuccessPage, AppHeader },
+  components: { ShareSuccessPage, AppHeader },
 };
 </script>
 
