@@ -11,23 +11,12 @@ export default {};
 </script>
 
 <style scoped>
-/* .spinner-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100px;
-} */
 .spinner {
   width: 50px;
   height: 50px;
   position: relative;
-  /* default */
-  top: -8px;
-  left: 103px;
-  /* bugger */
-  /* top: 82px;
-  left: 297px; */
-
+  left: 13px;
+  top: 100px;
   border-radius: 50%;
   border: 5px solid #e0e0e0;
   border-top-color: #f19022;
