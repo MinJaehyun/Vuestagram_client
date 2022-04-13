@@ -13,11 +13,14 @@
     이 후 상세 페이지 만들어서 이동 시, 해당 게시물의 추천 게시물을 하단에 나타내게 기능 구현하기.
 
 ### 2022/04/13
-    1. [] Section component 의 navbar 와 post 를 분리
+    1. 로그인 후 메인페이지로 이동 시, navbar 가 중복 출력되는 component 구조를 개선하기
+      - [v] UI 개선, CSS 변경
+      - [] Section component 의 navbar 와 post 를 분리
       - [] navbar 동작 확인
       - [] post 동작 확인
     2. [] main page 구현하기
       - [] router
+    3. [v] 회원가입 후 로그인 화면으로 이동
       
 ### 2022/04/12
     1. [v] 회원가입 기능 개선
