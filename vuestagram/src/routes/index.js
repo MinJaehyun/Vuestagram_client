@@ -3,7 +3,10 @@ import { createWebHistory, createRouter } from 'vue-router';
 import SignupPage from '@/views/SignupPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import Container from '@/components/Container.vue';
+import LogoutPage from '@/views/LogoutPage';
+// import MainPage from '@/views/MainPage';
 // import ErrorPage from '@/views/ErrorPage.vue';
+import Section from '@/components/Section.vue';
 
 // routes 설정
 const routes = [
@@ -18,6 +21,14 @@ const routes = [
   {
     path: '/auth/login',
     component: LoginPage,
+  },
+  {
+    path: '/auth/logout',
+    component: LogoutPage,
+  },
+  {
+    path: '/main',
+    component: Section,
   },
   // {
   //   path: '/:anything(.*)',
