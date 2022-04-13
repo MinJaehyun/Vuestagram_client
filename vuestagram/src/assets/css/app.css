@@ -7,9 +7,6 @@ body {
 ul {
   list-style-type: none;
 }
-/* li:hover {
-  color: #c93f61;
-} */
 
 /* navbar */
 .navbar {
@@ -35,9 +32,11 @@ ul {
   background-color: coral;
   border-radius: 4px;
 }
-.navbar__account a {
+.navbar__menu {
+  display: flex;
+}
+.navbar__account {
   padding: 0px 8px;
-  text-decoration: none;
 }
 .navbar__toggleBtn{ 
   display: none;
@@ -114,5 +113,6 @@ ul {
   .navbar__menu.active,
   .navbar__account.active {
     display: flex;
+    padding: 8px 12px;
   }
 }
