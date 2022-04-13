@@ -81,7 +81,7 @@ ul {
 
 /* 반응형 웹 & bugger */
 /* 기기별 사이즈 320, 375, 425, 768px */
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 768px) { 
   .navbar {
     flex-direction: column;
     padding: 8px 12px;
