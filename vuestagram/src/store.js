@@ -21,9 +21,7 @@ const store = createStore({
   },
   getters: {
     // NOTE: state 에 속성이 변경되면, 항상 getters 를 실행하여 값을 저장한다.
-    // 아래는 isLogin 속성에 true or false 가 저장된다.
     isLogin(state) {
-      // username 이 비어있지 않으면 true
       return state.username !== '';
     },
   },
