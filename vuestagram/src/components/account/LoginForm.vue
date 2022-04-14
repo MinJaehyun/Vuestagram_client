@@ -19,8 +19,7 @@
           로그인
         </button>
       </form>
-      <p class="log">{{ logMessage }}</p>
-      <p class="log">{{ $store.state.logMessage }}</p>
+      <!-- <p class="log">{{ logMessage }}</p> -->
     </div>
   </div>
 </template>
@@ -38,9 +37,6 @@ export default {
       logMessage: '',
     };
   },
-  // created() {
-  //   console.log(validateEmail('anystring@anystring.anystring'));
-  // },
   computed: {
     isUsernameValid() {
       return validateEmail(this.username);
@@ -59,9 +55,8 @@ export default {
       }
       // 로그인 메시지
       else {
-        this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
+        // this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
         this.$store.commit('setUsername', data.user.username);
-        // this.$store.commit('setLogMessage', this.logMessage);
         this.$router.push('/main');
         this.initForm();
       }
