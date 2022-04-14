@@ -19,7 +19,6 @@
       <!-- 로그인: store 에 isLogin 값을 가져온다 (true) -->
       <template v-if="isUserLogin">
         <span>{{ usernameStr() }}</span> |
-        <!-- 연산을 거쳐서 가져오기 -->
         <router-link to="/auth/logout">logout</router-link>
       </template>
       <!-- 로그아웃 -->
@@ -30,7 +29,6 @@
     </div>
 
     <!-- navbar__toggleBtn -->
-    <!-- @click="$emit('toggleBtn', isToggleBtn) -->
     <a href="#" class="navbar__toggleBtn" @click="toggleBtn(isToggleBtn)">
       <font-awesome-icon icon="bars" />
     </a>
