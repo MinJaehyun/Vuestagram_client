@@ -19,7 +19,11 @@
       <!-- 로그인: store 에 isLogin 값을 가져온다 (true) -->
       <template v-if="isUserLogin">
         <span>{{ usernameStr() }}</span> |
-        <router-link to="/auth/logout">logout</router-link>
+        <!-- TODO: #: scroll 을 최상단에 위치시킨다. top 기능으로 활용해도 될 듯 -->
+        <!-- <a href="#" to="/auth/logout">logout</a> -->
+        <!-- <a href="#none" to="/auth/logout">logout</a> -->
+        <a href="javascript:;" @click="logoutUser">logout</a>
+        <!-- <a href="javascript:void(0);" to="/auth/logout">logout</a> -->
       </template>
       <!-- 로그아웃 -->
       <template v-else>
@@ -49,6 +53,10 @@ export default {
     },
   },
   methods: {
+    logoutUser() {
+      this.$store.commit('setClearUsername');
+      this.$router.push('/');
+    },
     comingSoonAlert() {
       alert('해당 기능은 준비 중입니다 :)');
     },
