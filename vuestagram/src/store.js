@@ -27,6 +27,9 @@ const store = createStore({
     },
   },
   mutations: {
+    setClearUsername(state) {
+      state.username = '';
+    },
     setLogMessage(state, logMessage) {
       state.logMessage = logMessage;
     },
