@@ -1,9 +1,0 @@
-<template>
-  <div>Logout Page Testing...</div>
-</template>
-
-<script>
-export default {};
-</script>
-
-<style></style>
