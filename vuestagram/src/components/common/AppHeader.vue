@@ -18,7 +18,8 @@
     <div class="navbar__account gradient" style="padding: 8px 12px">
       <!-- 로그인: store 에 isLogin 값을 가져온다 (true) -->
       <template v-if="isUserLogin">
-        <span>{{ $store.state.username }}</span> |
+        <span>{{ usernameStr() }}</span> |
+        <!-- 연산을 거쳐서 가져오기 -->
         <router-link to="/auth/logout">logout</router-link>
       </template>
       <!-- 로그아웃 -->
@@ -41,6 +42,7 @@ export default {
   data() {
     return {
       isToggleBtn: false,
+      username: '',
     };
   },
   computed: {
@@ -61,6 +63,19 @@ export default {
       /* Section.vue 의 toggleBtn() 함수를 실행하여, app.css 의 menu 와 account 를 classList.toggle("active") 설정 */
       menu.classList.toggle('active');
       account.classList.toggle('active');
+    },
+    usernameStr() {
+      const username = this.$store.state.username;
+      let result = '';
+      let number = 0;
+      if (username.indexOf('@') !== -1) {
+        // @ 있으면 true 이며, @ 앞에 글자들을 가져온다
+        number = username.indexOf('@');
+        for (let i = 0; i < number; i++) {
+          result = result + username[i];
+        }
+      }
+      return result;
     },
   },
 };
