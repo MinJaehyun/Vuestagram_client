@@ -13,11 +13,7 @@ const routes = [
     component: MainPage,
   },
   {
-    path: '/logo/vuestagram',
-    component: Section,
-  },
-  {
-    path: '/logo/vuestagram',
+    path: '/vuestagram',
     component: Section,
   },
   {
