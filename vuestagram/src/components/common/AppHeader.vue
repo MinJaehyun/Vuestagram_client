@@ -5,10 +5,14 @@
     </div>
     <ul style="margin: 8px; line-height: 0px" class="navbar__menu">
       <li>
-        <!-- home icon -->
-        <router-link to="/">
-          <ion-icon size="large" name="home-outline"></ion-icon>
+        <!-- vuestagram icon -->
+        <router-link to="/logo/vuestagram">
+          <ion-icon size="large" name="logo-instagram"></ion-icon>
         </router-link>
+      </li>
+      <!-- TIL icon -->
+      <li>
+        <ion-icon @click="comingSoonAlert" name="code-slash-outline"></ion-icon>
       </li>
       <li>
         <!-- search icon -->
