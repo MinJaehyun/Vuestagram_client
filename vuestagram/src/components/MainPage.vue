@@ -8,7 +8,7 @@
         <p class="card-text">
           이미지에 필터를 입혀 업로드 시, 이미지를 분석하여 자동으로 태그를 등록합니다.
         </p>
-        <router-link to="/logo/vuestagram" class="btn btn-outline-success"
+        <router-link to="/vuestagram" class="btn btn-outline-success"
           >vuestagram 이동하기</router-link
         >
       </div>
