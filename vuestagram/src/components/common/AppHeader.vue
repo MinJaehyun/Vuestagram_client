@@ -60,6 +60,8 @@ export default {
   methods: {
     logoutUser() {
       this.$store.commit('setClearUsername');
+      // 로그아웃 시, token 제거
+      // this.$store.commit('setToken', '');
       this.$router.push('/');
     },
     comingSoonAlert(name) {
