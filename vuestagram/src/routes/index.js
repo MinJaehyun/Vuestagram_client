@@ -4,15 +4,20 @@ import SignupPage from '@/views/SignupPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import Section from '@/components/Section.vue';
 import ErrorPage from '@/views/ErrorPage.vue';
+import MainPage from '@/components/MainPage.vue';
 
 // routes 설정
 const routes = [
   {
     path: '/',
+    component: MainPage,
+  },
+  {
+    path: '/logo/vuestagram',
     component: Section,
   },
   {
-    path: '/main',
+    path: '/logo/vuestagram',
     component: Section,
   },
   {
