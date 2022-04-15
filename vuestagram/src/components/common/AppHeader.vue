@@ -12,11 +12,12 @@
       </li>
       <!-- TIL icon -->
       <li>
-        <ion-icon @click="comingSoonAlert" name="code-slash-outline"></ion-icon>
+        <ion-icon @click="comingSoonAlert('TIL')" name="code-slash-outline"></ion-icon>
       </li>
       <li>
         <!-- search icon -->
-        <ion-icon @click="comingSoonAlert" size="large" name="search-outline"> </ion-icon>
+        <ion-icon @click="comingSoonAlert('search')" size="large" name="search-outline">
+        </ion-icon>
       </li>
     </ul>
     <div class="navbar__account gradient" style="padding: 8px 12px">
@@ -61,8 +62,8 @@ export default {
       this.$store.commit('setClearUsername');
       this.$router.push('/');
     },
-    comingSoonAlert() {
-      alert('해당 기능은 준비 중입니다 :)');
+    comingSoonAlert(name) {
+      alert(`${name} 기능은 준비 중입니다 :)`);
     },
     toggleBtn(isToggleBtn) {
       this.isToggleBtn = !isToggleBtn;
