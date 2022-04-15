@@ -11,11 +11,13 @@
     * 현재 Tensorflow.js 이미지 분류 기능 사용하여 태그 자동 등록 되는데, 
     추 후, post 상세 페이지 이동 시, 게시물을 하단에 추천하는 posts 를 나타내게 구현하기
 
+### 2022/04/15
+    1. [v] Main Page 만들기
+        - vuestagram, til(testing) 박스 만들고, 링크 구현
+
 ### 2022/04/14
-    1. [] main page 만들기
-        - [] 기능
-    2. [v] 로그인 한 이메일 주소의 @ 앞 단어를 로그인 한 username 으로 지정하여 navbar 에 설정
-    3. [v] logout 구현
+    1. [v] 로그인 한 이메일 주소의 @ 앞 단어를 로그인 한 username 으로 지정하여 navbar 에 설정
+    2. [v] logout 구현
 
 ### 2022/04/13
     1. 로그인 후 메인페이지로 이동 시, navbar 가 중복 출력되는 component 구조를 개선하기
