@@ -6,7 +6,7 @@
     <ul style="margin: 8px; line-height: 0px" class="navbar__menu">
       <li>
         <!-- vuestagram icon -->
-        <router-link to="/logo/vuestagram">
+        <router-link to="/vuestagram">
           <ion-icon size="large" name="logo-instagram"></ion-icon>
         </router-link>
       </li>
