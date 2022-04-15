@@ -19,14 +19,25 @@
       <div class="card-body">
         <h5 class="card-title gradient">TIL</h5>
         <p class="card-text">매일 학습 내용을 간편하게 기록합니다.</p>
-        <router-link to="#" class="btn btn-outline-success">TIL 이동하기</router-link>
+        <router-link
+          @click="comingSoonAlert('TIL')"
+          to="#"
+          class="btn btn-outline-success"
+          >TIL 이동하기</router-link
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    comingSoonAlert(name) {
+      alert(`${name} TIL 기능은 준비 중입니다 :)`);
+    },
+  },
+};
 </script>
 
 <style>
