@@ -57,7 +57,7 @@ export default {
       else {
         // this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
         this.$store.commit('setUsername', data.user.username);
-        this.$router.push('/main');
+        this.$router.push('/vuestagram');
         this.initForm();
       }
     },
