@@ -34,7 +34,7 @@
 export default {
   methods: {
     comingSoonAlert(name) {
-      alert(`${name} TIL 기능은 준비 중입니다 :)`);
+      alert(`${name} 기능은 준비 중입니다 :)`);
     },
   },
 };
