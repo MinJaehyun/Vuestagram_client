@@ -49,6 +49,7 @@ export default {
         password: this.password,
       };
       const { data } = await loginUser(userData);
+      // console.log(data.token);
       // 비밀번호 에러
       if (data.err) {
         this.logMessage = `${data.err}`;
@@ -57,6 +58,7 @@ export default {
       else {
         // this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
         this.$store.commit('setUsername', data.user.username);
+        this.$store.commit('setToken', data.token);
         this.$router.push('/vuestagram');
         this.initForm();
       }
