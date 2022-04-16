@@ -6,7 +6,7 @@
         <div class="flex">
           <img src="@/assets/image/10a8cbeb94ba.gif" alt="" />
         </div>
-        <p class="flex">게시물이 공유되었습니다:)</p>
+        <p class="flex">게시물이 공유되었습니다</p>
         <button
           style="margin: auto; display: block"
           class="btn btn-outline-info"
@@ -38,9 +38,6 @@ div {
   position: fixed;
 }
 .white-bg {
-  /* 브라우저 크기 조절 시, 이미지 크기에 맞게 조절하지 못하는 문제점
-   */
-  /* TODO: position 지정 방법? */
   position: fixed;
   top: 30%;
   left: 25%;
@@ -55,5 +52,31 @@ div {
 .flex {
   display: flex;
   justify-content: center;
+}
+/* 기기별 사이즈 320, 375, 425, 768px */
+@media screen and (max-width: 375px) {
+  .black-bg {
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+  }
+  .white-bg {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 60%;
+    height: 75%;
+    background: white;
+    border-radius: 10px;
+    padding: 100px;
+    color: grey;
+    cursor: pointer;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
