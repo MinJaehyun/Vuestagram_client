@@ -15,6 +15,6 @@ export default {
 </script>
 
 <style>
-@import '../assets/css/explain.css';
-@import '../assets/css/gradient.css';
+@import '../../assets/css/explain.css';
+@import '../../assets/css/gradient.css';
 </style>

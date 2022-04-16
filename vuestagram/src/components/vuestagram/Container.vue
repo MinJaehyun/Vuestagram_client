@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import Post from './Post.vue';
-import FilterBox from './FilterBox.vue';
-import filterList from '../assets/data/instagramFilter';
+import Post from '@/components/vuestagram/Post.vue';
+import FilterBox from '@/components/vuestagram/FilterBox.vue';
+import filterList from '@/assets/data/instagramFilter';
 
 export default {
   name: 'Container',
@@ -64,5 +64,5 @@ export default {
 </script>
 
 <style>
-@import '../assets/css/container.css';
+@import '../../assets/css/container.css';
 </style>

@@ -2,12 +2,17 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import SignupPage from '@/views/SignupPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
-import Section from '@/components/Section.vue';
+import Section from '@/components/vuestagram/Section.vue';
 import ErrorPage from '@/views/ErrorPage.vue';
-import MainPage from '@/components/MainPage.vue';
+import MainPage from '@/views/MainPage.vue';
+import PostsPage from '@/views/PostsPage.vue';
 
 // routes 설정
 const routes = [
+  {
+    path: '/posts',
+    component: PostsPage,
+  },
   {
     path: '/',
     component: MainPage,

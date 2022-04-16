@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import ShareSuccessPage from './components/shareSuccessPage.vue';
-import AppHeader from './components/common/AppHeader.vue';
+import ShareSuccessPage from '@/components/vuestagram/shareSuccessPage.vue';
+import AppHeader from '@/components/common/AppHeader.vue';
 
 export default {
   name: 'App',

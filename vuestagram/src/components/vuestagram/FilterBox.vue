@@ -25,5 +25,5 @@ export default {
 };
 </script>
 <style>
-@import '../assets/css/filterBox.css';
+@import '../../assets/css/filterBox.css';
 </style>

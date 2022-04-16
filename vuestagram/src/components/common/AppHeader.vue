@@ -93,6 +93,8 @@ export default {
 </script>
 
 <style>
+/* @import '@/assets/css/app.css'; */
 @import '../../assets/css/app.css';
+/* @import '~/src/assets/css/app.css'; */
 @import '../../assets/css/gradient.css';
 </style>

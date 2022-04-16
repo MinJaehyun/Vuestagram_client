@@ -64,8 +64,8 @@
   </div>
 </template>
 <script>
-import Container from '@/components/Container.vue';
-import Explain from '@/components/Explain.vue';
+import Container from '@/components/vuestagram/Container.vue';
+import Explain from '@/components/vuestagram/Explain.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import post from '@/assets/data/post';
 import axios from 'axios';
@@ -147,8 +147,8 @@ export default {
 };
 </script>
 <style>
-@import '../assets/css/app.css';
-@import '../assets/css/gradient.css';
+@import '../../assets/css/app.css';
+@import '../../assets/css/gradient.css';
 .input__file {
   display: none;
 }
