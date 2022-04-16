@@ -1,15 +1,24 @@
 # Today's Improvements
 
 ## ToDoList
-    1. post 검색 
-    2. 하트 클릭 시, 모든 하트에 적용되는 문제점 해결하기 
-    3. vue 찾아서 vuex 로 개선하기
-    4. 모바일로 업로드 후, 햄버거 메뉴 깨진다
-    5. 게시물 공유 컴포넌트도 반응형 적용하기
+    1. FIXME: 더보기 기능 
+    2. FIXME: 모바일로 업로드 후, 햄버거 메뉴 깨진다
+    3. FIXME: 하트 클릭 시, 모든 하트에 적용된다 
+    4. TODO: post 검색 
+    5. TODO: vue 찾아서 vuex 로 개선하기
+    6. TODO: 게시물 공유 컴포넌트도 반응형 적용하기
     
     * 각각의 기능 추가 후, 기존의 기능들 매번 테스트 하기 - 번거로워지면 테스트케이스 작성하기
     * 현재 Tensorflow.js 이미지 분류 기능 사용하여 태그 자동 등록 되는데, 
     추 후, post 상세 페이지 이동 시, 게시물을 하단에 추천하는 posts 를 나타내게 구현하기
+
+### 2022/04/16
+    1. [v] 컴포넌트 구조 변경
+    2. [v] 인증된 user 만 post 를 사용할 수 있게 authenticateUser 미들웨어 적용
+    3. [v] posts - read api 요청 기능 (특정 user 의 전체 post 를 조회 한다)
+      - UI 개선
+    4. [v] posts page 로딩 시, spinner 기능 구현
+      - 로딩 
 
 ### 2022/04/15
     1. [v] Main Page 만들기
