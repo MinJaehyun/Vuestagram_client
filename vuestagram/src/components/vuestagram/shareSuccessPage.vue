@@ -54,7 +54,7 @@ div {
   justify-content: center;
 }
 /* 기기별 사이즈 320, 375, 425, 768px */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
   .black-bg {
     z-index: 500;
     width: 100%;

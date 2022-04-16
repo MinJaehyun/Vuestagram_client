@@ -31,13 +31,13 @@ export default {};
     transform: rotate(180deg);
   }
 }
-/* 기기별 사이즈 320, 375(v), 425, 768px */
-@media screen and (max-width: 375px) {
+/* 기기별 사이즈 320(v), 375, 425, 768px */
+@media screen and (max-width: 320px) {
   .spinner {
     width: 50px;
     height: 50px;
     position: relative;
-    left: 163px;
+    left: 135px;
     top: 70px;
     border-radius: 50%;
     border: 5px solid #e0e0e0;

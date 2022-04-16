@@ -7,11 +7,9 @@
         <img id="img" class="input__file" />
         <input @change="upload" id="file" type="file" class="input__file" />
         <!-- post_upload icon -->
-        <li>
-          <label for="file">
-            <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
-          </label>
-        </li>
+        <label for="file">
+          <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
+        </label>
       </ul>
     </div>
     <!-- Explain component -->
