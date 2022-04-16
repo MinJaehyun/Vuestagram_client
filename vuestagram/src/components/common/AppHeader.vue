@@ -63,6 +63,7 @@ export default {
   methods: {
     logoutUser() {
       this.$store.commit('setClearUsername');
+      this.$store.commit('setToken', '');
       this.$router.push('/');
     },
     comingSoonAlert(name) {
