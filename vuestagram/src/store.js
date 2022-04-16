@@ -18,6 +18,7 @@ const store = createStore({
       // data.user.username
       username: '',
       logMessage: '',
+      token: '',
     };
   },
   getters: {
@@ -27,6 +28,9 @@ const store = createStore({
     },
   },
   mutations: {
+    setToken(state, token) {
+      state.token = token;
+    },
     setClearUsername(state) {
       state.username = '';
     },
