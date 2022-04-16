@@ -1,25 +1,21 @@
 <template>
   <div>
-    <div v-if="isLoading">
-      <LoadingSpinner />
-    </div>
+    <LoadingSpinner v-if="isLoading" />
     <!-- step 0 -->
-    <div v-if="step == 0">
-      <div class="navbar plusIcon" style="padding: 0px">
-        <ul style="padding: 8px 12px">
-          <img id="img" class="input__file" />
-          <input @change="upload" id="file" type="file" class="input__file" />
-          <!-- post_upload icon -->
-          <li>
-            <label for="file">
-              <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
-            </label>
-          </li>
-        </ul>
-      </div>
-      <!-- Explain component -->
-      <Explain v-if="$store.state.visit == true" />
+    <div v-if="step == 0" class="navbar plusIcon" style="padding: 0px">
+      <ul style="padding: 8px 12px">
+        <img id="img" class="input__file" />
+        <input @change="upload" id="file" type="file" class="input__file" />
+        <!-- post_upload icon -->
+        <li>
+          <label for="file">
+            <ion-icon for="file" size="large" name="add-circle-outline"></ion-icon>
+          </label>
+        </li>
+      </ul>
     </div>
+    <!-- Explain component -->
+    <Explain v-if="$store.state.visit == true" />
 
     <!-- POST -->
     <div class="app">
@@ -55,7 +51,7 @@
       />
       <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
-        <button @click="more" class="btn btn-outline-success">
+        <button @click="morePost" class="btn btn-outline-success">
           <!-- TODO: vuex: <button @click="$store.dispatch('getData')">  -->
           게시글 더보기
         </button>
@@ -93,16 +89,15 @@ export default {
     });
   },
   methods: {
-    async more() {
+    async morePost() {
       try {
         const post = await axios.get(
           // `https://minjaehyun.github.io/vue/more${this.count++}.json`
           // https://github.com/MinJaehyun/Vuestagram_client/blob/main/vuestagram/src/assets/data/more0.json
-          // FIXME: 추 후 리펙토링 하기
-          `https://minjaehyun.github.io/vuestagram_client/vuestagram/src/assets/data/more${this
+          `https://minjaehyun.github.io/Vuestagram_client/vuestagram/src/assets/data/more${this
             .count++}.json`,
         );
-        this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어서 넣다.
+        this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어 넣음
       } catch (error) {
         console.log(error.response.data);
         alert('더 이상 게시물이 존재하지 않습니다.');
@@ -114,7 +109,7 @@ export default {
       let url = URL.createObjectURL(file);
       this.url = url;
 
-      // img 가져온 뒤, 업로드 한 url 을 src 에 넣는다
+      // img 가져온 뒤, 업로드 한 url 을 src 에 넣음
       const img = document.getElementById('img');
       img.src = this.url;
       const model = await mobilenet.load();
