@@ -44,6 +44,7 @@ ul {
 
 /* POST */
 .app {
+  top: 70px;
   box-sizing: border-box;
   margin-top: 60px;
   width: 100%;
@@ -80,7 +81,7 @@ ul {
 
 /* 반응형 웹 & bugger */
 /* 기기별 사이즈 320, 375, 425, 768px */
-@media screen and (max-width: 600px) { 
+@media screen and (max-width: 375px) { 
   .navbar {
     flex-direction: column;
     padding: 8px 12px;
@@ -108,6 +109,12 @@ ul {
     padding: 10px;
     display: flex;
     color: rgb(199, 145, 100)
+  }
+  .plusIcon {
+    background: white;
+    margin: 0;
+    height: 0px;
+    top: 20px;
   }
   /* Section.vue 의 toggleBtn() 함수를 실행하여 menu 와 account 를 classList.toggle("active") 설정 */
   .navbar__menu.active,
