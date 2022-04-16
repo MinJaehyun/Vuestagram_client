@@ -19,7 +19,7 @@
           로그인
         </button>
       </form>
-      <!-- <p class="log">{{ logMessage }}</p> -->
+      <p class="log">{{ $store.state.logMessage }}</p>
     </div>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
         // this.logMessage = `${data.user.username} 님이 로그인 하셨습니다.`;
         this.$store.commit('setUsername', data.user.username);
         this.$store.commit('setToken', data.token);
-        this.$router.push('/vuestagram');
+        this.$router.push('/');
         this.initForm();
       }
     },

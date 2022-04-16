@@ -61,7 +61,7 @@ export default {
       }
       // 회원가입 성공
       else if (data.username) {
-        this.logMessage = `${data.username} 님이 회원가입 되셨습니다. 로그인을 진행 해주세요 :)`;
+        this.logMessage = `${data.username} 님이 회원가입에 성공 하셨습니다.`;
         // 위는 push 기능 때문에 바로 login 화면으로 넘어간다. 고로, 값을 store 에 저장하고 login 화면에서 로그 메시지를 넘겨준다.
         this.$store.commit('setLogMessage', this.logMessage);
         this.initForm();
