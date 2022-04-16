@@ -31,4 +31,19 @@ export default {};
     transform: rotate(180deg);
   }
 }
+/* 기기별 사이즈 320, 375(v), 425, 768px */
+@media screen and (max-width: 375px) {
+  .spinner {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 163px;
+    top: 70px;
+    border-radius: 50%;
+    border: 5px solid #e0e0e0;
+    border-top-color: #f19022;
+    border-bottom-color: #f19022;
+    animation: spin 1s linear infinite;
+  }
+}
 </style>
