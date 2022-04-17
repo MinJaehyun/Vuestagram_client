@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { deleteCookie } from '@/utils/cookie';
+
 export default {
   data() {
     return {
@@ -64,6 +66,8 @@ export default {
     logoutUser() {
       this.$store.commit('setClearUsername');
       this.$store.commit('setToken', '');
+      deleteCookie('auth');
+      deleteCookie('vuestagram_username');
       this.$router.push('/');
     },
     comingSoonAlert(name) {
