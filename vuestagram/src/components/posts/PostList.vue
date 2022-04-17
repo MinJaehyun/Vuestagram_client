@@ -7,8 +7,13 @@
     <div class="post-contents">
       {{ post.contents }}
     </div>
-    <div class="post-created_at">
-      {{ post.created_at }}
+    <div>
+      <div class="post-createdBy">
+        {{ $store.state.username }}
+      </div>
+      <div class="post-created_at">
+        {{ post.created_at }}
+      </div>
     </div>
   </li>
 </template>
