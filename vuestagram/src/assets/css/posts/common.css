@@ -79,6 +79,15 @@ a:hover {
   overflow-y: auto;
   font-size: 18px;
 }
+.post-createdBy{
+  position: relative;
+  /* display: inline; */
+  /* bottom: 0px; */
+  /* right: 5px; */
+  top: 10px;
+  font-size: 14px;
+  color: #9e9e9e;
+}
 .post-created_at {
   position: absolute;
   bottom: 4px;
