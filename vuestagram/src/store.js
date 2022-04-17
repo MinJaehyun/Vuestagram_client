@@ -1,24 +1,24 @@
 import { createStore } from 'vuex';
-import post from './assets/data/post';
-// import axios from 'axios'
+import post from '@/assets/data/post';
+import { getAuthFromCookie, getUserFromCookie } from '@/utils/cookie';
 
 const store = createStore({
   state() {
     return {
+      /** vuestagram */
       name: 'min',
       count: 0,
+      likes: 0,
       more: {},
       post: post,
-      // like, likes 는 vuex 적용
       like: false,
-      // post 가져온다
-      likes: 0,
       visit: true,
       modal: false,
-      // data.user.username
-      username: '',
+
+      /** posts - data.user.username */
       logMessage: '',
-      token: '',
+      username: getUserFromCookie() || '',
+      token: getAuthFromCookie() || '',
     };
   },
   getters: {
