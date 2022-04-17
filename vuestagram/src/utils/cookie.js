@@ -5,7 +5,7 @@ function saveAuthToCookie(value) {
 
 // user save
 function saveUserToCookie(value) {
-  document.cookie = `vuestagram_user=${value}`;
+  document.cookie = `vuestagram_username=${value}`;
 }
 
 // token load
@@ -16,7 +16,7 @@ function getAuthFromCookie() {
 // user load
 function getUserFromCookie() {
   return document.cookie.replace(
-    /(?:(?:^|.*;\s*)vuestagram_user\s*=\s*([^;]*).*$)|^.*$/,
+    /(?:(?:^|.*;\s*)vuestagram_username\s*=\s*([^;]*).*$)|^.*$/,
     '$1',
   );
 }
