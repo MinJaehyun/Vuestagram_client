@@ -51,6 +51,7 @@ export default {
         password: this.password,
       };
       const { data } = await loginUser(userData);
+      // console.log(data.token);
       // 비밀번호 에러
       if (data.err) {
         console.log('data.err: ', data.err);
