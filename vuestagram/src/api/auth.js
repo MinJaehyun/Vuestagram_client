@@ -2,7 +2,7 @@ import { instance } from '@/api/index';
 
 // user 생성
 function registerUser(userData) {
-  return instance.post('auth/signup', userData, { credentials: true }).catch(err => {
+  return instance.post('signup', userData, { credentials: true }).catch(err => {
     return err.response;
   });
 }
