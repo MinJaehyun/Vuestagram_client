@@ -20,6 +20,7 @@
         </button>
       </form>
       <p class="log">{{ $store.state.logMessage }}</p>
+      <p class="log">{{ logMessage }}</p>
     </div>
   </div>
 </template>
@@ -52,6 +53,7 @@ export default {
       const { data } = await loginUser(userData);
       // 비밀번호 에러
       if (data.err) {
+        console.log('data.err: ', data.err);
         this.logMessage = `${data.err}`;
       }
       // 로그인 메시지
