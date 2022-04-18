@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { loginUser } from '@/api/index';
+import { loginUser } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
 import { saveAuthToCookie, saveUserToCookie } from '@/utils/cookie';
 
