@@ -1,8 +1,7 @@
 <template>
   <div class="spinner-container">
-    <div class="spinner" style="font-size: 50px">
-      <!-- loading... -->
-    </div>
+    <div class="spinner" style="font-size: 50px"></div>
+    loading...
   </div>
 </template>
 

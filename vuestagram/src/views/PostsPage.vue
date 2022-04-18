@@ -38,14 +38,14 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.isLoading = true;
       const { data } = await fetchPost();
+      this.isLoading = false;
       this.posts = data.post;
     },
   },
   created() {
-    this.isLoading = true;
     this.fetchData();
-    this.isLoading = false;
   },
 };
 </script>
