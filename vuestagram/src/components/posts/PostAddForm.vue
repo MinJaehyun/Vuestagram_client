@@ -10,7 +10,7 @@
           <!-- FIXME: 분기 처리(css)하기 위해 작성한 하드코딩을 개선하기 -->
           <div v-if="isTitleValid">
             <label for="title">title:<span style="color: red">*required</span></label>
-            <input id="title" type="text" v-model="title" />
+            <input id="title" type="text" v-model="title" class="valid" />
           </div>
           <div v-else>
             <label for="title">title:<span style="color: red">*required</span></label>
@@ -30,7 +30,7 @@
           </p>
         </div>
         <div>
-          <button type="submit" class="btn">create</button>
+          <button :disabled="!title" type="submit" class="btn">create</button>
         </div>
         <p class="log">{{ logMessage }}</p>
       </form>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { postCreate } from '@/api/index';
+import { postCreate } from '@/api/posts';
 
 export default {
   data() {
