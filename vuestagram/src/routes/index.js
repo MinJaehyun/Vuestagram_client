@@ -1,37 +1,39 @@
 // vue-router 라이브러리 { createWebHistory, createRouter } 사용
 import { createWebHistory, createRouter } from 'vue-router';
-import SignupPage from '@/views/SignupPage.vue';
-import LoginPage from '@/views/LoginPage.vue';
-import Section from '@/components/vuestagram/Section.vue';
-import ErrorPage from '@/views/ErrorPage.vue';
-import MainPage from '@/views/MainPage.vue';
-import PostsPage from '@/views/PostsPage.vue';
 
 // routes 설정
 const routes = [
   {
-    path: '/posts',
-    component: PostsPage,
+    path: '/',
+    // redirect: '/main',
+    // component: () => import('@'),
+    // component: MainPage,
+    component: () => import('@/views/MainPage'),
   },
   {
-    path: '/',
-    component: MainPage,
+    path: '/posts/add',
+    component: () => import('@/views/PostAddPage'),
+  },
+  {
+    path: '/posts',
+    component: () => import('@/views/PostsPage'),
   },
   {
     path: '/vuestagram',
-    component: Section,
+    component: () => import('@/components/vuestagram/Section'),
   },
   {
     path: '/auth/signup',
-    component: SignupPage,
+    component: () => import('@/views/SignupPage'),
   },
   {
     path: '/auth/login',
-    component: LoginPage,
+    component: () => import('@/views/LoginPage'),
   },
+  // NOTE: error page 는 views/ 에 존재해야 한다.
   {
     path: '/:anything(.*)',
-    component: ErrorPage,
+    component: () => import('@/views/ErrorPage'),
   },
 ];
 
