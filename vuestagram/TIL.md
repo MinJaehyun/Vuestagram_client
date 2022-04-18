@@ -11,7 +11,7 @@
     * 로그인 하지 않은 user 라도 학습 노트 간단하게 제목, 내용 볼 수 있게 한다면? (...기능)
 
 ### 2022/04/18
-    1. [v] posts - create
+    1. [v] posts - create, delete
     2. css 1차 정리
     3. [v] api/index - auth, posts 로 분류
 
