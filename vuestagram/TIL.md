@@ -13,6 +13,7 @@
 ### 2022/04/18
     1. [v] posts - create
     2. css 1차 정리
+    3. [v] api/index - auth, posts 로 분류
 
 ### 2022/04/17
     1. [v] 새로고침 시, 로그인 풀림
