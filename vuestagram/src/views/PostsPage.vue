@@ -10,6 +10,9 @@
     <ul v-else>
       <PostPage v-for="post in posts" :key="post._id" :post="post"></PostPage>
     </ul>
+    <router-link class="create-button" to="/posts/add">
+      <ion-icon name="add-outline"></ion-icon>
+    </router-link>
   </div>
 </template>
 
