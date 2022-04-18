@@ -39,9 +39,8 @@ export default {
     async deleteItem() {
       try {
         if (confirm('You wanna to delete it?')) {
-          const { data } = await postDelete(this.post._id);
+          await postDelete(this.post._id);
           this.$emit('refresh');
-          console.log(data);
         }
       } catch (error) {
         console.log(error);
