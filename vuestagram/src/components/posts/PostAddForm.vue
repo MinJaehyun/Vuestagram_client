@@ -20,6 +20,9 @@
               제목은 최대 100자까지 입력할 수 있습니다.
             </p>
           </div>
+          <p class="log warning">
+            {{ logMessage }}
+          </p>
         </div>
         <div>
           <label for="contents">contents:</label>
@@ -32,7 +35,6 @@
         <div>
           <button :disabled="!title" type="submit" class="btn">create</button>
         </div>
-        <p class="log">{{ logMessage }}</p>
       </form>
     </div>
   </div>
@@ -82,4 +84,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.log {
+  text-align: right;
+}
+</style>
