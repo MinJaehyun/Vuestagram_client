@@ -64,5 +64,5 @@ export default {
 </script>
 
 <style>
-@import '../../assets/css/container.css';
+@import '../../assets/css/vuestagram/container.css';
 </style>

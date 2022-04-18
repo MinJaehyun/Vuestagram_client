@@ -102,5 +102,5 @@ export default {
 
 <style>
 @import '../../assets/css/app.css';
-@import '../../assets/css/gradient.css';
+@import '../../assets/css/common/gradient.css';
 </style>

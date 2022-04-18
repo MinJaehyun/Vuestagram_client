@@ -15,6 +15,10 @@ export default {
 </script>
 
 <style>
-@import '../../assets/css/explain.css';
-@import '../../assets/css/gradient.css';
+@import '../../assets/css/common/gradient.css';
+.explain {
+  padding: 12px;
+  margin: 15px 12px;
+  text-align: center;
+}
 </style>

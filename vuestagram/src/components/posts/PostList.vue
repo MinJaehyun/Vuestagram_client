@@ -30,5 +30,5 @@ export default {
 </script>
 
 <style>
-@import '../../assets/css/posts/common.css';
+@import '../../assets/css/common.css';
 </style>

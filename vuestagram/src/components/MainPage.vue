@@ -38,5 +38,5 @@ export default {
 </script>
 
 <style>
-@import '../assets/css/gradient.css';
+@import '../assets/css/common/gradient.css';
 </style>

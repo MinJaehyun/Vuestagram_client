@@ -25,5 +25,14 @@ export default {
 };
 </script>
 <style>
-@import '../../assets/css/filterBox.css';
+.filter-item {
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px 10px auto;
+  padding: 3px;
+  display: inline-block;
+  color: white;
+  background-size: cover;
+  background-position: center;
+}
 </style>

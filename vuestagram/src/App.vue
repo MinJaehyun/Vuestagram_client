@@ -19,5 +19,5 @@ export default {
 </script>
 
 <style>
-@import './assets/css/fade.css';
+@import './assets/css/common/fade.css';
 </style>

@@ -141,7 +141,6 @@ export default {
 </script>
 <style>
 @import '../../assets/css/app.css';
-@import '../../assets/css/gradient.css';
 .input__file {
   display: none;
 }

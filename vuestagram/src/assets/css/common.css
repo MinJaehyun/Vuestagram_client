@@ -1,26 +1,56 @@
+body {
+  background: #F7F6F9;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+}
+
+/* .app-contents {
+  height: calc(100% - 64px - 102px);
+} */
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+}
+
 /*--- LINK ---*/
-a {
+/* a {
   color: #364f6b;
   text-decoration: none;
 }
 
 a:hover {
   color: #3fc1c9;
-}
+} */
 
 /*--- LAYOUT ---*/
 .contents {
   max-width: 1020px;
   margin: 0 auto;
   padding: 0 5px;
-  width: 100%;  
+  width: 100%;
 }
 
+/*--- HEADER ---*/
+.page-header {
+  font-size: 45px;
+  font-weight: 600;
+  color: #456155;
+  padding: 30px 5px 15px;
+}
+
+/* .page-header-wrap {} */
+
 /*--- FORM ---*/
-/* .form-container {
+.form-container {
   display: flex;
   align-items: center;
-} */
+}
 .form-wrapper {
   background: white;
   -webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
@@ -32,66 +62,145 @@ a:hover {
   max-width: 500px;
   margin: 40px auto;
 }
-.form {
+.form-wrapper-sm .page-header {
+  padding: 0px 0 20px;
+}
+/* .form {
   width: 460px;
   height: 100%;
+} */
+.form .validation-text {
+  /* margin-top: -0.5rem; */
+  /* margin-bottom: 0.5rem; */
+  /* font-size: 1rem; */
+  display: flex;
+  /* NOTE: flex 형태에서 x 위치 */
+  flex-direction:row;
+  /* justify-content: space-between; */
 }
 .form label {
   width: 100%;
   display: block;
   margin-bottom: 0.5rem;
-  color: #364f6b; /* 약간 어두운 색조의 파랑 */
-  font-size: 90%; /* 중요하지 않으므로 기본 100% 에서 조절 */
+  color: #364f6b;
+  font-size: 90%;
 }
-/* */
 .form input,
 .form textarea {
-  font-family: Georgia;  /* inherit*/
+  font-family: inherit;
   font-size: 100%;
-  width: 100%;  /* form 박스 넓이에 맞게 조절 */
+  width: 100%;
   border: 1px solid #dae1e7;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   padding: 0.5rem 0.75rem;
   margin-bottom: 1rem;
 }
-
-/* TODO: validation 작성 후 처리하기 */
-/* .form .validation-text {
-	margin-top: -0.5rem;
-	margin-bottom: 0.5rem;
-	font-size: 1rem;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-} */
-/* .form input.valid {
+.form input.valid {
   border: 1px solid #21b314;
-} */
-/* .form input.invalid {
+}
+.form input.invalid {
   border: 1px solid red;
-} */
-
-/* .form div:nth-child(3) */
-.form div:nth-last-child(2) { 
+}
+/* === .form div:nth-child(3) */
+.form div:nth-last-child(2) {
   margin-bottom: 0.5rem;
 }
-.signupBtn, .loginBtn {
+.btn {
+  background: #7f668a;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  border-radius: .25rem;
+  border: 0 solid #dae1e7;
+  color: white
+}
+.signupBtn,
+.loginBtn {
   background: #FE9616;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
   border-radius: 0.25rem;
-  border: 0 solid #dae1e7; 
+  border: 0 solid #dae1e7;
   margin-bottom: 1.5rem;
 }
-/* .signupBtn.disabled {
+.btn.disabled {
   opacity: 0.5;
   cursor: not-allowed;
-} */
-.log {
-  color: #ff4057;
-  font-size: 1.2rem;
-  text-align: center;
 }
-/* .warning {
+/* .log {
   color: #ff4057;
+  font-size: 1rem;
+  text-align: center;
 } */
+.warning {
+  color: #ff4057;
+}
+
+
+/*--- LIST ---*/
+.list-container {
+  padding-top: 13px;
+}
+.list-container.sticky {
+  margin-top: 76px;
+}
+.list-container>ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container>ul>li {
+  position: relative;
+  flex-grow: 1;
+  width: 320px;
+  height: 250px;
+  margin: 7px;
+  padding: 10px 20px;
+  background: rgb(235, 228, 228);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+.post-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.post-contents {
+  height: 160px;
+  overflow-y: auto;
+  font-size: 18px;
+}
+.post-createdBy{
+  position: relative;
+  /* display: inline; */
+  /* bottom: 0px; */
+  /* right: 5px; */
+  top: 10px;
+  font-size: 14px;
+  color: #9e9e9e;
+}
+.post-created_at {
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+  font-size: 14px;
+  color: #9e9e9e;
+}
+
+.create-button {
+  /** circle setup */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
+  /** + style setup */
+  display: flex;
+  /* NOTE: 세로 중앙 정렬 */
+  align-items:center; 
+  /* NOTE: 가로 중앙 정렬 */
+  justify-content: center;
+  color: white;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #7f668a;
+  border: 3px solid white;
+}

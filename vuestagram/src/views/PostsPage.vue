@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import PostPage from '../components/posts/PostList.vue';
+import PostPage from '@/components/posts/PostList.vue';
 import { fetchPost } from '@/api/index';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 
@@ -44,5 +44,6 @@ export default {
 </script>
 
 <style>
-@import '../assets/css/posts/common.css';
+@import '../assets/css/common.css';
+@import '../assets/css/common/gradient.css';
 </style>

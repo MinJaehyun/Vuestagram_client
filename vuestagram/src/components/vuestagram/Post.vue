@@ -40,7 +40,6 @@ export default {
 };
 </script>
 <style>
-@import '../../assets/css/gradient.css';
-@import '../../assets/css/post.css';
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Source+Sans+Pro&display=swap');
+@import '../../assets/css/common/gradient.css';
+@import '../../assets/css/vuestagram/post.css';
 </style>
