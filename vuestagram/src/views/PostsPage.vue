@@ -8,7 +8,12 @@
     <LoadingSpinner v-if="isLoading"></LoadingSpinner>
     <!-- ul 로 views/ 안에 components 를 감싼다 -->
     <ul v-else>
-      <PostPage v-for="post in posts" :key="post._id" :post="post"></PostPage>
+      <PostPage
+        v-for="post in posts"
+        :key="post._id"
+        :post="post"
+        @refresh="fetchData"
+      ></PostPage>
     </ul>
     <div v-if="$store.state.username">
       <router-link class="create-button" to="/posts/add">
