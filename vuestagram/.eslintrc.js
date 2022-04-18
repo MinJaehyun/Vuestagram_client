@@ -12,6 +12,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
+    // NOTE: 아래 2개 설정하여 router/index 의 import parsing error 해결
+    extends: 'standard',
+    parser: 'babel-eslint',
   },
   plugins: ['vue'],
   rules: {
