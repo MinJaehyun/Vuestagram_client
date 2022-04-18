@@ -40,5 +40,10 @@ function fetchPost() {
 }
 
 // post 생성
+function postCreate(postData) {
+  return postsInstance.post('posts', postData).catch(err => {
+    return err.response;
+  });
+}
 
-export { registerUser, loginUser, fetchPost };
+export { registerUser, loginUser, fetchPost, postCreate };
