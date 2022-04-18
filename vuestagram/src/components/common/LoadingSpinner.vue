@@ -1,7 +1,7 @@
 <template>
   <div class="spinner-container">
-    <div class="spinner" style="font-size: 50px"></div>
-    loading...
+    <div class="spinner"></div>
+    <h4 class="gradient">Loading...</h4>
   </div>
 </template>
 
@@ -9,8 +9,10 @@
 export default {};
 </script>
 
-<style scoped>
+<style>
+/* .spinner-container{} */
 .spinner {
+  font-size: 50px;
   width: 50px;
   height: 50px;
   position: relative;

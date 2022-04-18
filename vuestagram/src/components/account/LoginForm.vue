@@ -1,6 +1,7 @@
 <template>
   <div class="contents">
-    <div class="form-wrapper form-wrapper-sm">
+    <LoadingSpinner v-if="isLoading" />
+    <div v-else class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
         <div>
           <label for="username">id:<span style="color: red">*required</span></label>
@@ -29,14 +30,17 @@
 import { loginUser } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
 import { saveAuthToCookie, saveUserToCookie } from '@/utils/cookie';
+import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 
 export default {
+  components: { LoadingSpinner },
   name: 'LoginForm',
   data() {
     return {
       username: '',
       password: '',
       logMessage: '',
+      isLoading: false,
     };
   },
   computed: {
@@ -46,6 +50,7 @@ export default {
   },
   methods: {
     async submitForm() {
+      this.isLoading = true;
       const userData = {
         username: this.username,
         password: this.password,
@@ -67,6 +72,7 @@ export default {
         this.$router.push('/');
         this.initForm();
       }
+      this.isLoading = false;
     },
     initForm() {
       this.username = '';
@@ -76,6 +82,29 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import '../../assets/css/common.css';
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 240px;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid #e0e0e0;
+  border-bottom: 5px solid #fe9616;
+  animation: spin 1s linear infinite;
+  position: relative;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>
