@@ -1,49 +1,21 @@
 import axios from 'axios';
 import { setInterceptors } from './common/interceptor';
 
-// user 전용 미인증된 axios
-function createInstance() {
+// 미인증된 user axios
+function createInstance(url) {
   return axios.create({
-    baseURL: process.env.VUE_APP_API_URL,
-  });
-}
-const instance = createInstance();
-
-// user 생성
-function registerUser(userData) {
-  return instance.post('auth/signup', userData, { credentials: true }).catch(err => {
-    return err.response;
+    baseURL: `${process.env.VUE_APP_API_URL}${url}`,
   });
 }
 
-// user 로그인
-function loginUser(userData) {
-  return instance.post('auth/login', userData).catch(err => {
-    return err.response;
-  });
-}
-
-// 인증된 user 를 위한 posts
-function createInstanceWithAuth() {
+// 인증된 posts axios
+function createInstanceWithAuth(url) {
   const instance = axios.create({
-    baseURL: process.env.VUE_APP_API_URL,
+    baseURL: `${process.env.VUE_APP_API_URL}${url}`,
   });
   return setInterceptors(instance);
 }
-const postsInstance = createInstanceWithAuth();
 
-// post 조회
-function fetchPost() {
-  return postsInstance.get('posts').catch(err => {
-    return err.response;
-  });
-}
-
-// post 생성
-function postCreate(postData) {
-  return postsInstance.post('posts', postData).catch(err => {
-    return err.response;
-  });
-}
-
-export { registerUser, loginUser, fetchPost, postCreate };
+// NOTE: '/' 안 넣어도 된다
+export const instance = createInstance('auth');
+export const postsInstance = createInstanceWithAuth('posts');
