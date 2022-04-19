@@ -6,24 +6,22 @@
     <div class="form-wrapper">
       <!-- form -->
       <form class="form" @submit.prevent="submitPost">
-        <div>
-          <!-- FIXME: 분기 처리(css)하기 위해 작성한 하드코딩을 개선하기 -->
-          <div v-if="isTitleValid">
-            <label for="title">title:<span style="color: red">*required</span></label>
-            <input id="title" type="text" v-model="title" class="valid" />
-          </div>
-          <div v-else>
-            <label for="title">title:<span style="color: red">*required</span></label>
-            <input id="title" type="text" v-model="title" class="invalid" />
-            <p v-if="!isTitleValid" class="validation-text">
-              <span class="warning">!</span>
-              제목은 최대 100자까지 입력할 수 있습니다.
-            </p>
-          </div>
-          <p class="log warning">
-            {{ logMessage }}
+        <!-- FIXME: 분기 처리(css)하기 위해 작성한 하드코딩을 개선하기 -->
+        <div v-if="isTitleValid">
+          <label for="title">title:<span style="color: red">*required</span></label>
+          <input id="title" type="text" v-model="title" class="valid" />
+        </div>
+        <div v-else>
+          <label for="title">title:<span style="color: red">*required</span></label>
+          <input id="title" type="text" v-model="title" class="invalid" />
+          <p v-if="!isTitleValid" class="validation-text">
+            <span class="warning">!</span>
+            제목은 최대 100자까지 입력할 수 있습니다.
           </p>
         </div>
+        <p class="log warning">
+          {{ logMessage }}
+        </p>
         <div>
           <label for="contents">contents:</label>
           <textarea id="contents" rows="5" cols="" v-model="contents"></textarea>
@@ -32,9 +30,7 @@
             내용은 최대 3000자까지 입력할 수 있습니다.
           </p>
         </div>
-        <div>
-          <button :disabled="!title" type="submit" class="btn">create</button>
-        </div>
+        <button :disabled="!title" type="submit" class="btn">create</button>
       </form>
     </div>
   </div>
