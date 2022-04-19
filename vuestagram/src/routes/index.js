@@ -11,12 +11,12 @@ const routes = [
     component: () => import('@/views/MainPage'),
   },
   {
-    path: '/posts/add',
-    component: () => import('@/views/PostAddPage'),
-  },
-  {
     path: '/posts',
     component: () => import('@/views/PostsPage'),
+  },
+  {
+    path: '/posts/:id',
+    component: () => import('@/views/PostsEditPage'),
   },
   {
     path: '/vuestagram',

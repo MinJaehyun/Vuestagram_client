@@ -25,7 +25,7 @@
 
 <script>
 import PostPage from '@/components/posts/PostList.vue';
-import { fetchPost } from '@/api/posts';
+import { fetchPosts } from '@/api/posts';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 
 export default {
@@ -39,7 +39,7 @@ export default {
   methods: {
     async fetchData() {
       this.isLoading = true;
-      const { data } = await fetchPost();
+      const { data } = await fetchPosts();
       this.isLoading = false;
       this.posts = data.post;
     },

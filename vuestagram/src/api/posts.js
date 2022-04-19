@@ -1,7 +1,7 @@
 import { postsInstance } from '@/api/index';
 
 // post 조회
-function fetchPost() {
+function fetchPosts() {
   return postsInstance.get('').catch(err => {
     return err.response;
   });
@@ -21,4 +21,18 @@ function postDelete(id) {
   });
 }
 
-export { fetchPost, postCreate, postDelete };
+// post 조회
+function fetchPost(postId) {
+  return postsInstance.get(postId).catch(err => {
+    return err.response;
+  });
+}
+
+// post 변경
+function postUpdate(postId, updateData) {
+  return postsInstance.put(postId, updateData).catch(err => {
+    return err.response;
+  });
+}
+
+export { fetchPosts, fetchPost, postCreate, postDelete, postUpdate };
