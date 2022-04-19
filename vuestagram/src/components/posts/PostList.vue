@@ -14,10 +14,14 @@
       <div class="post-created_at">
         {{ post.created_at }}
         <!-- icon -->
-        <ion-icon name="create-sharp" style="padding: 0px 12px; color: black"></ion-icon>
+        <ion-icon
+          name="create-sharp"
+          style="padding: 0px 12px; color: black; cursor: pointer"
+          @click="routerEditPage()"
+        ></ion-icon>
         <ion-icon
           name="trash-outline"
-          style="color: black"
+          style="color: black; cursor: pointer"
           @click="deleteItem"
         ></ion-icon>
       </div>
@@ -41,6 +45,9 @@ export default {
         await postDelete(this.post._id);
         this.$emit('refresh');
       }
+    },
+    routerEditPage() {
+      this.$router.push(`/posts/${this.post._id}`);
     },
   },
 };
