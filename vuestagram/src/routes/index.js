@@ -6,9 +6,13 @@ const routes = [
   {
     path: '/',
     // redirect: '/main',
-    // component: () => import('@'),
     // component: MainPage,
+    // component: () => import('@'),
     component: () => import('@/views/MainPage'),
+  },
+  {
+    path: '/posts/:id',
+    component: () => import('@/views/PostEditPage'),
   },
   {
     path: '/posts/add',

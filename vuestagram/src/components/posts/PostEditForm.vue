@@ -1,12 +1,12 @@
 <template>
   <!-- contents -->
   <div class="contents">
-    <h1 class="page-header">Create post</h1>
+    <h1 class="page-header">Edit post</h1>
     <!-- form-wrapper -->
     <div class="form-wrapper">
       <!-- form -->
       <form class="form" @submit.prevent="submitPost">
-        <!-- FIXME: 분기 처리(css)하기 위해 작성한 하드코딩을 개선하기 -->
+        <!-- FIXME: 하드코딩 개선하기 -->
         <div v-if="isTitleValid">
           <label for="title">title:<span style="color: red">*required</span></label>
           <input id="title" type="text" v-model="title" class="valid" />
@@ -30,14 +30,14 @@
             내용은 최대 3000자까지 입력할 수 있습니다.
           </p>
         </div>
-        <button :disabled="!title" type="submit" class="btn">create</button>
+        <button :disabled="!title" type="submit" class="btn">update</button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import { postCreate } from '@/api/posts';
+import { fetchPost, editPost } from '@/api/posts';
 
 export default {
   data() {
@@ -48,34 +48,36 @@ export default {
     };
   },
   computed: {
-    // 100글자 이하면 true
     isTitleValid() {
       return this.title.length <= 100;
     },
     isContentsValid() {
-      // 3천자 이하면 true
       return this.contents.length <= 3000;
     },
   },
   methods: {
     async submitPost() {
+      const postId = this.$route.params.id;
       try {
-        const postData = {
+        // editPost api 요청
+        await editPost(postId, {
           title: this.title,
           contents: this.contents,
-        };
-        // const { data } = axios.post('http://localhost:3000/posts/', postData);
-        const { data } = await postCreate(postData);
-        if (!data.message) {
-          this.logMessage = `${data.data.title} 을 생성하셨습니다.`;
-          this.$router.push('/posts');
-        } else {
-          this.logMessage = data.message;
-        }
+        });
+        this.$router.push('/posts');
       } catch (error) {
-        console.log('error', error);
+        console.log(error);
+        this.logMessage = error;
       }
     },
+  },
+  async created() {
+    // fetchPost api 요청
+    const postId = this.$route.params.id;
+    const { data } = await fetchPost(postId);
+    // 이 전 데이터 가져오기
+    this.title = data._doc.title;
+    this.contents = data._doc.contents;
   },
 };
 </script>
