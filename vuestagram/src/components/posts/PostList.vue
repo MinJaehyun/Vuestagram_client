@@ -12,7 +12,8 @@
         {{ $store.state.username }}
       </div>
       <div class="post-created_at">
-        {{ post.created_at }}
+        <!-- {{ post.created_at 을 filter 처리함 }} -->
+        {{ setDate(post.created_at) }}
         <!-- icon -->
         <ion-icon
           name="create-sharp"
@@ -31,6 +32,7 @@
 
 <script>
 import { postDelete } from '@/api/posts';
+import { postCreatedAtData } from '@/utils/filters';
 
 export default {
   props: {
@@ -39,6 +41,7 @@ export default {
       required: true,
     },
   },
+  computed: {},
   methods: {
     async deleteItem() {
       if (confirm('You wanna to delete it?')) {
@@ -48,6 +51,10 @@ export default {
     },
     routerEditPage() {
       this.$router.push(`/posts/${this.post._id}`);
+    },
+    // vue3 방식: filter 대신 computed or method 호출로 대체됨
+    setDate(value) {
+      return postCreatedAtData(value);
     },
   },
 };
