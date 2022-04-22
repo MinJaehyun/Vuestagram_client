@@ -15,9 +15,9 @@
     </div>
     <!-- TIL -->
     <div class="card" style="width: 18rem; margin: 30px 30px">
-      <img src="@/assets/image/image.png" class="card-img-top" alt="" />
+      <img src="@/assets/image/TIL.gif" class="card-img-top" alt="" />
       <div class="card-body">
-        <h5 class="card-title gradient">TIL</h5>
+        <h5 class="card-title card-body-top gradient">TIL</h5>
         <p class="card-text">매일 학습 내용을 간편하게 기록합니다.</p>
         <router-link to="/posts" class="btn btn-outline-success"
           >TIL 이동하기</router-link
@@ -37,6 +37,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import '../assets/css/common/gradient.css';
+.card-body-top {
+  margin-top: 88px;
+  margin-bottom: 32px;
+}
 </style>
