@@ -25,8 +25,8 @@
           로그인
         </button>
       </form>
-      <p class="log">{{ $store.state.logMessage }}</p>
-      <p class="log">{{ logMessage }}</p>
+      <p class="log" v-if="logMessage">{{ logMessage }}</p>
+      <p class="log" v-else>{{ $store.state.logMessage }}</p>
     </div>
   </div>
 </template>
