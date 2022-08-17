@@ -4,7 +4,12 @@
     <div v-else class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
         <div>
-          <label for="username">id:<span style="color: red">*required</span></label>
+          <label for="username"
+            >id:<span style="color: red">*required</span>
+            <span v-if="!isUsernameValid">
+              email@xxx.com 형식을 제대로 입력해 주세요</span
+            >
+          </label>
           <input
             type="text"
             id="username"
