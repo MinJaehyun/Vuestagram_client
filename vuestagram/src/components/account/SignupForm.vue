@@ -19,7 +19,7 @@
         </div>
         <div>
           <label for="password">pw:<span style="color: red">*required</span></label>
-          <input type="text" id="password" v-model="password" />
+          <input type="password" id="password" v-model="password" />
         </div>
         <div>
           <label for="nickname">nickname: </label>
