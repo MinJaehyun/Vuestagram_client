@@ -2,6 +2,7 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": false,  // 대소문자 구분있게 파일의 상태가 다르면 다르게 구분하는 설정,
     "baseUrl": ".",
+    "jsx": "preserve",
     "paths": {
       "~/*": [                                  // 절대 경로 설정
         "./*"
@@ -9,7 +10,7 @@
       "@/*": [                                  // 절대 경로 설정
         "./src/*"
       ],
-    }
+    },
   },
   "exclude": [                                  // 제외할 파일
     "node_modules",
