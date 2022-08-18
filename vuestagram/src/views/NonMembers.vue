@@ -37,7 +37,8 @@ export default {
       this.isLoading = true;
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}findAll`);
       this.isLoading = false;
-      console.log(data.findAll);
+      console.log('data', data);
+      console.log('data.findAll', data.findAll);
       this.posts = data.findAll;
     },
   },
