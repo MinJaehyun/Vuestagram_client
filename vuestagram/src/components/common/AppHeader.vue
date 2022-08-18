@@ -1,14 +1,14 @@
 <template>
   <div class="navbar">
     <div class="navbar__logo">
-      <router-link to="/" class="gradient">NOTE</router-link>
+      <router-link to="/" class="gradient">HOME</router-link>
     </div>
     <ul style="margin: 8px; line-height: 0px" class="navbar__menu">
       <li>
         <router-link to="/findAll" class="gradient"> 전체 노트&nbsp; | </router-link>
       </li>
       <li>
-        <router-link to="/posts" class="gradient">&nbsp;&nbsp;내 노트 </router-link>
+        <router-link to="/posts" class="gradient">&nbsp;&nbsp;개인 노트 </router-link>
       </li>
       <li>
         <!-- search icon -->
