@@ -45,8 +45,8 @@ export default {
           return err.response;
         });
       this.isLoading = false;
-      console.log('data', data);
-      console.log('data.findAll', data.findAll);
+      // console.log('data', data);
+      // console.log('data.findAll', data.findAll);
       this.posts = data.findAll;
       this.posts.reverse();
     },
