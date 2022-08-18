@@ -38,7 +38,7 @@ export default {
       const { data } = await axios
         .create({
           // baseURL: `${process.env.VUE_APP_API_URL}findAll`, // 개발 모드
-          baseURL: `https://jovial-goldstine-f5cfd7.netlify.app/findAll`, // 배포 모드
+          baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 모드
         })
         .get('')
         .catch(err => {
