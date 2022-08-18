@@ -37,8 +37,8 @@ export default {
       this.isLoading = true;
       const { data } = await axios
         .create({
-          // baseURL: `${process.env.VUE_APP_API_URL}findAll`, // 개발 모드
-          baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 모드
+          baseURL: `${process.env.VUE_APP_API_URL}findAll`,
+          // baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 모드
         })
         .get('')
         .catch(err => {
