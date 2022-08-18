@@ -46,6 +46,8 @@ export default {
       const { data } = await fetchPosts();
       this.isLoading = false;
       this.posts = data.post;
+      // console.log(JSON.parse(JSON.stringify(this.posts)));
+      this.posts.reverse();
     },
   },
   created() {

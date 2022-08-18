@@ -38,7 +38,7 @@ export default {
       const { data } = await axios
         .create({
           baseURL: `${process.env.VUE_APP_API_URL}findAll`,
-          // baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 모드
+          // baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 URL
         })
         .get('')
         .catch(err => {
@@ -48,6 +48,7 @@ export default {
       console.log('data', data);
       console.log('data.findAll', data.findAll);
       this.posts = data.findAll;
+      this.posts.reverse();
     },
   },
   created() {
