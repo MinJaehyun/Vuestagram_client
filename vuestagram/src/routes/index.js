@@ -11,6 +11,10 @@ const routes = [
     component: () => import('@/views/MainPage'),
   },
   {
+    path: '/findAll',
+    component: () => import('@/views/NonMembers'),
+  },
+  {
     path: '/posts/:id',
     component: () => import('@/views/PostEditPage'),
   },
