@@ -9,7 +9,9 @@
     </div>
     <div>
       <div class="post-createdBy">
-        {{ $store.state.username }}
+        <!-- 변경 전: {{ $store.state.username }} -->
+        <!-- 변경 후: 로그인 한 username 이 아닌, 작성한 username 가져오기 -->
+        {{ post.createdBy.username }}
       </div>
       <div class="post-created_at">
         <!-- {{ post.created_at 을 filter 처리함 }} -->
