@@ -35,7 +35,14 @@ export default {
   methods: {
     async fetchData() {
       this.isLoading = true;
-      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}findAll`);
+      const { data } = await axios
+        .create({
+          baseURL: `${process.env.VUE_APP_API_URL}findAll`,
+        })
+        .get('')
+        .catch(err => {
+          return err.response;
+        });
       this.isLoading = false;
       console.log('data', data);
       console.log('data.findAll', data.findAll);
