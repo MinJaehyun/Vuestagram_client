@@ -1,26 +1,18 @@
 <template>
   <div class="navbar">
     <div class="navbar__logo">
-      <router-link to="/" class="gradient">Vuestagram</router-link>
+      <router-link to="/" class="gradient">NOTE</router-link>
     </div>
     <ul style="margin: 8px; line-height: 0px" class="navbar__menu">
       <li>
-        <!-- vuestagram icon -->
-        <router-link to="/vuestagram">
-          <ion-icon size="large" name="logo-instagram"></ion-icon>
-        </router-link>
+        <router-link to="/findAll" class="gradient"> 전체 노트&nbsp; | </router-link>
       </li>
-      <!-- TIL icon -->
-      <!-- @click="comingSoonAlert('TIL')" -->
       <li>
-        <router-link to="/posts">
-          <ion-icon name="code-slash-outline"></ion-icon>
-        </router-link>
+        <router-link to="/posts" class="gradient">&nbsp;&nbsp;내 노트 </router-link>
       </li>
       <li>
         <!-- search icon -->
-        <ion-icon @click="comingSoonAlert('search')" size="large" name="search-outline">
-        </ion-icon>
+        <!-- <ion-icon @click="comingSoonAlert('search')" size="large" name="search-outline"></ion-icon> -->
       </li>
     </ul>
     <div class="navbar__account gradient" style="padding: 8px 12px">
