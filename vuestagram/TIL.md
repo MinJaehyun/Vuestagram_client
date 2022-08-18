@@ -17,6 +17,7 @@
       - client 에서 모든 객체 가져오는건 비효율적이므로, server populate 설정걸어서 가져오기
       - [v] 배포 완료 (잘못된 .env.production URL 수정)
     2. [v] 전체 노트 / 개별 노트 분리해서 사용하기 위한 UI 구상하기
+    3. [v] 등록한 게시글 위에서부터 나타내기
 
 ### 2022/08/17
     1. [v] SignupForm.vue, LoginForm.vue
