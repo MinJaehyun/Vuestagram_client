@@ -15,12 +15,12 @@
     <LoadingSpinner v-if="isLoading"></LoadingSpinner>
     <!-- ul 로 views/ 안에 components 를 감싼다 -->
     <ul v-else>
-      <PostPage
+      <PostList
         v-for="post in posts"
         :key="post._id"
         :post="post"
         @refresh="fetchData"
-      ></PostPage>
+      ></PostList>
     </ul>
     <div v-if="$store.state.username">
       <router-link class="create-button" to="/posts/add">
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import PostPage from '@/components/posts/PostList.vue';
+import PostList from '@/components/posts/PostList.vue';
 import { fetchPosts } from '@/api/posts';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 
 export default {
-  components: { PostPage, LoadingSpinner },
+  components: { PostList, LoadingSpinner },
   data() {
     return {
       posts: [],
