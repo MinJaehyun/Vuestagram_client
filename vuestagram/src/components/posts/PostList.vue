@@ -1,7 +1,7 @@
 <template>
   <!-- ul>li>div 로 감싸고, class 입히기 -->
   <li>
-    <div class="post-title">
+    <div class="post-title" @click="routerEditPage()" style="cursor: pointer">
       {{ post.title }}
     </div>
     <div class="post-contents">
