@@ -5,10 +5,10 @@
     </div>
     <ul style="margin: 8px; line-height: 0px" class="navbar__menu">
       <li>
-        <router-link to="/findAll" class="gradient"> 전체 노트&nbsp; | </router-link>
+        <router-link to="/findAll" class="gradient"> all&nbsp; | </router-link>
       </li>
       <li>
-        <router-link to="/posts" class="gradient">&nbsp;&nbsp;개인 노트 </router-link>
+        <router-link to="/posts" class="gradient">&nbsp;&nbsp;my </router-link>
       </li>
       <li>
         <!-- search icon -->
