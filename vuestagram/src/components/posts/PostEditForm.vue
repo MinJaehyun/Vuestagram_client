@@ -31,6 +31,7 @@
           </p>
         </div>
         <button :disabled="!title" type="submit" class="btn">update</button>
+        <button type="submit" class="btn" style="margin-left: 782px">cancel</button>
       </form>
     </div>
   </div>

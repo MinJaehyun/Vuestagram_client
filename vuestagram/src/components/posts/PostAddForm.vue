@@ -6,7 +6,7 @@
     <div class="form-wrapper">
       <!-- form -->
       <form class="form" @submit.prevent="submitPost">
-        <!-- FIXME: 분기 처리(css)하기 위해 작성한 하드코딩을 개선하기 -->
+        <!-- FIXME: 하드코딩된 분기 처리(css) 개선하기 -->
         <div v-if="isTitleValid">
           <label for="title">title:<span style="color: red">*required</span></label>
           <input id="title" type="text" v-model="title" class="valid" />
@@ -31,6 +31,10 @@
           </p>
         </div>
         <button :disabled="!title" type="submit" class="btn">create</button>
+        <!-- $router.go(-1) 이전 페이지로 돌아가기 -->
+        <button @click="$router.go(-1)" class="btn" style="margin-left: 782px">
+          cancel
+        </button>
       </form>
     </div>
   </div>
