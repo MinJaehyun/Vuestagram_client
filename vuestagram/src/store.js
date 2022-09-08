@@ -14,6 +14,7 @@ const store = createStore({
       like: false,
       visit: true,
       modal: false,
+      selectFilter: '',
 
       /** posts - data.user.username */
       logMessage: '',
@@ -63,6 +64,11 @@ const store = createStore({
     //   state.more = data;
     //   console.log(state.more);
     // }
+
+    // FilterBox.vue - fire()
+    setSelectFilter(state, filter) {
+      state.selectFilter = filter;
+    },
   },
   actions: {
     HELLO_SET_TIMEOUT({ commit }) {

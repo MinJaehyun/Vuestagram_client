@@ -40,13 +40,7 @@
         </div>
       </div>
       <!-- Container component -->
-      <Container
-        :selectFilter="selectFilter"
-        :post="post"
-        :step="step"
-        :url="url"
-        @uploadText="content = $event"
-      />
+      <Container :post="post" :step="step" :url="url" @uploadText="content = $event" />
       <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
         <button @click="morePost" class="btn btn-outline-success">
@@ -76,15 +70,9 @@ export default {
       step: 0,
       post: post,
       count: 0,
-      selectFilter: '',
       tag: '',
       isLoading: false,
     };
-  },
-  mounted() {
-    this.emitter.on('clickBox', result => {
-      this.selectFilter = result; // selectFilter 에는 _1977 들어있는 상태
-    });
   },
   methods: {
     async morePost() {
@@ -129,7 +117,7 @@ export default {
         date: new Date().toLocaleString(),
         liked: false,
         content: this.content,
-        filter: this.selectFilter,
+        filter: this.$store.state.selectFilter,
         tag: this.tag,
       };
       this.post.unshift(uploadPost);

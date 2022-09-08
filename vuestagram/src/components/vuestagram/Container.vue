@@ -8,7 +8,7 @@
     <!-- 필터선택 step 1 -->
     <div v-if="step == 1">
       <div
-        :class="selectFilter"
+        :class="this.$store.state.selectFilter"
         class="upload-image"
         :style="{ backgroundImage: `url(${url})` }"
       ></div>
@@ -26,7 +26,7 @@
     <!-- 글 작성 step 2 -->
     <div v-if="step == 2">
       <div
-        :class="selectFilter"
+        :class="this.$store.state.selectFilter"
         class="upload-image"
         :style="{ backgroundImage: `url(${url})` }"
       ></div>
@@ -58,7 +58,6 @@ export default {
     post: Array,
     step: Number,
     url: String,
-    selectFilter: String,
   },
 };
 </script>

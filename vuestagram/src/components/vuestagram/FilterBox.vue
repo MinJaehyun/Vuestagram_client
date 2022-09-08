@@ -18,8 +18,9 @@ export default {
   },
   methods: {
     fire() {
-      // NOTE: emitter 사용하여, depth 가 2단계 이상이거나 같은 depth 라인에게 값을 넘길 수 있다.
-      this.emitter.emit('clickBox', this.filter);
+      // 변경 전: emitter 으로 depth 2단계 이상 또는 같은 depth 에게 값 넘김: this.emitter.emit('clickBox', this.filter);
+      // 변경 후: vuex 적용
+      this.$store.commit('setSelectFilter', this.filter);
     },
   },
 };
