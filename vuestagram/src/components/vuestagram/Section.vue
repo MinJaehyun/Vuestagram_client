@@ -39,18 +39,18 @@
           </ul>
         </div>
       </div>
+
       <!-- Container -->
       <Container :step="step" :url="url" />
-      <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
-        <button @click="morePost" class="btn btn-outline-success">
-          <!-- TODO: vuex: <button @click="$store.dispatch('getData')">  -->
+        <button @click="$store.dispatch('getData')" class="btn btn-outline-success">
           게시글 더보기
         </button>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import Container from '@/components/vuestagram/Container.vue';
 import Explain from '@/components/vuestagram/Explain.vue';
@@ -76,21 +76,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
-    async morePost() {
-      try {
-        // TODO: actions 적용하기
-        const post = await this.axios.get(
-          `https://minjaehyun.github.io/Vuestagram_client/vuestagram/src/assets/data/more${this
-            .count++}.json`,
-        );
-        // 변경 후: $store 의 state 변경하는 mutations 함수 만들기
-        // 변경 후: this.$store.commit('setMorePost', post.data);
-        this.setMorePost(post.data);
-      } catch (error) {
-        console.log(error.response.data);
-        alert('더 이상 게시물이 존재하지 않습니다.');
-      }
-    },
+    // tensorflow 적용
     async upload(e) {
       this.isLoading = true;
       let file = e.target.files[0];
@@ -109,6 +95,7 @@ export default {
       this.isLoading = false;
       this.step = 1;
     },
+    // 발행
     publish() {
       var uploadPost = {
         name: 'tester',
