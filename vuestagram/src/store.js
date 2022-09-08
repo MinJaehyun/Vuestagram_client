@@ -15,6 +15,7 @@ const store = createStore({
       visit: true,
       modal: false,
       selectFilter: '',
+      content: '',
 
       /** posts - data.user.username */
       logMessage: '',
@@ -77,6 +78,10 @@ const store = createStore({
     // vuestagram - Section.vue - morePost()
     setMorePost(state, moreData) {
       state.post = state.post.concat(moreData);
+    },
+    // vuestagram - Container.vue - html
+    setUploadText(state, event) {
+      state.content = event;
     },
   },
   actions: {
