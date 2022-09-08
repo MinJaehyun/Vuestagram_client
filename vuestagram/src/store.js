@@ -41,6 +41,7 @@ const store = createStore({
     setUsername(state, username) {
       state.username = username;
     },
+    // vuestagram - Section.vue - publish()
     modalChange(state, boolean) {
       state.modal = boolean;
     },
@@ -65,9 +66,17 @@ const store = createStore({
     //   console.log(state.more);
     // }
 
-    // FilterBox.vue - fire()
+    // vuestagram - FilterBox.vue - fire()
     setSelectFilter(state, filter) {
       state.selectFilter = filter;
+    },
+    // vuestagram - Section.vue - publish()
+    setUpload(state, uploadData) {
+      state.post.unshift(uploadData);
+    },
+    // vuestagram - Section.vue - morePost()
+    setMorePost(state, moreData) {
+      state.post = state.post.concat(moreData);
     },
   },
   actions: {
