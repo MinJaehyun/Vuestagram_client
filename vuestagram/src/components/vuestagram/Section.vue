@@ -13,7 +13,7 @@
       </ul>
     </div>
     <!-- Explain component -->
-    <Explain v-if="$store.state.visit == true" />
+    <Explain v-if="visit == true" />
 
     <!-- POST -->
     <div class="app">
@@ -40,7 +40,7 @@
         </div>
       </div>
       <!-- Container component -->
-      <Container :post="post" :step="step" :url="url" @uploadText="content = $event" />
+      <Container :step="step" :url="url" @uploadText="content = $event" />
       <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
         <button @click="morePost" class="btn btn-outline-success">
@@ -55,10 +55,10 @@
 import Container from '@/components/vuestagram/Container.vue';
 import Explain from '@/components/vuestagram/Explain.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
-import post from '@/assets/data/post';
 import axios from 'axios';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'SectionApp',
@@ -68,22 +68,35 @@ export default {
       content: '',
       url: '',
       step: 0,
-      post: post,
       count: 0,
       tag: '',
       isLoading: false,
     };
   },
+  computed: {
+    ...mapState(['visit', 'post', 'selectFilter']),
+  },
   methods: {
+    ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
     async morePost() {
       try {
+        // TODO: vuex 적용하기
         const post = await axios.get(
           // `https://minjaehyun.github.io/vue/more${this.count++}.json`
           // https://github.com/MinJaehyun/Vuestagram_client/blob/main/vuestagram/src/assets/data/more0.json
           `https://minjaehyun.github.io/Vuestagram_client/vuestagram/src/assets/data/more${this
             .count++}.json`,
         );
-        this.post = this.post.concat(post.data); // concat 사용하여 배열안에 배열을 풀어 넣음
+        // 변경 전 test
+        // console.log(this.post); // proxy
+        // console.log(JSON.parse(JSON.stringify(this.post))); // [{…}, {…}, {…}]
+        // const originPost = JSON.parse(JSON.stringify(this.post));
+        // console.log('post.data: ', post.data); //  [{…}, {…}, {…}]
+        // this.$store.state.post = originPost.concat(post.data);  // 성공
+
+        // 변경 후: $store 의 state 변경하는 mutations 함수 만들기
+        // 변경 후: this.$store.commit('setMorePost', post.data);
+        this.setMorePost(post.data);
       } catch (error) {
         console.log(error.response.data);
         alert('더 이상 게시물이 존재하지 않습니다.');
@@ -117,12 +130,14 @@ export default {
         date: new Date().toLocaleString(),
         liked: false,
         content: this.content,
-        filter: this.$store.state.selectFilter,
+        filter: this.selectFilter,
         tag: this.tag,
       };
-      this.post.unshift(uploadPost);
+      // 변경 전: this.$store.commit('setUpload', uploadPost);
+      this.setUpload(uploadPost);
       this.step = 0;
-      this.$store.commit('modalChange', true);
+      // 변경 전: this.$store.commit('modalChange', true);
+      this.modalChange(true);
     },
   },
 };
