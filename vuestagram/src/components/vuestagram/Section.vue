@@ -12,7 +12,7 @@
         </label>
       </ul>
     </div>
-    <!-- Explain component -->
+    <!-- Explain -->
     <Explain v-if="visit == true" />
 
     <!-- POST -->
@@ -39,8 +39,8 @@
           </ul>
         </div>
       </div>
-      <!-- Container component -->
-      <Container :step="step" :url="url" @uploadText="content = $event" />
+      <!-- Container -->
+      <Container :step="step" :url="url" />
       <!-- 깃헙 서버에 axios 요청하여 json 가져오기 -->
       <div v-if="step == 0" class="more__post">
         <button @click="morePost" class="btn btn-outline-success">
@@ -64,7 +64,6 @@ export default {
   components: { Container, Explain, LoadingSpinner },
   data() {
     return {
-      content: '',
       url: '',
       step: 0,
       count: 0,
@@ -73,7 +72,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['visit', 'post', 'selectFilter']),
+    ...mapState(['visit', 'post', 'selectFilter', 'content']),
   },
   methods: {
     ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
