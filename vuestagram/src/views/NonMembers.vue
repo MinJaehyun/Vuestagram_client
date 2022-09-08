@@ -22,7 +22,6 @@
 <script>
 import PostPage from '@/components/posts/PostList.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
-import axios from 'axios';
 
 export default {
   components: { PostPage, LoadingSpinner },
@@ -35,7 +34,7 @@ export default {
   methods: {
     async fetchData() {
       this.isLoading = true;
-      const { data } = await axios
+      const { data } = await this.axios
         .create({
           baseURL: `${process.env.VUE_APP_API_URL}findAll`,
           // baseURL: `https://real-vuestagram-server.herokuapp.com/findAll`, // 배포 URL

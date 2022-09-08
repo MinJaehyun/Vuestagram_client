@@ -55,7 +55,6 @@
 import Container from '@/components/vuestagram/Container.vue';
 import Explain from '@/components/vuestagram/Explain.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
-import axios from 'axios';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
 import { mapState, mapMutations } from 'vuex';
@@ -80,20 +79,11 @@ export default {
     ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
     async morePost() {
       try {
-        // TODO: vuex 적용하기
-        const post = await axios.get(
-          // `https://minjaehyun.github.io/vue/more${this.count++}.json`
-          // https://github.com/MinJaehyun/Vuestagram_client/blob/main/vuestagram/src/assets/data/more0.json
+        // TODO: actions 적용하기
+        const post = await this.axios.get(
           `https://minjaehyun.github.io/Vuestagram_client/vuestagram/src/assets/data/more${this
             .count++}.json`,
         );
-        // 변경 전 test
-        // console.log(this.post); // proxy
-        // console.log(JSON.parse(JSON.stringify(this.post))); // [{…}, {…}, {…}]
-        // const originPost = JSON.parse(JSON.stringify(this.post));
-        // console.log('post.data: ', post.data); //  [{…}, {…}, {…}]
-        // this.$store.state.post = originPost.concat(post.data);  // 성공
-
         // 변경 후: $store 의 state 변경하는 mutations 함수 만들기
         // 변경 후: this.$store.commit('setMorePost', post.data);
         this.setMorePost(post.data);
@@ -107,7 +97,6 @@ export default {
       let file = e.target.files[0];
       let url = URL.createObjectURL(file);
       this.url = url;
-
       // img 가져온 뒤, 업로드 한 url 을 src 에 넣음
       const img = document.getElementById('img');
       img.src = this.url;
@@ -133,11 +122,9 @@ export default {
         filter: this.selectFilter,
         tag: this.tag,
       };
-      // 변경 전: this.$store.commit('setUpload', uploadPost);
       this.setUpload(uploadPost);
-      this.step = 0;
-      // 변경 전: this.$store.commit('modalChange', true);
       this.modalChange(true);
+      this.step = 0;
     },
   },
 };
