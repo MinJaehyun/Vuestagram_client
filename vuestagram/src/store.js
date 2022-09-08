@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import post from '@/assets/data/post';
+import axios from 'axios';
 import { getAuthFromCookie, getUserFromCookie } from '@/utils/cookie';
 
 const store = createStore({
@@ -83,6 +84,9 @@ const store = createStore({
     setUploadText(state, event) {
       state.content = event;
     },
+    setCount(state) {
+      state.count++;
+    },
   },
   actions: {
     HELLO_SET_TIMEOUT({ commit }) {
@@ -90,13 +94,22 @@ const store = createStore({
         commit('setVisit', false);
       }, 6000);
     },
-    // Post.vue 29라인 store 적용하기 전 테스트 중
-    // getData(context) {
-    //   axios.get(`https://minjaehyun.github.io/vue/more1.json`)
-    //     .then(res => {
-    //       context.commit('setMore', res.data)
-    //     })
-    // },
+    // vuestagram - Section.vue - morePost()
+    getData(context) {
+      try {
+        let url =
+          'https://minjaehyun.github.io/Vuestagram_client/vuestagram/src/assets/data/more' +
+          context.state.count +
+          '.json';
+        axios.get(url).then(res => {
+          context.commit('setMorePost', res.data);
+          context.commit('setCount');
+        });
+      } catch (error) {
+        console.log(error.response.data);
+        alert('더 이상 게시물이 존재하지 않습니다.');
+      }
+    },
   },
 });
 
