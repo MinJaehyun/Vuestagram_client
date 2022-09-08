@@ -6,7 +6,7 @@ const routes = [
   {
     path: '/',
     // redirect: '/main',
-    // component: MainPage,
+    // component: Main,
     // component: () => import('@'),
     component: () => import('@/views/MainPage'),
   },
