@@ -13,7 +13,10 @@
 ### 2022/09/08
     1. [] vue 를 vuex 로 개선하기
       - [v] emitter 제거하고 vuex 적용
-
+    2. 보안 취약점 알림 해결
+      - 1. npm audit
+      - 2. npm audit fix
+      - 3. npm audit fix --force
 ### 2022/08/19
     1. [] 프로젝트 개선 
       - 개선 사항 trello 에 기재
