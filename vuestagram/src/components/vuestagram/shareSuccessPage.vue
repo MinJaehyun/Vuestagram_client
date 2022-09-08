@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="black-bg">
-      <!-- <div class="white-bg " @click="$emit('modal')"> -->
       <div class="white-bg" @click="$store.commit('modalChange', false)">
         <div class="flex">
           <img src="@/assets/image/10a8cbeb94ba.gif" alt="" />
