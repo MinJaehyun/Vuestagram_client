@@ -31,13 +31,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    comingSoonAlert(name) {
-      alert(`${name} 기능 준비 중 :)`);
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
