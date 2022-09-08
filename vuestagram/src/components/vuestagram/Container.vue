@@ -8,7 +8,7 @@
     <!-- 필터선택 step 1 -->
     <div v-if="step == 1">
       <div
-        :class="this.$store.state.selectFilter"
+        :class="selectFilter"
         class="upload-image"
         :style="{ backgroundImage: `url(${url})` }"
       ></div>
@@ -26,7 +26,7 @@
     <!-- 글 작성 step 2 -->
     <div v-if="step == 2">
       <div
-        :class="this.$store.state.selectFilter"
+        :class="selectFilter"
         class="upload-image"
         :style="{ backgroundImage: `url(${url})` }"
       ></div>
@@ -45,17 +45,20 @@
 import Post from '@/components/vuestagram/Post.vue';
 import FilterBox from '@/components/vuestagram/FilterBox.vue';
 import filterList from '@/assets/data/instagramFilter';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Container',
   components: { Post, FilterBox },
+  computed: {
+    ...mapState(['post', 'selectFilter']),
+  },
   data() {
     return {
-      filterList: filterList,
+      filterList,
     };
   },
   props: {
-    post: Array,
     step: Number,
     url: String,
   },
