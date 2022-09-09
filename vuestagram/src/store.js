@@ -65,7 +65,7 @@ const store = createStore({
     },
     // vuestagram - Section.vue - publish()
     setUpload(state, uploadData) {
-      state.post.unshift(uploadData);
+      state.post.push(uploadData);
     },
     // vuestagram - Section.vue - morePost()
     setMorePost(state, moreData) {

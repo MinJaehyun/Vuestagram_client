@@ -72,7 +72,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['visit', 'post', 'selectFilter', 'content']),
+    ...mapState(['visit', 'post', 'selectFilter', 'content', 'liked', 'likes']),
   },
   methods: {
     ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
@@ -98,12 +98,13 @@ export default {
     // 발행
     publish() {
       var uploadPost = {
-        id: JSON.parse(JSON.stringify(this.post)).length++,
+        id: JSON.parse(JSON.stringify(this.post)).length,
         tag: this.tag,
         name: 'tester',
         date: new Date().toLocaleString(),
-        liked: false,
-        likes: 0,
+        // NOTE: liked 는 아직 만들어지지 않았으므로, post 접근할 수 없다
+        liked: this.liked,
+        likes: this.likes,
         filter: this.selectFilter,
         content: this.content,
         userImage: 'https://placeimg.com/100/100/arch',
