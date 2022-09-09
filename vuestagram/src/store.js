@@ -9,15 +9,14 @@ const store = createStore({
       /** vuestagram */
       name: 'min',
       count: 0,
+      like: false,
       likes: 0,
       more: {},
       post: post,
-      like: false,
       visit: true,
       modal: false,
       selectFilter: '',
       content: '',
-
       /** posts - data.user.username */
       logMessage: '',
       username: getUserFromCookie() || '',
@@ -62,12 +61,6 @@ const store = createStore({
     setVisit(state, boolean) {
       state.visit = boolean;
     },
-    // Post.vue 29라인 store 적용하기 전 테스트 중
-    // setMore(state, data) {
-    //   state.more = data;
-    //   console.log(state.more);
-    // }
-
     // vuestagram - FilterBox.vue - fire()
     setSelectFilter(state, filter) {
       state.selectFilter = filter;
