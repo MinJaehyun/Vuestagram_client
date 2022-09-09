@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <ShareSuccessPage v-if="modal == true" />
+      <ShareSuccess v-if="modal == true" />
     </transition>
     <AppHeader />
     <router-view></router-view>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import ShareSuccessPage from '@/components/vuestagram/shareSuccessPage.vue';
+import ShareSuccess from '@/components/vuestagram/ShareSuccess.vue';
 import AppHeader from '@/components/common/AppHeader.vue';
 import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  components: { ShareSuccessPage, AppHeader },
+  components: { ShareSuccess, AppHeader },
   computed: {
     ...mapState(['modal']),
   },
