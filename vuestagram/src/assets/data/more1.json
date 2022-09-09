@@ -1,35 +1,35 @@
 [
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/200/200/people",
-    "postImage": "https://placeimg.com/640/480/people",
-    "likes": 20,
+    "tag": "Tag: 88% 확률로 people 입니다",
     "date": "Apr 20",
+    "name": "Min JaeHyun",
     "liked": false,
+    "likes": 20,
+    "filter": "clarendon",
     "content": "팔로워 해주세요",
-    "filter": "clarendon",
-    "tag": "Tag: 88% 확률로 people 입니다 :)"
+    "userImage": "https://placeimg.com/200/200/people",
+    "postImage": "https://placeimg.com/640/480/people"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/200/201/people",
-    "postImage": "https://placeimg.com/640/481/people",
-    "likes": 20,
+    "tag": "Tag: 88% 확률로 people 입니다",
     "date": "Apr 20",
+    "name": "Min JaeHyun",
     "liked": false,
+    "likes": 20,
+    "filter": "clarendon",
     "content": "사람들 사이에서",
-    "filter": "clarendon",
-    "tag": "Tag: 88% 확률로 people 입니다 :)"
+    "userImage": "https://placeimg.com/200/201/people",
+    "postImage": "https://placeimg.com/640/481/people"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/200/202/people",
-    "postImage": "https://placeimg.com/640/482/people",
-    "likes": 20,
+    "tag": "Tag: 88% 확률로 people 입니다",
     "date": "Apr 20",
+    "name": "Min JaeHyun",
     "liked": false,
-    "content": "자랑질",
+    "likes": 20,
     "filter": "clarendon",
-    "tag": "Tag: 88% 확률로 people 입니다 :)"
+    "content": "자랑질",
+    "userImage": "https://placeimg.com/200/202/people",
+    "postImage": "https://placeimg.com/640/482/people"
   }
 ]

@@ -1,35 +1,35 @@
 [
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/101/arch",
-    "postImage": "https://placeimg.com/640/481/arch",
-    "likes": 36,
+    "tag": "Tag: 95% 확률로 arch 입니다",
     "date": "May 15",
+    "name": "Min JaeHyun",
     "liked": false,
+    "likes": 36,
+    "filter": "perpetua",
     "content": "봄인가",
-    "filter": "perpetua",
-    "tag": "Tag: 95% 확률로 arch 입니다 :)"
+    "userImage": "https://placeimg.com/100/101/arch",
+    "postImage": "https://placeimg.com/640/481/arch"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/102/arch",
-    "postImage": "https://placeimg.com/640/482/arch",
-    "likes": 36,
+    "tag": "Tag: 88% 확률로 arch 입니다",
     "date": "May 14",
+    "name": "Min JaeHyun",
     "liked": false,
-    "content": "오늘 날씨 좋군",
+    "likes": 36,
     "filter": "perpetua",
-    "tag": "Tag: 88% 확률로 arch 입니다 :)"
+    "content": "오늘 날씨 좋군",
+    "userImage": "https://placeimg.com/100/102/arch",
+    "postImage": "https://placeimg.com/640/482/arch"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/103/arch",
-    "postImage": "https://placeimg.com/640/483/arch",
-    "likes": 36,
+    "tag": "Tag: 88% 확률로 arch 입니다",
     "date": "May 13",
+    "name": "Min JaeHyun",
     "liked": false,
-    "content": "인공 구조물",
+    "likes": 36,
     "filter": "perpetua",
-    "tag": "Tag: 88% 확률로 arch 입니다 :)"
+    "content": "인공 구조물",
+    "userImage": "https://placeimg.com/100/103/arch",
+    "postImage": "https://placeimg.com/640/483/arch"
   }
 ]

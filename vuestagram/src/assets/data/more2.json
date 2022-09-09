@@ -1,35 +1,35 @@
 [
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/100/animals",
-    "postImage": "https://placeimg.com/640/480/animals",
-    "likes": 49,
+    "tag": "Tag: 88% 확률로 animals 입니다",
     "date": "Apr 6",
+    "name": "Min JaeHyun",
     "liked": false,
+    "likes": 49,
+    "filter": "lofi",
     "content": "반려견으로 어때?",
-    "filter": "lofi",
-    "tag": "Tag: 88% 확률로 animals 입니다 :)"
+    "userImage": "https://placeimg.com/100/100/animals",
+    "postImage": "https://placeimg.com/640/480/animals"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/102/animals",
-    "postImage": "https://placeimg.com/640/482/animals",
-    "likes": 49,
+    "tag": "Tag: 88% 확률로 animals 입니다",
     "date": "Apr 5",
+    "name": "Min JaeHyun",
     "liked": false,
-    "content": "키우고 싶다",
+    "likes": 49,
     "filter": "lofi",
-    "tag": "Tag: 88% 확률로 animals 입니다 :)"
+    "content": "키우고 싶다",
+    "userImage": "https://placeimg.com/100/102/animals",
+    "postImage": "https://placeimg.com/640/482/animals"
   },
   {
-    "name": "Min JaeHyun",
-    "userImage": "https://placeimg.com/100/103/animals",
-    "postImage": "https://placeimg.com/640/483/animals",
-    "likes": 49,
+    "tag": "Tag: 88% 확률로 animals 입니다",
     "date": "Apr 4",
+    "name": "Min JaeHyun",
     "liked": false,
-    "content": "귀여운 동물",
+    "likes": 49,
     "filter": "lofi",
-    "tag": "Tag: 88% 확률로 animals 입니다 :)"
+    "content": "귀여운 동물",
+    "userImage": "https://placeimg.com/100/103/animals",
+    "postImage": "https://placeimg.com/640/483/animals"
   }
 ]
