@@ -1,6 +1,6 @@
 <template>
   <div class="explain gradient">
-    <h4>+ 버튼을 누르면 사진을 등록하실 수 있습니다 :)</h4>
+    <h4>+ 버튼을 누르면 하단에 사진을 등록하실 수 있습니다 :)</h4>
   </div>
 </template>
 
