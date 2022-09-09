@@ -1,5 +1,6 @@
 export default [
   {
+    id: 0,
     tag: 'Tag: 80% 확률로  arch 입니다',
     date: 'May 15',
     name: 'Kim Hyun',
@@ -11,6 +12,7 @@ export default [
     postImage: 'https://placeimg.com/640/480/arch',
   },
   {
+    id: 1,
     tag: 'Tag: 90% 확률로 human 입니다',
     date: 'Apr 20',
     name: 'John Doe',
@@ -22,6 +24,7 @@ export default [
     postImage: 'https://placeimg.com/640/480/people',
   },
   {
+    id: 2,
     tag: 'Tag: 100% 확률로 animal 입니다',
     date: 'Apr 4',
     name: 'Minny',
