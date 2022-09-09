@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
-    // tensorflow 적용
+    // upload + tensorflow
     async upload(e) {
       this.isLoading = true;
       let file = e.target.files[0];
@@ -98,15 +98,15 @@ export default {
     // 발행
     publish() {
       var uploadPost = {
+        tag: this.tag,
         name: 'tester',
-        userImage: 'https://placeimg.com/100/100/arch',
-        postImage: this.url,
-        likes: 0,
         date: new Date().toLocaleString(),
         liked: false,
-        content: this.content,
+        likes: 0,
         filter: this.selectFilter,
-        tag: this.tag,
+        content: this.content,
+        userImage: 'https://placeimg.com/100/100/arch',
+        postImage: this.url,
       };
       this.setUpload(uploadPost);
       this.modalChange(true);
