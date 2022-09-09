@@ -98,6 +98,7 @@ export default {
     // 발행
     publish() {
       var uploadPost = {
+        id: JSON.parse(JSON.stringify(this.post)).length++,
         tag: this.tag,
         name: 'tester',
         date: new Date().toLocaleString(),

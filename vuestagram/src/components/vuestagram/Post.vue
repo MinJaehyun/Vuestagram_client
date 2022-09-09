@@ -15,8 +15,8 @@
     <!-- post-content -->
     <div class="post-content">
       <div style="cursor: pointer" @click="$store.commit('likesUpButton', post)">
-        <!-- '좋아요' 상태이면 하트를 보여주고, 아니면 빈하트 설정 -->
-        <p v-if="!$store.state.like" style="margin-bottom: 0px">
+        <!-- '좋아요' 상태면 하트 보여주고, 아니면 빈하트 보여주기 -->
+        <p v-if="!post.liked" style="margin-bottom: 0px">
           <ion-icon name="heart-outline"></ion-icon>
         </p>
         <p v-else style="margin-bottom: 0px">

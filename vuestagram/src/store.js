@@ -9,7 +9,7 @@ const store = createStore({
       /** vuestagram */
       name: 'min',
       count: 0,
-      like: false,
+      liked: false,
       likes: 0,
       more: {},
       post: post,
@@ -48,14 +48,12 @@ const store = createStore({
     },
     // 사진 클릭 시, likes 증가한다
     likesUpButton(state, data) {
-      if (state.like == false) {
+      if (state.post[data.id].liked === false) {
+        state.post[data.id].liked = true;
         data.likes++;
-        state.likes = data.likes;
-        state.like = true;
       } else {
         data.likes--;
-        state.likes = data.likes;
-        state.like = false;
+        state.post[data.id].liked = false;
       }
     },
     setVisit(state, boolean) {
