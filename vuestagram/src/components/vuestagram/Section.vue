@@ -21,17 +21,17 @@
         <!-- step == 1 -->
         <div v-if="step == 1">
           <!-- back button -->
-          <ul class="header__button__left" @click="step--">
+          <ul class="header__button__left" @click="setStepMinus">
             <ion-icon name="chevron-back-outline"></ion-icon>
           </ul>
           <!-- forward button -->
-          <ul class="header__button__right" @click="step++">
+          <ul class="header__button__right" @click="setStepPlus">
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ul>
         </div>
         <!-- step == 2 -->
         <div v-if="step == 2">
-          <ul class="header__button__left" @click="step--">
+          <ul class="header__button__left" @click="setStepMinus">
             <ion-icon name="chevron-back-outline"></ion-icon>
           </ul>
           <ul class="header__button__right" @click="publish">
@@ -65,17 +65,23 @@ export default {
   data() {
     return {
       url: '',
-      step: 0,
       count: 0,
       tag: '',
       isLoading: false,
     };
   },
   computed: {
-    ...mapState(['visit', 'post', 'selectFilter', 'content', 'liked', 'likes']),
+    ...mapState(['visit', 'post', 'selectFilter', 'content', 'liked', 'likes', 'step']),
   },
   methods: {
-    ...mapMutations(['setUpload', 'modalChange', 'setMorePost']),
+    ...mapMutations([
+      'setUpload',
+      'modalChange',
+      'setMorePost',
+      'setStepMinus',
+      'setStepPlus',
+      'setStep',
+    ]),
     // upload + tensorflow
     async upload(e) {
       this.isLoading = true;
@@ -93,7 +99,7 @@ export default {
       this.tag = result;
       img.src = '';
       this.isLoading = false;
-      this.step = 1;
+      this.setStep(1);
     },
     // 발행
     publish() {
@@ -112,7 +118,7 @@ export default {
       };
       this.setUpload(uploadPost);
       this.modalChange(true);
-      this.step = 0;
+      this.setStep(0);
     },
   },
 };

@@ -17,6 +17,10 @@ const store = createStore({
       modal: false,
       selectFilter: '',
       content: '',
+
+      // publish 추가 내용
+      step: 0,
+
       /** posts - data.user.username */
       logMessage: '',
       username: getUserFromCookie() || '',
@@ -75,8 +79,21 @@ const store = createStore({
     setUploadText(state, event) {
       state.content = event;
     },
+    //
     setCount(state) {
       state.count++;
+    },
+    // vuestagram - Section.vue - upload()
+    setStep(state, stepNumber) {
+      state.step = stepNumber;
+    },
+    // vuestagram - Section.vue - html
+    setStepMinus(state) {
+      state.step--;
+    },
+    // vuestagram - Section.vue - html
+    setStepPlus(state) {
+      state.step++;
     },
   },
   actions: {
