@@ -41,7 +41,7 @@
       </div>
 
       <!-- Container -->
-      <Container :step="step" />
+      <Container />
       <div v-if="step == 0" class="more__post">
         <button @click="$store.dispatch('getData')" class="btn btn-outline-success">
           게시글 더보기

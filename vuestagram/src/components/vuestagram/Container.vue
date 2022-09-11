@@ -55,12 +55,8 @@ export default {
       filterList,
     };
   },
-  // TODO: 아래 props vuex 로 변경 가능한지 확인하기
-  props: {
-    step: Number,
-  },
   computed: {
-    ...mapState(['post', 'selectFilter', 'url']),
+    ...mapState(['post', 'selectFilter', 'url', 'step']),
   },
   methods: {
     ...mapMutations(['setUploadText']),
