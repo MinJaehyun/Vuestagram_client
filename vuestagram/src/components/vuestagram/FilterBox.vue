@@ -10,17 +10,20 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'FilterBox',
   props: {
     filter: String,
-    url: String,
+  },
+  computed: {
+    ...mapState(['url']),
   },
   methods: {
+    ...mapMutations(['setSelectFilter']),
     fire() {
-      // 변경 전: emitter 으로 depth 2단계 이상 또는 같은 depth 에게 값 넘김: this.emitter.emit('clickBox', this.filter);
-      // 변경 후: vuex 적용
-      this.$store.commit('setSelectFilter', this.filter);
+      this.setSelectFilter(this.filter);
     },
   },
 };

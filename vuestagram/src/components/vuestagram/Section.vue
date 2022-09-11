@@ -41,7 +41,7 @@
       </div>
 
       <!-- Container -->
-      <Container :step="step" :url="url" />
+      <Container :step="step" />
       <div v-if="step == 0" class="more__post">
         <button @click="$store.dispatch('getData')" class="btn btn-outline-success">
           게시글 더보기
@@ -64,14 +64,22 @@ export default {
   components: { Container, Explain, LoadingSpinner },
   data() {
     return {
-      url: '',
       count: 0,
       tag: '',
       isLoading: false,
     };
   },
   computed: {
-    ...mapState(['visit', 'post', 'selectFilter', 'content', 'liked', 'likes', 'step']),
+    ...mapState([
+      'visit',
+      'post',
+      'selectFilter',
+      'content',
+      'liked',
+      'likes',
+      'step',
+      'url',
+    ]),
   },
   methods: {
     ...mapMutations([
@@ -81,14 +89,14 @@ export default {
       'setStepMinus',
       'setStepPlus',
       'setStep',
+      'setUrl',
     ]),
     // upload + tensorflow
     async upload(e) {
       this.isLoading = true;
       let file = e.target.files[0];
       let url = URL.createObjectURL(file);
-      this.url = url;
-      // img 가져온 뒤, 업로드 한 url 을 src 에 넣음
+      this.setUrl(url);
       const img = document.getElementById('img');
       img.src = this.url;
       const model = await mobilenet.load();

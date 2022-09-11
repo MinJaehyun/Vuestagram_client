@@ -20,6 +20,7 @@ const store = createStore({
 
       // publish 추가 내용
       step: 0,
+      url: '',
 
       /** posts - data.user.username */
       logMessage: '',
@@ -94,6 +95,10 @@ const store = createStore({
     // vuestagram - Section.vue - html
     setStepPlus(state) {
       state.step++;
+    },
+    // vuestagram - Section.vue - upload()
+    setUrl(state, url) {
+      state.url = url;
     },
   },
   actions: {

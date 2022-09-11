@@ -16,7 +16,6 @@
         <FilterBox
           :style="{ backgroundImage: `url(${url})` }"
           :filter="filter"
-          :url="url"
           v-for="filter in filterList"
           :key="filter.id"
         />
@@ -59,10 +58,9 @@ export default {
   // TODO: 아래 props vuex 로 변경 가능한지 확인하기
   props: {
     step: Number,
-    url: String,
   },
   computed: {
-    ...mapState(['post', 'selectFilter']),
+    ...mapState(['post', 'selectFilter', 'url']),
   },
   methods: {
     ...mapMutations(['setUploadText']),
