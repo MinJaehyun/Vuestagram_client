@@ -64,7 +64,6 @@ export default {
   components: { Container, Explain, LoadingSpinner },
   data() {
     return {
-      tag: '',
       isLoading: false,
     };
   },
@@ -78,6 +77,7 @@ export default {
       'likes',
       'step',
       'url',
+      'tag',
     ]),
   },
   methods: {
@@ -89,6 +89,7 @@ export default {
       'setStepPlus',
       'setStep',
       'setUrl',
+      'setTag',
     ]),
     // upload + tensorflow
     async upload(e) {
@@ -103,7 +104,7 @@ export default {
       const className = predictions[0].className;
       const probability = ' ' + parseInt(predictions[0].probability * 100) + '%';
       const result = 'Tag: ' + probability + ' 확률로 ' + className + ' 입니다';
-      this.tag = result;
+      this.setTag(result);
       img.src = '';
       this.isLoading = false;
       this.setStep(1);
