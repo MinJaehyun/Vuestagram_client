@@ -64,7 +64,6 @@ export default {
   components: { Container, Explain, LoadingSpinner },
   data() {
     return {
-      count: 0,
       tag: '',
       isLoading: false,
     };
