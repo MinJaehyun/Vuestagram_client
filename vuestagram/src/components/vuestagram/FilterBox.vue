@@ -14,6 +14,7 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'FilterBox',
+  // NOTE: 한 단계 아래는 props 사용하기 (v-for 로 prop 전달)
   props: {
     filter: String,
   },

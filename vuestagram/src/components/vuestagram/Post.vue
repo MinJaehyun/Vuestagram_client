@@ -34,6 +34,7 @@
 <script>
 export default {
   name: 'Post',
+  // NOTE: 한 단계 아래는 props 사용하기 (v-for 로 prop 전달)
   props: {
     post: Object,
   },
