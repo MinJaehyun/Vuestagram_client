@@ -7,6 +7,18 @@
       추 후, post 상세 페이지 이동 시, 게시물을 하단에 추천 posts 나타내도록 구현하기
     * 각각의 기능 추가 후, 기존의 기능들 매번 테스트 하기 - 번거로워지면 테스트케이스 작성하기
 
+### 2022/09/12
+    1. [v] vue 를 vuex 로 개선 완료
+      - 한 단계 아래는 props 사용하기 (v-for 로 prop 전달)
+    2. [] vuestagram 프로젝트의 아래 내용을 MyNote 프로젝트에 적용하기
+      - [] MyNote 전체 훑어보기
+      - [] vue cli 로 작업한 MyNote 를 vuex 적용하기
+      - [] vuestagram 프로젝트의 data 와 MyNote 프로젝트의 data 어떻게 조합할지 구상하기
+      - [] 이미지 업로드 
+      - [] tensorflow 
+      - [] user profile
+      - [] 로그인 한 유저가 이미지 업로드 시, username 을 나타내기
+
 ### 2022/09/09
     1. [v] 모든 파일의 data 속성 일치하도록 수정
     2. [] TODO: 하트 토글 에러 해결 
@@ -15,7 +27,7 @@
       --- 추 후, My Note 와 프로젝트 병합 시, 토글 기능 다시 테스트 하기
 
 ### 2022/09/08
-    1. [] vue 를 vuex 로 개선하기
+    1. [50%] vue 를 vuex 로 개선하기
       - [v] emitter 제거하고 vuex 적용
     2. 보안 취약점 알림 해결
       - 1. npm audit
